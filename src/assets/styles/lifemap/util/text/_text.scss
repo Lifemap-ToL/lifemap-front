@@ -1,0 +1,114 @@
+@mixin u-font-size {
+  &.-font-xs {
+    font-size: $lifemap-global-xs-font-size;
+  }
+
+  &.-font-sm {
+    font-size: $lifemap-global-sm-font-size;
+  }
+
+  &.-font-lg {
+    font-size: $lifemap-global-lg-font-size;
+  }
+
+  &.-font-xl {
+    font-size: $lifemap-global-xl-font-size;
+  }
+}
+
+@mixin u-hover-color {
+  &:hover.-hover-color-main {
+    color: $lifemap-global-text-color-main;
+  }
+
+  &:hover.-hover-color-shade-50 {
+    color: $lifemap-global-text-color-shade-50;
+  }
+
+  &:hover.-hover-color-shade-75 {
+    color: $lifemap-global-text-color-shade-75;
+  }
+
+  &:hover.-hover-color-shade-85 {
+    color: $lifemap-global-text-color-shade-85;
+  }
+
+  &:hover.-hover-color-facebook {
+    color: $lifemap-global-text-color-facebook;
+  }
+
+  &:hover.-hover-color-twitter {
+    color: $lifemap-global-text-color-twitter;
+  }
+
+  &:hover.-hover-color-github {
+    color: $lifemap-global-text-color-github;
+  }
+}
+
+@mixin u-text-align {
+  &.-align-center {
+    text-align: center;
+  }
+
+  &.-align-left {
+    text-align: left;
+  }
+
+  &.-align-right {
+    text-align: right;
+  }
+
+  &.-align-justify {
+    text-align: justify;
+  }
+}
+
+@mixin u-text-color {
+  &.-color-main {
+    color: $lifemap-global-text-color-main;
+  }
+
+  &.-color-shade-5 {
+    color: $lifemap-global-text-color-shade-5;
+  }
+
+  &.-color-shade-20 {
+    color: $lifemap-global-text-color-shade-20;
+  }
+
+  &.-color-shade-30 {
+    color: $lifemap-global-text-color-shade-30;
+  }
+
+  &.-color-shade-50 {
+    color: $lifemap-global-text-color-shade-50;
+  }
+
+  &.-color-shade-75 {
+    color: $lifemap-global-text-color-shade-75;
+  }
+
+  &.-color-shade-85 {
+    color: $lifemap-global-text-color-shade-85;
+  }
+
+  &.-color-facebook-light {
+    color: $lifemap-global-text-color-facebook-light;
+  }
+
+  &.-color-twitter-light {
+    color: $lifemap-global-text-color-twitter-light;
+  }
+
+  &.-color-github-light {
+    color: $lifemap-global-text-color-github-light;
+  }
+}
+
+@mixin u-text {
+  @include u-font-size;
+  @include u-hover-color;
+  @include u-text-align;
+  @include u-text-color;
+}

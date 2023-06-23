@@ -1,0 +1,7 @@
+@mixin u-shadow {
+  box-shadow: 0 0 10px 0 $lifemap-global-fill-color-shadow;
+}
+
+@mixin u-shadow-darken {
+  box-shadow: 0 0 16px 0 $lifemap-global-fill-color-shadow-darken;
+}

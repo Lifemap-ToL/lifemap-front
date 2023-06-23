@@ -1,0 +1,12 @@
+$lifemap-link-color: $lifemap-global-text-color-secondary;
+$lifemap-link-hover-color: $lifemap-global-text-color-secondary-dark;
+
+.lifemap-link {
+  color: $lifemap-link-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $lifemap-link-hover-color;
+  }
+}

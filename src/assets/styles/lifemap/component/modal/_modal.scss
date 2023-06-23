@@ -1,0 +1,42 @@
+$lifemap-modal-border-radius: 8px !default;
+$lifemap-modal-color-background: $lifemap-global-fill-color-shade-100 !default;
+$lifemap-modal-padding: 30px !default;
+$lifemap-modal-vertical-spacing: 15px !default;
+$lifemap-modal-header--button-size: 18px !default;
+$lifemap-modal-header-spacing: 10px !default;
+$lifemap-modal-header-button-color-glyph: $lifemap-global-text-color-shade-50 !default;
+
+.lifemap-modal {
+  @include u-shadow;
+  @include u-widths;
+  border-radius: $lifemap-modal-border-radius;
+  background-color: $lifemap-modal-color-background;
+  padding: 0;
+
+  &--header {
+    display: flex;
+    align-items: flex-start;
+    padding: $lifemap-modal-header-spacing $lifemap-modal-header-spacing 0 $lifemap-modal-padding;
+
+    &--title {
+      flex-basis: 0;
+      flex-grow: 1;
+      padding-top: $lifemap-modal-header-spacing;
+    }
+
+    &--button {
+      margin: 0;
+      outline: none;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      color: $lifemap-modal-header-button-color-glyph;
+      font-size: $lifemap-modal-header--button-size;
+    }
+  }
+
+  &--content {
+    padding: $lifemap-modal-vertical-spacing $lifemap-modal-padding $lifemap-modal-padding;
+  }
+}

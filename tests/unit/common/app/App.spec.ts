@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import { AppComponent, AppVue } from '../../../../src/common/app';
+import { AppComponent, AppVue } from '../../../../src/primary/common/primary/app';
 
 describe('App', () => {
   it('should exist', () => {

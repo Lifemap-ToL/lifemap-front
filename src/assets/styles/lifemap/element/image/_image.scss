@@ -1,0 +1,19 @@
+$lifemap-image-border-radius: 12px !default;
+
+.lifemap-image {
+  @include u-heights;
+  @include u-margins;
+
+  &.-width-auto {
+    width: auto;
+  }
+
+  &.-full-width {
+    width: 100%;
+    height: auto;
+  }
+
+  &.-rounded-edges {
+    border-radius: $lifemap-image-border-radius;
+  }
+}

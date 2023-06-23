@@ -1,0 +1,59 @@
+@mixin u-margin($spacing) {
+  $spacing-width: $spacing * 1px;
+
+  &.-m#{$spacing} {
+    margin: $spacing-width;
+  }
+
+  &.-mv#{$spacing} {
+    margin-top: $spacing-width;
+    margin-bottom: $spacing-width;
+  }
+
+  &.-mh#{$spacing} {
+    margin-right: $spacing-width;
+    margin-left: $spacing-width;
+  }
+
+  &.-mb#{$spacing} {
+    margin-bottom: $spacing-width;
+  }
+}
+
+@mixin u-padding($spacing) {
+  $spacing-width: $spacing * 1px;
+
+  &.-p#{$spacing} {
+    padding: $spacing-width;
+  }
+
+  &.-pv#{$spacing} {
+    padding-top: $spacing-width;
+    padding-bottom: $spacing-width;
+  }
+
+  &.-mv#{$spacing} {
+    padding-right: $spacing-width;
+    padding-left: $spacing-width;
+  }
+
+  &.-pb#{$spacing} {
+    padding-bottom: $spacing-width;
+  }
+}
+
+@mixin u-margins {
+  $margins: 8, 16, 24, 100;
+
+  @each $margin in $margins {
+    @include u-margin($margin);
+  }
+}
+
+@mixin u-paddings {
+  $paddings: 16, 24;
+
+  @each $padding in $paddings {
+    @include u-padding($padding);
+  }
+}
