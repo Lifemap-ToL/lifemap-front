@@ -1,0 +1,17 @@
+@mixin u-fill-color {
+  &.-fill-color-main {
+    background-color: $lifemap-global-text-color-main;
+  }
+
+  &.-fill-color-shade-50 {
+    background-color: $lifemap-global-text-color-shade-50;
+  }
+
+  &.-fill-color-shade-75 {
+    background-color: $lifemap-global-text-color-shade-75;
+  }
+
+  &.-fill-color-shade-85 {
+    background-color: $lifemap-global-text-color-shade-85;
+  }
+}

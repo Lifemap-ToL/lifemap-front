@@ -1,0 +1,32 @@
+@mixin u-height($height) {
+  $pixel-height: $height * 1px;
+
+  &.-h#{$height} {
+    height: $pixel-height;
+  }
+}
+
+@mixin u-heights {
+  $heights: 40, 60, 80, 200, 300;
+
+  @each $height in $heights {
+    @include u-height($height);
+  }
+}
+
+@mixin u-width($width) {
+  $pixel-width: $width * 1px;
+
+  &.-w#{$width} {
+    width: $pixel-width;
+  }
+}
+
+@mixin u-widths {
+  $widths: 100, 200, 300;
+
+  @each $width in $widths {
+    @include u-width($width);
+  }
+}
+

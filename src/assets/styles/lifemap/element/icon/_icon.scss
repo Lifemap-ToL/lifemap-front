@@ -1,0 +1,7 @@
+
+.lifemap-icon {
+  @include u-clickable;
+  @include u-font-size;
+  @include u-hover-color;
+  @include u-text-color;
+}

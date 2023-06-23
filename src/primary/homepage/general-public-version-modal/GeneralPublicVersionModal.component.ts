@@ -1,0 +1,5 @@
+import { Component, Vue } from 'vue-facing-decorator';
+import { VersionModalVue } from '@/primary/homepage/version-modal';
+
+@Component({ components: { VersionModalVue } })
+export default class GeneralPublicVersionModalComponent extends Vue {}

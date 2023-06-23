@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+$lifemap-title-line-height: math.div(28, strip-units($lifemap-global-font-size)) * 1.2rem !default;
+$lifemap-title-font-size: math.div(28, strip-units($lifemap-global-font-size)) * 1rem !default;
+$lifemap-title-small-line-height: math.div(20, strip-units($lifemap-global-font-size)) * 1.2rem !default;
+$lifemap-title-small-font-size: math.div(20, strip-units($lifemap-global-font-size)) * 1rem !default;
+$lifemap-title-extra-large-line-height: math.div(64, strip-units($lifemap-global-font-size)) * 1.2rem !default;
+$lifemap-title-extra-large-font-size: math.div(64, strip-units($lifemap-global-font-size)) * 1rem !default;
+
+.lifemap-title {
+  @include u-text-color;
+  line-height: $lifemap-title-line-height;
+  font-size: $lifemap-title-font-size;
+  font-weight: initial;
+  margin: 0;
+
+  &.-small {
+    line-height: $lifemap-title-small-line-height;
+    font-size: $lifemap-title-small-font-size;
+  }
+
+  &.-extra-large {
+    line-height: $lifemap-title-extra-large-line-height;
+    font-size: $lifemap-title-extra-large-font-size;
+  }
+}
