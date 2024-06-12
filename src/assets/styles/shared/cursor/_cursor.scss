@@ -1,0 +1,6 @@
+
+@mixin m-clickable {
+  &.-clickable {
+    cursor: pointer;
+  }
+}

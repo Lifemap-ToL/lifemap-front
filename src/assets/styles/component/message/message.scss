@@ -1,0 +1,35 @@
+$message-border-color: $global-fill-color-main !default;
+$message-header-fill-color: $global-fill-color-main !default;
+$message-header-closer-text-color: $global-text-color-shade-20 !default;
+$message-header-closer-hover-text-color: $global-text-color-shade-0 !default;
+$message-content-padding: 10px !default;
+$message-content-text-color: $global-fill-color-main !default;
+
+.message {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $message-border-color;
+
+  &--header {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: $message-header-fill-color;
+
+    &--closer {
+      outline: none;
+      border-color: transparent;
+      background-color: transparent;
+      color: $message-header-closer-text-color;
+      cursor: pointer;
+
+      &:hover {
+        color: $message-header-closer-hover-text-color;
+      }
+    }
+  }
+
+  &--content {
+    padding: $message-content-padding;
+    color: $message-content-text-color;
+  }
+}

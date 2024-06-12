@@ -1,0 +1,11 @@
+$root-color-text: $global-text-color-shade-100 !default;
+$root-color-fill: $global-text-color-shade-0 !default;
+$root-font-family: $global-sans-primary-font-family !default;
+$root-font-size: $global-font-size !default;
+
+:root {
+  color: $root-color-text;
+  background-color: $root-color-fill;
+  font-family: $root-font-family;
+  font-size: $root-font-size;
+}

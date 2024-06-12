@@ -1,0 +1,27 @@
+$template-map-color-background: $global-fill-color-background !default;
+$template-map-map-top-spacing: $size-header-height !default;
+
+.template-map {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  background-color: $template-map-color-background;
+  overflow: auto;
+
+  &--header {
+    @include m-shadow;
+    z-index: 2;
+  }
+
+  &--map {
+    position: absolute;
+    top: $template-map-map-top-spacing;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,48 @@
+@use 'sass:math';
+
+$title-line-height: math.div(24, strip-units($global-font-size)) * 1.2rem !default;
+$title-font-size: math.div(24, strip-units($global-font-size)) * 1rem !default;
+$title-extra-small-line-height: math.div(16, strip-units($global-font-size)) * 1.2rem !default;
+$title-extra-small-font-size: math.div(16, strip-units($global-font-size)) * 1rem !default;
+$title-small-line-height: math.div(20, strip-units($global-font-size)) * 1.2rem !default;
+$title-small-font-size: math.div(20, strip-units($global-font-size)) * 1rem !default;
+$title-large-line-height: math.div(32, strip-units($global-font-size)) * 1.2rem !default;
+$title-large-font-size: math.div(32, strip-units($global-font-size)) * 1rem !default;
+$title-extra-large-line-height: math.div(64, strip-units($global-font-size)) * 1.2rem !default;
+$title-extra-large-font-size: math.div(64, strip-units($global-font-size)) * 1rem !default;
+
+.title {
+  @include m-text-color;
+  line-height: $title-line-height;
+  font-size: $title-font-size;
+  font-weight: initial;
+  margin: 0;
+
+  &.-extra-small {
+    line-height: $title-extra-small-line-height;
+    font-size: $title-extra-small-font-size;
+  }
+
+  &.-small {
+    line-height: $title-small-line-height;
+    font-size: $title-small-font-size;
+  }
+
+  &.-large {
+    line-height: $title-large-line-height;
+    font-size: $title-large-font-size;
+  }
+
+  &.-extra-large {
+    line-height: $title-extra-large-line-height;
+    font-size: $title-extra-large-font-size;
+  }
+
+  &.-break-words {
+    word-break: break-all;
+  }
+}
+
+.text {
+  @include m-text;
+}

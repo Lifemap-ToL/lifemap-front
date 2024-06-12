@@ -1,0 +1,33 @@
+$table-head-border-color: $global-fill-color-shade-100 !default;
+$table-body-line-color: $global-fill-color-shade-30 !default;
+$table-cell-horizontal-spacing: 4px !default;
+$table-cell-vertical-spacing: 6px !default;
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &--thead {
+    border-bottom: 1px solid $table-head-border-color;
+
+    &--cell {
+      box-sizing: border-box;
+      padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
+      text-align: left;
+    }
+  }
+
+  &--body {
+    &--line {
+      border-bottom: 1px solid $table-body-line-color;
+
+      :last-child {
+        border-bottom: none;
+      }
+    }
+
+    &--cell {
+      padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
+    }
+  }
+}

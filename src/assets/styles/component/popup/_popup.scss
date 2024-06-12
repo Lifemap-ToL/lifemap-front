@@ -1,0 +1,30 @@
+$popup-font-size: calc(14 / strip-units($global-font-size)) * 1rem !default;
+$popup-line-height: (strip-units($popup-font-size)) * 1.55rem !default;
+
+.popup {
+  background-color: $global-fill-color-shade-0-85;
+  color: $global-text-color-shade-85;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 250px;
+  height: calc(100% - 24px);
+  border: 2px solid rgba(255, 255, 255, 1);
+  font-size: $popup-font-size;
+  line-height: $popup-line-height;
+
+  &--header {
+    display: flex;
+    width: 100%;
+  }
+
+  &--body {
+    padding: 8px 16px 12px 16px;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  &--footer {
+    padding: 0 16px 16px 16px;
+  }
+}

@@ -1,0 +1,7 @@
+@mixin m-shadow {
+  box-shadow: 0 0 10px 0 $global-fill-color-shadow;
+}
+
+@mixin m-shadow-darken {
+  box-shadow: 0 0 16px 0 $global-fill-color-shadow-darken;
+}

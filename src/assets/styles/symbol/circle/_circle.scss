@@ -1,0 +1,12 @@
+
+.circle {
+  // Think of a dedicated way of dealing with border width and size for the circle
+  // Revoir le naming des variables
+
+  @include m-sizes;
+  @include m-fill-color;
+  @include m-border;
+  border-radius: 50%;
+
+
+}

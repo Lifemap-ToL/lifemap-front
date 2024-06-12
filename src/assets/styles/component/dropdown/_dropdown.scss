@@ -1,0 +1,42 @@
+$dropdown-spacing: 8px !default;
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  & > &--area {
+    @include m-widths;
+    position: absolute;
+    left: 0;
+    top: calc(100% + $dropdown-spacing);
+    z-index: 1;
+  }
+
+  &.-top {
+    > .dropdown--area {
+      top: 0;
+      right: unset;
+      bottom: unset;
+      left: calc(100% + $dropdown-spacing);
+    }
+  }
+
+  &.-right {
+    > .dropdown--area {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &.-closed {
+    > .dropdown--area {
+      display: none;
+    }
+  }
+
+  &.-open {
+    > .dropdown--area {
+      display: block;
+    }
+  }
+}

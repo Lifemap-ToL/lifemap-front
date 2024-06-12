@@ -1,0 +1,10 @@
+$separator-height: 1px !default;
+$separator-color: $global-fill-color-shade-100 !default;
+$separator-spacing: 10px !default;
+
+.separator {
+  margin: $separator-spacing 0;
+  width: 100%;
+  height: $separator-height;
+  background-color: $separator-color;
+}

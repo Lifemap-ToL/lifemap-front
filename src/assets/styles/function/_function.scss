@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@function strip-units($number) {
+  @return math.div($number, ($number * 0 + 1));
+}
+
+@function background-color($color) {
+  @return scale-color($color, $lightness: 87%);
+}

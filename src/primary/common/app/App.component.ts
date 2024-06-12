@@ -1,8 +1,9 @@
-import { Component, Inject, Vue } from 'vue-facing-decorator';
+import { Component, Inject, toNative, Vue } from 'vue-facing-decorator';
 import { type ModalOpened } from '@/primary/common/modal/ModalOpened';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
+import { ToastsVue } from '@/primary/common/toast/toasts';
 
-@Component
+@Component({ components: { ToastsVue } })
 export default class AppComponent extends Vue {
   modal!: ModalOpened;
   isModalOpened = false;
