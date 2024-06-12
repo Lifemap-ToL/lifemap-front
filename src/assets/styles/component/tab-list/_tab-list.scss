@@ -1,0 +1,35 @@
+$tab-list--item-vertical-spacing: 8px !default;
+$tab-list--item-horizontal-spacing: 4px !default;
+$tab-list--item-border-size: 1px !default;
+$tab-list--item-border-color: $global-fill-color-shade-85 !default;
+$tab-list--item-text-color: $global-text-color-shade-40 !default;
+$tab-list--item-selected-border-size: 2px !default;
+$tab-list--item-selected-border-color: $global-fill-color-shade-100 !default;
+$tab-list--item-selected-text-color: $global-text-color-shade-100 !default;
+
+.tab-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+
+  &--item {
+    text-decoration: none;
+    padding: $tab-list--item-vertical-spacing $tab-list--item-horizontal-spacing;
+    cursor: pointer;
+    border-bottom: $tab-list--item-border-size solid $tab-list--item-border-color;
+    text-align: center;
+    color: $tab-list--item-text-color;
+    flex-grow: 1;
+
+    &:hover {
+      color: $global-fill-color-shade-100;
+    }
+
+    &.-selected {
+      border-bottom: $tab-list--item-selected-border-size solid $tab-list--item-selected-border-color;
+      color: $tab-list--item-selected-text-color;
+    }
+  }
+}

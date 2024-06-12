@@ -1,0 +1,32 @@
+@mixin m-border-color($color-name, $color) {
+  &.-border-color-#{$color-name} {
+    border-style: solid;
+    border-color: $color;
+  }
+}
+
+@mixin m-border-colors {
+  @include m-border-color('shade-100', $global-fill-color-shade-100);
+}
+
+@mixin m-border-width($border-width) {
+  $pixel-border-width: $border-width * 1px;
+
+  &.-border-width-#{$border-width} {
+    border-style: solid;
+    border-width: $pixel-border-width;
+  }
+}
+
+@mixin m-border-widths {
+  $border-widths: 1, 2;
+
+  @each $border-width in $border-widths {
+    @include m-border-width($border-width);
+  }
+}
+
+@mixin m-border {
+  @include m-border-widths;
+  @include m-border-colors;
+}

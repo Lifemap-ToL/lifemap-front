@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+$global-sans-primary-font-family: 'Raleway', sans-serif !default;
+$global-sans-secondary-font-family: 'Helvetica Neue",Helvetica,Arial,sans-serif', sans-serif !default;
+$global-font-size: 14px !default;
+$global-xs-font-size: math.div(11, strip-units($global-font-size)) * 1rem !default;
+$global-sm-font-size: math.div(13, strip-units($global-font-size)) * 1rem !default;
+$global-lg-font-size: math.div(18, strip-units($global-font-size)) * 1rem !default;
+$global-xl-font-size: math.div(24, strip-units($global-font-size)) * 1rem !default;
+$global-xxl-font-size: math.div(28, strip-units($global-font-size)) * 1rem !default;
+$global-xs-line-height: strip-units($global-xs-font-size) * 1.33rem !default;
+$global-xl-line-height: strip-units($global-xl-font-size) * 1.5rem !default;
+$global-xxl-line-height: strip-units($global-xxl-font-size) * 1.23rem !default;

@@ -7,8 +7,11 @@ export default class ModalComponent extends Vue {
   @Prop({ type: String, default: '' })
   readonly title!: string;
 
-  @Prop({ type: Number, default: 300 })
-  readonly width!: number;
+  @Prop({ type: String, required: false })
+  readonly size?: 'small' | 'large';
+
+  @Prop({ type: Boolean, default: false })
+  readonly secondary!: boolean;
 
   @Inject()
   private modalBus!: () => MittModalBus;

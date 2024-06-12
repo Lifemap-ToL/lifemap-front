@@ -1,0 +1,8 @@
+.twinkle-area {
+  @include m-heights;
+  @include m-widths;
+  @include m-twinkle;
+  display: block;
+  position: relative;
+  width: 100%;
+}

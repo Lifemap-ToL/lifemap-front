@@ -1,0 +1,47 @@
+@mixin m-gap($gap-name, $gap-value) {
+  $pixel-spacing: $gap-value * 1px;
+
+  &.-gap-#{$gap-name} {
+    gap: $pixel-spacing;
+  }
+}
+
+.flex-container {
+  @include m-gap('0', 0);
+  @include m-gap('xxs', 4);
+  @include m-gap('xs', 8);
+  @include m-gap('sm', 12);
+  @include m-gap('lg', 24);
+  @include m-gap('xl', 32);
+  @include m-gap('xxl', 60);
+  gap: 16px;
+  display: flex;
+
+  &.-vertical {
+    flex-direction: column;
+  }
+
+  &.-horizontal-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.-align-baseline {
+    align-items: baseline;
+  }
+
+  &.-align-center {
+    align-items: center;
+  }
+
+  &.-align-start {
+    align-items: start;
+  }
+
+  &.-align-end {
+    align-items: end;
+  }
+
+  &.-justify-center {
+    justify-content: center;
+  }
+}

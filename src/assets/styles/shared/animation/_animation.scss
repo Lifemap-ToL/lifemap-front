@@ -1,0 +1,26 @@
+$twinkle-animation-duration: 1.8s !default;
+$twinkle-background-color-start: $global-fill-color-shade-5 !default;
+$twinkle-background-color-end: background-color($global-text-color-shade-5) !default;
+$twinkle-background-size: 1000px 640px !default;
+$twinkle-background-position-horizontal-offset: 468px !default;
+
+@mixin m-twinkle {
+  @keyframes twinkle {
+    0% {
+      background-position: -$twinkle-background-position-horizontal-offset 0;
+    }
+
+    100% {
+      background-position: $twinkle-background-position-horizontal-offset 0;
+    }
+  }
+
+  background: $global-color-bg-beige;
+  background: linear-gradient(to right, $twinkle-background-color-start 8%, $twinkle-background-color-end 38%, $twinkle-background-color-start 54%);
+  background-size: $twinkle-background-size;
+  animation-name: twinkle;
+  animation-duration: $twinkle-animation-duration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}

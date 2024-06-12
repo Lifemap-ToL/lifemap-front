@@ -1,0 +1,32 @@
+$input-vertical-padding: 4px !default;
+$input-border-color: $global-fill-color-shade-75 !default;
+$input-border-color-focus: $global-fill-color-shade-100 !default;
+$input-line-height: 24px !default;
+$input-color: $global-fill-color-shade-100 !default;
+
+
+.input[type="text"] {
+  @include m-widths;
+  @include m-font-size;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+  border-top: transparent;
+  border-right: transparent;
+  border-bottom: 1px solid $input-border-color;
+  border-left: transparent;
+  border-radius: 0;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: transparent;
+  padding: $input-vertical-padding 8px;
+  width: 100%;
+
+  &:focus {
+    border-bottom: 1px solid $input-border-color-focus;
+  }
+}
+
+.input[type="radio"], .input[type="checkbox"] {
+  margin: 0;
+}

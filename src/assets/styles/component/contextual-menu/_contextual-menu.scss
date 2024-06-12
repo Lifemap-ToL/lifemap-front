@@ -1,0 +1,65 @@
+$contextual-menu-color-background: $global-fill-color-shade-100 !default;
+$contextual-menu-border-radius: 4px !default;
+$contextual-menu-vertical-spacing: 4px !default;
+
+$contextual-menu--entry-fill-color: $global-fill-color-shade-100 !default;
+$contextual-menu--entry-text-color: $global-text-color-shade-5 !default;
+$contextual-menu--entry-font-size: $global-font-size !default;
+$contextual-menu--entry-font-family: $global-sans-primary-font-family !default;
+$contextual-menu--entry-hover-fill-color: $global-fill-color-shade-95 !default;
+$contextual-menu--entry-horizontal-spacing: 12px !default;
+$contextual-menu--entry-vertical-spacing: 8px !default;
+
+$contextual-menu--entry--slot-horizontal-spacing: 6px !default;
+
+.contextual-menu {
+  @include m-shadow;
+  padding: $contextual-menu-vertical-spacing 0;
+  border-radius: $contextual-menu-border-radius;
+  background-color: $contextual-menu-color-background;
+  max-height: 200px;
+  overflow: auto;
+
+  &--entry {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    outline: none;
+    border: 0;
+    background-color: $contextual-menu--entry-fill-color;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    color: $contextual-menu--entry-text-color;
+    font-family: $contextual-menu--entry-font-family;
+    font-size: $contextual-menu--entry-font-size;
+    white-space: nowrap;
+    padding: $contextual-menu--entry-vertical-spacing $contextual-menu--entry-horizontal-spacing;
+    max-width: 220px;
+
+    &:hover {
+      background-color: $contextual-menu--entry-hover-fill-color;
+    }
+
+    &--icon {
+      width: 16px;
+      padding-left: $contextual-menu--entry--slot-horizontal-spacing;
+    }
+
+    &--slot {
+      padding-left: $contextual-menu--entry--slot-horizontal-spacing;
+
+      &:last-child {
+        padding-right: $contextual-menu--entry--slot-horizontal-spacing;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &.-expand {
+        flex-grow: 1;
+      }
+    }
+  }
+}

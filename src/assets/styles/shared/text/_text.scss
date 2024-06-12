@@ -1,0 +1,163 @@
+@mixin m-text-bold {
+  &.-bold {
+    font-weight: bold;
+  }
+}
+
+@mixin m-text-italic {
+  &.-italic {
+    font-style: italic;
+  }
+}
+
+@mixin m-text-uppercase {
+  &.-uppercase {
+    text-transform: uppercase;
+  }
+}
+
+@mixin m-text-style {
+  @include m-text-bold;
+  @include m-text-italic;
+  @include m-text-uppercase;
+}
+
+@mixin m-font-size {
+  &.-font-xs {
+    font-size: $global-xs-font-size;
+  }
+
+  &.-font-sm {
+    font-size: $global-sm-font-size;
+  }
+
+  &.-font-lg {
+    font-size: $global-lg-font-size;
+  }
+
+  &.-font-xl {
+    font-size: $global-xl-font-size;
+  }
+}
+
+@mixin m-hover-color {
+  &:hover.-hover-color-main {
+    color: $global-text-color-main;
+  }
+
+  &:hover.-hover-color-shade-50 {
+    color: $global-text-color-shade-50;
+  }
+
+  &:hover.-hover-color-shade-75 {
+    color: $global-text-color-shade-75;
+  }
+
+  &:hover.-hover-color-shade-85 {
+    color: $global-text-color-shade-85;
+  }
+
+  &:hover.-hover-color-shade-100 {
+    color: $global-text-color-shade-100;
+  }
+
+  &:hover.-hover-color-facebook {
+    color: $global-text-color-facebook;
+  }
+
+  &:hover.-hover-color-twitter {
+    color: $global-text-color-twitter;
+  }
+
+  &:hover.-hover-color-github {
+    color: $global-text-color-github;
+  }
+}
+
+@mixin m-text-align {
+  &.-align-center {
+    text-align: center;
+  }
+
+  &.-align-left {
+    text-align: left;
+  }
+
+  &.-align-right {
+    text-align: right;
+  }
+
+  &.-align-justify {
+    text-align: justify;
+  }
+}
+
+@mixin m-text-color {
+  &.-color-main {
+    color: $global-text-color-main;
+  }
+
+  &.-color-secondary {
+    color: $global-text-color-secondary;
+  }
+
+  &.-color-shade-5 {
+    color: $global-text-color-shade-5;
+  }
+
+  &.-color-shade-20 {
+    color: $global-text-color-shade-20;
+  }
+
+  &.-color-shade-30 {
+    color: $global-text-color-shade-30;
+  }
+
+  &.-color-shade-50 {
+    color: $global-text-color-shade-50;
+  }
+
+  &.-color-shade-75 {
+    color: $global-text-color-shade-75;
+  }
+
+  &.-color-shade-85 {
+    color: $global-text-color-shade-85;
+  }
+
+  &.-color-shade-100 {
+    color: $global-text-color-shade-100;
+  }
+
+  &.-color-path-start {
+    color: $global-text-color-path-start;
+  }
+
+  &.-color-path-end {
+    color: $global-text-color-path-end;
+  }
+
+  &.-color-aqua {
+    color: $global-text-color-aqua;
+  }
+
+  &.-color-facebook-light {
+    color: $global-text-color-facebook-light;
+  }
+
+  &.-color-twitter-light {
+    color: $global-text-color-twitter-light;
+  }
+
+  &.-color-github-light {
+    color: $global-text-color-github-light;
+  }
+}
+
+@mixin m-text {
+  @include m-font-size;
+  @include m-hover-color;
+  @include m-text-align;
+  @include m-text-color;
+  @include m-text-style;
+}

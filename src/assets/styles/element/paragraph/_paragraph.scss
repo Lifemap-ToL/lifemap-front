@@ -1,0 +1,7 @@
+
+.paragraph {
+  @include m-font-size;
+  @include m-text-align;
+  margin: 0;
+  padding: 0;
+}

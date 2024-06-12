@@ -1,0 +1,51 @@
+$map-fill-color: $global-fill-color-shade-0;
+$map-text-color: $global-fill-color-shade-100;
+$map-toolbar-width: 32px !default;
+$map-toolbar-vertical-spacing: 8px !default;
+$map-toolbar-horizontal-spacing: 4px !default;
+$map-toolbar-border-color: $global-fill-color-shade-50-faded !default;
+$map-toolbar-fill-color: $global-fill-color-shade-0-85 !default;
+$map-sidebar-left-spacing: $map-toolbar-width + $map-toolbar-horizontal-spacing * 2 + 1px !default;
+$map-info-bar-top-spacing: 20px !default;
+$map-info-bar-right-spacing: 20px !default;
+
+.map {
+  width: 100%;
+  height: 100%;
+  background-color: $map-fill-color;
+  color: $map-text-color;
+
+  &--toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $map-toolbar-width;
+    padding: $map-toolbar-vertical-spacing $map-toolbar-horizontal-spacing;
+    border-right: 1px solid $map-toolbar-border-color;
+    background-color: $map-toolbar-fill-color;
+  }
+
+  &--search-bar {
+    position: absolute;
+    top: 8px;
+    right: 200px;
+    left: 200px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &--info-bar {
+    position: absolute;
+    top: $map-info-bar-top-spacing;
+    right: $map-info-bar-right-spacing;
+    bottom: $map-info-bar-top-spacing;
+  }
+
+  &--sidebar {
+    position: absolute;
+    top: 0;
+    left: $map-sidebar-left-spacing;
+    bottom: 0;
+  }
+}

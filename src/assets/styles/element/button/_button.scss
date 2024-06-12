@@ -1,0 +1,126 @@
+$button-border-size: 2px !default;
+$button-border-radius: 4px !default;
+$button-color-background: $global-fill-color-shade-100 !default;
+$button-color-border: $button-color-background !default;
+$button-padding: 10px !default;
+$button-height: 44px !default;
+$button-extra-small-height: 28px !default;
+$button-extra-small-border-radius: 2px !default;
+
+$button-line-height: $button-height - ($button-border-size * 2);
+$button-color-text: $global-text-color-shade-5 !default;
+$button-font-family: $global-sans-primary-font-family !default;
+$button-font-size: $global-lg-font-size !default;
+$button-small-font-size: $global-font-size !default;
+
+$button-large-padding: 20px !default;
+$button-large-height: 60px !default;
+$button-large-font-size: $global-xl-font-size !default;
+
+$button-extra-large-padding: 24px !default;
+$button-extra-large-height: 72px !default;
+$button-extra-large-font-size: $global-xxl-font-size !default;
+
+$button-color-text-disabled: $global-text-color-shade-50 !default;
+
+$button-icon-size: 32px !default;
+
+@mixin button-color($color-name, $fill-color, $text-color) {
+  &.-#{$color-name} {
+    background-color: $fill-color;
+    color: $text-color;
+  }
+}
+
+.button {
+  @include button-color('main', $global-fill-color-main, $global-text-color-shade-0);
+  @include button-color('shade-100', $global-text-color-shade-100, $global-fill-color-shade-0);
+  @include button-color('shade-85', $global-text-color-shade-85, $global-fill-color-shade-30);
+  @include button-color('shade-0', $global-fill-color-shade-0, $global-text-color-shade-100);
+  @include button-color('shade-0-70', $global-text-color-shade-0-70, $global-fill-color-shade-100);
+  outline: none;
+  border-color: transparent;
+  background-color: $button-color-background;
+  cursor: pointer;
+  padding: 0 $button-padding;
+  height: $button-height;
+  text-align: center;
+  line-height: $button-line-height;
+  color: $button-color-text;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  border-radius: $button-border-radius;
+
+  &.-stretch {
+    width: 100%;
+  }
+
+  &.-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $button-icon-size;
+    height: $button-icon-size;
+    text-align: center;
+    line-height: $button-icon-size;
+    padding: 0;
+  }
+
+  &.-icon.-small {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  &.-text {
+    background-color: transparent;
+    color: $global-text-color-shade-85;
+
+    &:hover, &:focus {
+      color: $global-text-color-shade-100;
+    }
+
+    &:disabled {
+      color: $global-text-color-shade-50;
+    }
+  }
+
+  &.-outlined {
+    background-color: transparent;
+    color: $global-text-color-shade-85;
+    border: 1px solid $global-text-color-shade-85;
+
+    &:hover, &:focus {
+      color: $global-text-color-shade-100;
+      border: 1px solid $global-text-color-shade-100;
+    }
+  }
+
+  &.-extra-small {
+    font-size: $button-small-font-size;
+    line-height: $button-extra-small-height;
+    height: $button-extra-small-height;
+    border-radius: $button-extra-small-border-radius;
+  }
+
+  &.-small {
+    font-size: $button-small-font-size;
+  }
+
+  &.-large {
+    font-size: $button-large-font-size;
+    padding: 0 $button-large-padding;
+    height: $button-large-height;
+  }
+
+  &.-extra-large {
+    font-size: $button-extra-large-font-size;
+    padding: 0 $button-extra-large-padding;
+    height: $button-extra-large-height;
+  }
+
+  &:disabled {
+    color: $button-color-text-disabled;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,81 @@
+@mixin pseudo {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+@mixin circle($size, $fill-color, $border-color) {
+  $pixel-size: $size * 1px;
+  width: $pixel-size;
+  height: $pixel-size;
+  border: 2px solid $border-color;
+  border-radius: 50%;
+  background-color: $fill-color;
+}
+
+@mixin line($top) {
+  @include pseudo;
+  width: 2px;
+  height: calc(50% - 6px);
+  background-color: $global-color-deep-pink;
+  top: $top;
+  left: 18px;
+}
+
+@mixin on-top-circle($fill-color, $border-color) {
+  @include pseudo;
+  @include circle(32, $fill-color, $border-color);
+  top: calc(50% - 18px);
+  left: 1px;
+  z-index: 1;
+}
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  &--item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+
+    &:not(:first-child):before {
+      @include line(0);
+    }
+
+    &:not(:last-child):after {
+      @include line(calc(50% + 6px));
+    }
+
+    &--marker {
+      @include circle(10, $global-color-deep-pink, $global-fill-color-shade-100);
+      margin: 0 12px;
+      z-index: 2;
+
+      &.-emphasized:before {
+        @include pseudo;
+        @include on-top-circle($global-color-deep-pink-30, $global-color-deep-pink);
+      }
+    }
+
+    &:first-child {
+      .step-list--item--marker:before {
+        @include pseudo;
+        @include on-top-circle($global-fill-color-path-start-40, $global-fill-color-path-start);
+      }
+    }
+
+    &:last-child {
+      .step-list--item--marker:after {
+        @include pseudo;
+        @include on-top-circle($global-fill-color-path-end-40, $global-fill-color-path-end);
+      }
+    }
+
+    &--text {
+      padding: 12px;
+    }
+  }
+}

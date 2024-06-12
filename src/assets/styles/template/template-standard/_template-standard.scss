@@ -1,0 +1,36 @@
+$template-standard-border-size: 1px !default;
+$template-standard-border-color: $global-fill-color-shade-40 !default;
+
+$template-standard--content-width: $size-page-width !default;
+$template-standard--content-margin-top: 64px !default;
+$template-standard--content-margin-bottom: 70px !default;
+
+.template-standard {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  overflow: auto;
+
+  &--header {
+    border-bottom: $template-standard-border-size solid $template-standard-border-color;
+    z-index: 2;
+  }
+
+  &--content {
+    flex-grow: 1;
+    z-index: 1;
+    outline: none;
+    overflow: auto;
+  }
+
+  &--footer {
+    border-top: $template-standard-border-size solid $template-standard-border-color;
+    margin-top: auto;
+    color: $global-text-color-shade-50;
+    padding: 20px;
+  }
+}

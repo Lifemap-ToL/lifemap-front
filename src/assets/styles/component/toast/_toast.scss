@@ -1,0 +1,22 @@
+$toast-color-background: $global-color-green !default;
+$toast-vertical-padding: 13px !default;
+$toast-horizontal-padding: 15px !default;
+$toast--icon-action-color-text: $global-fill-color-shade-50 !default;
+$toast--icon-action-size: 18px !default;
+
+.toast {
+  @include m-shadow;
+  display: inline-block;
+  background-color: $toast-color-background;
+  padding: $toast-vertical-padding $toast-horizontal-padding;
+
+  &--icon-action {
+    cursor: pointer;
+    padding: 0;
+    font-size: $toast--icon-action-size;
+
+    &::before {
+      padding: 0;
+    }
+  }
+}

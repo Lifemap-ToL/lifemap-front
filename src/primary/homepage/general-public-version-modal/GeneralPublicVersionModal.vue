@@ -1,17 +1,13 @@
 <template>
   <VersionModalVue>
     <template #header>
-      <img
-        src="../../../assets/images/lifemap-general-public-logo.png"
-        alt="Lifemap general public logo"
-        class="lifemap-image -full-width"
-      />
+      <img src="../../../assets/images/lifemap-general-public-logo.png" alt="Lifemap general public logo" class="image -full-width" />
     </template>
     <template #illustration>
       <img
         src="../../../assets/images/lifemap-general-public-illustration.png"
         alt="Lifemap general public illustration"
-        class="lifemap-image -full-width -rounded-edges"
+        class="image -full-width -rounded-edges"
       />
     </template>
     <template #content>

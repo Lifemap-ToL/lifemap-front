@@ -1,0 +1,26 @@
+$image-border-radius: 12px !default;
+$image-right-margin: 12px !default;
+
+.image {
+  @include m-heights;
+  @include m-widths;
+  @include m-margins;
+
+  &.-width-auto {
+    width: auto;
+  }
+
+  &.-full-width {
+    width: 100%;
+    height: auto;
+  }
+
+  &.-rounded-edges {
+    border-radius: $image-border-radius;
+  }
+
+  &.-right {
+    float: right;
+    margin: 0 0 $image-right-margin $image-right-margin;
+  }
+}

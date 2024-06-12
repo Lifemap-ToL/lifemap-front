@@ -1,0 +1,80 @@
+$taginput-field-height: 60px !default;
+$taginput-field-input-text-color: $global-fill-color-shade-100 !default;
+$taginput-suggestion-list-background-color: $global-fill-color-shade-0-70 !default;
+$taginput-suggestion-list-text-color: $global-text-color-shade-85 !default;
+$taginput-spacing: 0px !default;
+$taginput-suggestion-item-vertical-spacing: 10px !default;
+$taginput-suggestion-item-horizontal-spacing: 4px !default;
+$taginput-suggestion-item-border-color: $global-fill-color-shade-75 !default;
+
+.taginput {
+  position: relative;
+
+  &--field {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: $taginput-field-height;
+    max-height: $taginput-field-height;
+    align-self: stretch;
+    border: 1px solid rgba(123, 123, 123, 0.5);
+    border-radius: 4px;
+    padding: 8px;
+    overflow: auto;
+
+    &--input {
+      outline: none;
+      border: transparent;
+      border-radius: 0;
+      background-color: transparent;
+      color: $taginput-field-input-text-color;
+      flex: 1 1 20px;
+      min-width: 10px;
+    }
+  }
+
+  & > &--suggestion-list {
+    @include m-widths;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $taginput-suggestion-list-background-color;
+    color: $taginput-suggestion-list-text-color;
+    left: 0;
+    top: calc(100% + $taginput-spacing);
+    max-height: 400px;
+    overflow: auto;
+    z-index: 1;
+  }
+
+  &--suggestion-item {
+    padding: $taginput-suggestion-item-vertical-spacing $taginput-suggestion-item-horizontal-spacing;
+    border-bottom: 1px solid $taginput-suggestion-item-border-color;
+    cursor: pointer;
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      background-color: $global-fill-color-shade-50-faded;
+    }
+  }
+
+  &.-closed {
+    > .taginput--suggestion-list {
+      display: none;
+    }
+  }
+
+  &.-open {
+    > .taginput--suggestion-list {
+      display: block;
+    }
+  }
+}

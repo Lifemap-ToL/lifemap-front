@@ -1,0 +1,12 @@
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+
+  &--slot {
+    display: flex;
+    flex-direction: column;
+  }
+}
