@@ -59,4 +59,12 @@ $navbar-separator-spacing: 18px !default;
     flex-grow: 1;
     min-width: 0;
   }
+
+  &--menu {
+    @include navbar-item;
+    display: flex;
+    padding: 0 $navbar-link-spacing;
+    font-size: $global-xl-font-size;
+    text-decoration: none;
+  }
 }

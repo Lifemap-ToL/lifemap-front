@@ -12,6 +12,7 @@ $popup-line-height: (strip-units($popup-font-size)) * 1.55rem !default;
   border: 2px solid rgba(255, 255, 255, 1);
   font-size: $popup-font-size;
   line-height: $popup-line-height;
+  overflow: hidden;
 
   &--header {
     display: flex;
@@ -22,6 +23,7 @@ $popup-line-height: (strip-units($popup-font-size)) * 1.55rem !default;
     padding: 8px 16px 12px 16px;
     max-height: 100%;
     overflow-y: auto;
+    flex-grow: 1;
   }
 
   &--footer {

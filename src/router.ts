@@ -12,10 +12,6 @@ function extractNCBIIds(queryString?: string): number[] {
   return valid ? array.map(ncbiId => parseInt(ncbiId!)) : [];
 }
 
-function extractExpertMode(queryString?: string): boolean {
-  return queryString && queryString === 'true' ? true : false;
-}
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,18 +28,6 @@ const router = createRouter({
         ...route.query,
         ancestorRequest: extractAncestorDescendants(route.query.ancestor as string),
         subtree: extractNCBIIds(route.query.subtree as string),
-        expertMode: extractExpertMode(route.query.expertMode as string),
-      }),
-    },
-    {
-      path: '/ncbi-tree',
-      name: 'ncbi-tree',
-      component: () => import('@/primary/ncbi-tree-map/NCBITreeMap.vue'),
-      props: route => ({
-        ...route.query,
-        ancestorRequest: extractAncestorDescendants(route.query.ancestor as string),
-        subtree: extractNCBIIds(route.query.subtree as string),
-        expertMode: extractExpertMode(route.query.expertMode as string),
       }),
     },
   ],

@@ -12,7 +12,7 @@ export class MittAlertBus implements AlertBus {
   }
 
   onAlert(alerted: Alerted): Unsubscribe {
-    const handler: Handler<AlertMessage> = (message) => alerted(message!);
+    const handler: Handler<AlertMessage> = message => alerted(message!);
     this.emitter.on<AlertMessage>('alert', handler);
     return () => this.emitter.off('alert', handler);
   }

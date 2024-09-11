@@ -1,0 +1,24 @@
+$nav-sidebar-vertical-padding: 32px !default;
+
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: $nav-sidebar-vertical-padding 0;
+  gap: 28px;
+
+  &--brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    &--logo {
+      width: 50%;
+      height: auto;
+    }
+
+    &--title {
+      font-size: 44px;
+    }
+  }
+}

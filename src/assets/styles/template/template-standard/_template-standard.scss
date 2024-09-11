@@ -14,17 +14,25 @@ $template-standard--content-margin-bottom: 70px !default;
   left: 0;
   flex-direction: column;
   overflow: auto;
+  background-color: $global-fill-color-shade-0;
 
   &--header {
+    top: 0;
+    align-self: flex-start;
+    position: sticky;
     border-bottom: $template-standard-border-size solid $template-standard-border-color;
     z-index: 2;
+    width: 100%;
+    background-color: $global-fill-color-shade-0;
   }
 
   &--content {
     flex-grow: 1;
+    flex-shrink: 0;
     z-index: 1;
     outline: none;
     overflow: auto;
+    align-content: center;
   }
 
   &--footer {

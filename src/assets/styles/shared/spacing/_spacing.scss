@@ -43,7 +43,7 @@
 }
 
 @mixin m-margins {
-  $margins: 8, 16, 24, 100;
+  $margins: 8, 16, 24, 100, 200, 300, 400;
 
   @each $margin in $margins {
     @include m-margin($margin);

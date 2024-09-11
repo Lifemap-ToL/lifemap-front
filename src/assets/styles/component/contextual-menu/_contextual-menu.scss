@@ -62,4 +62,49 @@ $contextual-menu--entry--slot-horizontal-spacing: 6px !default;
       }
     }
   }
+
+  &--heading {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    outline: none;
+    border: 0;
+    background-color: $contextual-menu--entry-fill-color;
+    text-align: left;
+    font-family: $contextual-menu--entry-font-family;
+    font-size: $global-sm-font-size;
+    white-space: nowrap;
+    padding: 6px $contextual-menu--entry-horizontal-spacing;
+    border-bottom: 1px solid $global-fill-color-shade-85;
+    color: $global-fill-color-shade-50;
+    max-width: 220px;
+
+    &--slot {
+      padding-left: $contextual-menu--entry--slot-horizontal-spacing;
+
+      &:last-child {
+        padding-right: $contextual-menu--entry--slot-horizontal-spacing;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &.-expand {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &--separator {
+    margin: 8px 0;
+    height: 1px;
+    width: 100%;
+    background-color: $global-fill-color-shade-50;
+  }
+
+  &--content {
+    background-color: $global-fill-color-shade-100;
+    padding: $contextual-menu--entry-vertical-spacing $contextual-menu--entry-horizontal-spacing;
+  }
 }

@@ -1,14 +1,34 @@
-$toast-color-background: $global-color-green !default;
+$toast-background-color: $global-fill-color-main !default;
+$toast-text-color: $global-text-color-shade-5 !default;
+
+$toast-background-success-color: $global-color-green !default;
+$toast-text-success-color: $global-text-color-shade-5 !default;
+
+$toast-background-error-color: $global-color-red !default;
+$toast-text-error-color: $global-text-color-shade-100 !default;
+
 $toast-vertical-padding: 13px !default;
 $toast-horizontal-padding: 15px !default;
+
 $toast--icon-action-color-text: $global-fill-color-shade-50 !default;
 $toast--icon-action-size: 18px !default;
 
 .toast {
   @include m-shadow;
   display: inline-block;
-  background-color: $toast-color-background;
+  background-color: $toast-background-color;
+  color: $toast-text-color;
   padding: $toast-vertical-padding $toast-horizontal-padding;
+
+  &.-success {
+    background-color: $toast-background-success-color;
+    color: $toast-text-success-color;
+  }
+
+  &.-error {
+    background-color: $toast-background-error-color;
+    color: $toast-text-error-color;
+  }
 
   &--icon-action {
     cursor: pointer;

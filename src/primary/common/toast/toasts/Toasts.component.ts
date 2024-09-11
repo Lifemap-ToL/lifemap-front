@@ -18,7 +18,7 @@ export default class ToastsComponent extends Vue {
   created() {
     this.unsubscribeAlertBus = this.alertBus().onAlert(alertMessage =>
       this.display({
-        props: { message: alertMessage.message },
+        props: { message: alertMessage.message, type: alertMessage.type },
         component: markRaw(AlertToastVue),
       })
     );

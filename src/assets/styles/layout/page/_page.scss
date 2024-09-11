@@ -1,0 +1,23 @@
+$page-margin-top: 40px;
+$page-margin-bottom: 40px;
+$page-width: $size-page-width !default;
+$page-height: calc(100% - $page-margin-top - $page-margin-bottom) !default;
+$page-padding: 20px !default;
+$page-center-margin-bottom: $size-header-height + 60px !default;
+
+.page {
+  box-sizing: border-box;
+  max-width: $size-page-width;
+  height: $page-height;
+  margin: $page-margin-top auto $page-margin-bottom auto;
+  padding: $page-padding;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+
+  &.-center {
+    justify-page: center;
+    height: 0;
+    margin-bottom: $page-center-margin-bottom;
+  }
+}

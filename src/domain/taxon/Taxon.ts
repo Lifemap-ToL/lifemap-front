@@ -1,6 +1,9 @@
 import type { Numeral } from '@/domain/Numeral';
+import type { TaxonAdditionalData } from '@/domain/taxon/TaxonAdditionalData';
 
-export interface Taxon {
+export type Taxon = TaxonCore & Partial<TaxonAdditionalData>;
+
+interface TaxonCore {
   id: string;
   ncbiId: number;
   name: string;
@@ -8,6 +11,5 @@ export interface Taxon {
   rank: string;
   zoomLevel: number;
   descendants: Numeral;
-  sequencedGenomes?: Numeral;
   coordinates: [number, number];
 }

@@ -1,32 +1,31 @@
-import { Component, Inject, mixins, Prop, Watch } from 'vue-facing-decorator';
-import { TemplateVue } from '@/primary/template';
-import { NavbarVue } from '@/primary/common/navbar';
-import { SubtreeMixin } from '@/primary/ncbi-tree-map/subtree-mixin/SubtreeMixin';
-import { TaxonMixin } from '@/primary/common/taxon-mixin/TaxonMixin';
-import { AncestorMixin } from '@/primary/common/ancestor-mixin/AncestorMixin';
-import { ToolMixin } from '@/primary/common/tool-mixin/ToolMixin';
+import { Component, Inject, mixins, Prop } from 'vue-facing-decorator';
+import { TemplateVue } from '@/primary/common/template';
+import { NavbarVue } from '@/primary/tree/navbar';
+import { SubtreeMixin } from '@/primary/tree/subtree/SubtreeMixin';
+import { TaxonMixin } from '@/primary/tree/taxon/TaxonMixin';
+import { AncestorMixin } from '@/primary/tree/ancestor/AncestorMixin';
+import { ToolMixin } from '@/primary/tree/ToolMixin';
 import { MapLayoutVue } from '@/primary/common/map-layout';
-import { AncestorSidebarVue } from '@/primary/common/ancestor-sidebar';
-import { SubtreeSidebarVue } from '@/primary/common/subtree-sidebar';
-import { TaxonSearchBarVue } from '@/primary/common/taxon-search-bar';
-import { NCBITaxonPopupVue } from '@/primary/ncbi-tree-map/ncbi-taxon-popup';
-import { TaxonTooltipVue } from '@/primary/common/taxon-tooltip';
+import { AncestorSidebarVue } from '@/primary/tree/ancestor/ancestor-sidebar';
+import { SubtreeSidebarVue } from '@/primary/tree/subtree/subtree-sidebar';
+import { TaxonSearchBarVue } from '@/primary/tree/taxon/taxon-search-bar';
+import { TaxonTooltipVue } from '@/primary/tree/taxon/taxon-tooltip';
 import { DropdownVue } from '@/primary/common/dropdown';
-import { ModeDropdownVue } from '@/primary/tree/mode-dropdown';
-import { SearchSidebarVue } from '@/primary/tree/search-sidebar';
-import { AdditionalDataSidebarVue } from '@/primary/common/additional-data-sidebar';
-import { ParametersSidebarVue } from '@/primary/common/parameters-sidebar';
+import { SearchSidebarVue } from '@/primary/tree/search/search-sidebar';
+import { AdditionalDataSidebarVue } from '@/primary/tree/additional-data/additional-data-sidebar';
+import { ParametersSidebarVue } from '@/primary/tree/parameters/parameters-sidebar';
 import Map from 'ol/Map';
-import type { MittModalBus } from '@/primary/common/modal/MittModalBus';
-import { markRaw } from 'vue';
-import { GeneralPublicVersionModalVue } from '@/primary/homepage/general-public-version-modal';
-import { HelpModalVue } from '@/primary/common/help-modal';
+import { WikimediaTaxonPopupVue } from '@/primary/tree/taxon/wikimedia-taxon-popup';
+import type { TreeRepository } from '@/domain/tree/TreeRepository';
+import { ComponentState } from '@/primary/ComponentState';
+import { MessageVue } from '@/primary/common/message';
+import { LUCAMixin } from '@/primary/tree/luca/LUCAMixin';
+import { LUCAPopupVue } from '@/primary/tree/luca/luca-popup';
 
 @Component({
   components: {
     ParametersSidebarVue,
     AdditionalDataSidebarVue,
-    ModeDropdownVue,
     DropdownVue,
     TemplateVue,
     NavbarVue,
@@ -35,33 +34,32 @@ import { HelpModalVue } from '@/primary/common/help-modal';
     AncestorSidebarVue,
     SubtreeSidebarVue,
     TaxonSearchBarVue,
-    NCBITaxonPopupVue,
     TaxonTooltipVue,
+    WikimediaTaxonPopupVue,
+    LUCAPopupVue,
+    MessageVue,
   },
 })
-export default class TreeComponent extends mixins(SubtreeMixin, TaxonMixin, AncestorMixin, ToolMixin) {
+export default class TreeComponent extends mixins(SubtreeMixin, TaxonMixin, AncestorMixin, ToolMixin, LUCAMixin) {
   @Prop({ type: String, required: false })
   readonly tool!: string;
 
-  @Prop({ type: Boolean, default: false })
-  readonly expertMode!: boolean;
+  @Inject()
+  private treeRepository!: () => TreeRepository;
 
   @Inject()
   readonly map!: () => Map;
 
   @Inject()
-  private modalBus!: () => MittModalBus;
-
-  @Inject()
   globalWindow!: () => Window & typeof globalThis;
 
-  @Watch('expertMode')
-  expertModeWatcher() {
-    if (!this.expertMode) {
-      const tool = this.tool === 'subtree' || this.tool === 'additional-data' ? undefined : this.tool;
-      const routeQuery = { ...this.$router.currentRoute.value.query, subtree: undefined, additional: undefined, tool };
-      this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
-    }
+  state = ComponentState.PENDING;
+
+  created() {
+    this.treeRepository()
+      .findIfTreeIsDisplayable()
+      .then(treeDisplayable => (this.state = treeDisplayable ? ComponentState.SUCCESS : ComponentState.ERROR))
+      .catch(() => (this.state = ComponentState.ERROR));
   }
 
   exportAsPng() {
@@ -70,7 +68,7 @@ export default class TreeComponent extends mixins(SubtreeMixin, TaxonMixin, Ance
       .querySelector('canvas')!
       .toBlob((blob: Blob | null) => {
         const [, year, month, day] = new Date().toISOString().match(/^(\d{4})-(\d{2})-(\d{2})/)!;
-        const filename = `lifemap_${year}-${month}-${day}.png`;
+        const filename = `lifemap_${year}-${month}-${day}.jpg`;
         const link = this.globalWindow().document.createElement('a');
         this.globalWindow().document.body.appendChild(link);
         link.href = this.globalWindow().URL.createObjectURL(blob!);
@@ -78,10 +76,6 @@ export default class TreeComponent extends mixins(SubtreeMixin, TaxonMixin, Ance
         link.click();
         this.globalWindow().URL.revokeObjectURL(link.href);
         this.globalWindow().document.body.removeChild(link);
-      });
-  }
-
-  openHelpModal() {
-    this.modalBus().open({ component: markRaw(HelpModalVue) });
+      }, 'image/jpeg');
   }
 }

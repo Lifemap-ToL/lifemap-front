@@ -37,11 +37,23 @@
     align-items: start;
   }
 
+  &.-align-flex-start {
+    align-items: flex-start;
+  }
+
   &.-align-end {
     align-items: end;
   }
 
   &.-justify-center {
     justify-content: center;
+  }
+
+  &.-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.-wrap-reverse {
+    flex-wrap: wrap-reverse;
   }
 }

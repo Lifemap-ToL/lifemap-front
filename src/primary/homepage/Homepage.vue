@@ -1,59 +1,62 @@
 <template>
   <TemplateVue>
     <template #header>
-      <NavbarVue>
-        <NavbarLinkVue>{{ $t('author') }}</NavbarLinkVue>
-        <NavbarLinkVue>
-          <a
-            href="https://journals.plos.org/plosbiology/article/authors?id=10.1371/journal.pbio.2001624"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="navbar--link"
-          >
-            {{ $t('publication') }}
-          </a>
-        </NavbarLinkVue>
-        <NavbarSeparatorVue></NavbarSeparatorVue>
-        <NavbarSocialVue>
-          <i class="icon -color-facebook-light -hover-color-facebook -font-xl mdi mdi-facebook"></i>
-        </NavbarSocialVue>
-        <NavbarSocialVue>
-          <i class="icon -color-twitter-light -hover-color-twitter -font-xl mdi mdi-twitter"></i>
-        </NavbarSocialVue>
-        <NavbarSocialVue>
-          <i class="icon -color-github-light -hover-color-github -clickable -font-xl mdi mdi-github"></i>
-        </NavbarSocialVue>
-      </NavbarVue>
+      <NavbarVue></NavbarVue>
     </template>
     <template #content>
-      <div class="flex-container -vertical -align-center -gap-xxl">
-        <div class="flex-container -gap-xl -align-center -vertical block -mv100">
-          <div class="flex-container -align-end">
-            <img src="../../assets/images/logo_no_background.png" alt="Lifemap logo" class="image -h80 -width-auto" />
-            <h1 class="title -extra-large -color-main">Lifemap</h1>
-          </div>
-          <div class="title -large -color-main">{{ $t('lifemap-baseline') }}</div>
-          <hr class="separator" />
-          <i18n-t keypath="ncbi-taxonomy-statement" tag="div" class="title -extra-small">
-            <template v-slot:ncbiTaxonomy>
-              <a place="ncbiTaxonomy" class="link" href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank" rel="noopener noreferrer">
-                {{ $t('ncbi-taxonomy') }}
-              </a>
+      <div class="page">
+        <div class="flex-container -vertical -gap-xxl -align-center">
+          <div class="flex-container -gap-xl -align-center -vertical">
+            <div class="flex-container -align-end">
+              <img src="../../assets/images/logo-lifemap.png" alt="Lifemap logo" class="image -h80 -width-auto" />
+              <h1 class="title -extra-large -color-main">Lifemap</h1>
+            </div>
+            <div class="title -align-center -large -color-main">{{ $t('lifemap-baseline') }}</div>
+            <hr class="separator" />
+            <p class="text -font-lg">{{ $t('platform-description') }}</p>
+            <template v-if="treeSummary">
+              <i18n-t keypath="platform-figures" tag="span" class="text -italic -color-main">
+                <template v-slot:date>
+                  <span class="text -bold">{{ today }}</span>
+                </template>
+                <template v-slot:totalSpecies>
+                  <span class="text -bold">{{ treeSummary.species.total.toHuman() }}</span>
+                </template>
+                <template v-slot:eukaryotes>
+                  <span class="text -bold">{{ treeSummary.species.eukaryotes.toHuman() }}</span>
+                </template>
+                <template v-slot:archaea>
+                  <span class="text -bold">{{ treeSummary.species.archaea.toHuman() }}</span>
+                </template>
+                <template v-slot:bacteria>
+                  <span class="text -bold">{{ treeSummary.species.bacteria.toHuman() }}</span>
+                </template>
+                <template v-slot:lastUpdateDate>
+                  <span class="text -bold">{{ lastUpdateDate }}</span>
+                </template>
+              </i18n-t>
             </template>
-          </i18n-t>
-        </div>
-        <div>
-          <button class="button -extra-large -main" @click.stop.prevent="$router.push('/tree')">{{ $t('start-exploring') }}</button>
+          </div>
+          <div>
+            <template v-if="state === 'SUCCESS'">
+              <button class="button -extra-large -main" @click.stop.prevent="goToTree">{{ $t('start-exploring') }}</button>
+            </template>
+            <template v-if="state === 'ERROR'">
+              <MessageVue>
+                {{ $t('lifemap-not-available-message') }}
+              </MessageVue>
+            </template>
+          </div>
         </div>
       </div>
     </template>
     <template #footer>
-      <div class="flex-container -gap-xl -justify-center">
+      <div class="flex-container -gap-xl -justify-center -wrap-reverse">
         <a href="https://play.google.com/store/apps/details?id=fr.univ_lyon1.lifemapcom&hl=en" target="_blank" rel="noopener noreferrer">
           <img class="image -h40" src="../../assets/images/playstore.png" alt="Playstore" />
         </a>
         <div class="flex-container -vertical -gap-xs">
-          <div class="flex-container -gap-xs">
+          <div class="flex-container -gap-xs -wrap">
             <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
               <img class="image" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" alt="license" />
             </a>

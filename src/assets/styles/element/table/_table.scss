@@ -1,7 +1,7 @@
 $table-head-border-color: $global-fill-color-shade-100 !default;
 $table-body-line-color: $global-fill-color-shade-30 !default;
-$table-cell-horizontal-spacing: 4px !default;
-$table-cell-vertical-spacing: 6px !default;
+$table-cell-horizontal-spacing: 8px !default;
+$table-cell-vertical-spacing: 8px !default;
 
 .table {
   width: 100%;
@@ -11,6 +11,7 @@ $table-cell-vertical-spacing: 6px !default;
     border-bottom: 1px solid $table-head-border-color;
 
     &--cell {
+      @include m-text;
       box-sizing: border-box;
       padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
       text-align: left;
@@ -27,6 +28,7 @@ $table-cell-vertical-spacing: 6px !default;
     }
 
     &--cell {
+      @include m-text;
       padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
     }
   }

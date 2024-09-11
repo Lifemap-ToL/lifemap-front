@@ -3,6 +3,10 @@
     background-color: $global-text-color-main;
   }
 
+  &.-fill-color-shade-0 {
+    background-color: $global-text-color-shade-0;
+  }
+
   &.-fill-color-shade-50 {
     background-color: $global-text-color-shade-50;
   }
@@ -13,6 +17,10 @@
 
   &.-fill-color-shade-85 {
     background-color: $global-text-color-shade-85;
+  }
+
+  &.-fill-color-shade-100 {
+    background-color: $global-text-color-shade-100;
   }
 
   &.-fill-color-path-start {

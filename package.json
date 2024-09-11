@@ -4,26 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build": "vite build",
+    "build:type:check": "run-p type-check build-only",
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:unit:coverage": "vitest run --coverage",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
-    "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
   "dependencies": {
     "axios": "^1.4.0",
-    "fetch-jsonp": "^1.2.3",
     "mitt": "^2.1.0",
     "ol": "^7.4.0",
     "ts-custom-error": "^3.3.1",
     "vue": "^3.3.4",
     "vue-facing-decorator": "^3.0.4",
     "vue-i18n": "^9.13.1",
+    "vue-matomo": "^4.2.0",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {

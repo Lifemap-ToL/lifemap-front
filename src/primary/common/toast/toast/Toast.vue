@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" data-selector="toast" @mouseenter="enter" @mouseleave="leave">
+  <div class="toast" :class="typeClass" @mouseenter="enter" @mouseleave="leave">
     <div class="flex-container -align-center">
       <div><slot /></div>
       <div>

@@ -5,6 +5,7 @@ $block-border-radius: 12px !default;
   @include m-paddings;
   @include m-margins;
   @include m-border;
+  @include m-fill-color;
   box-sizing: border-box;
   border-radius: $block-border-radius;
 

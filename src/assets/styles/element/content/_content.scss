@@ -1,0 +1,33 @@
+$content-padding-xl: 48px !default;
+$content-padding-lg: 24px !default;
+$content-padding-md: 16px !default;
+$content-padding-sm: 12px !default;
+$content-padding-xs: 8px !default;
+
+.content {
+  padding: $content-padding-md;
+
+  &.-xl {
+    padding: $content-padding-xl;
+  }
+
+  &.-lg {
+    padding: $content-padding-lg;
+  }
+
+  &.-md {
+    padding: $content-padding-md;
+  }
+
+  &.-sm {
+    padding: $content-padding-sm;
+  }
+
+  &.-xs {
+    padding: $content-padding-xs;
+  }
+
+  &.-center {
+    text-align: center;
+  }
+}

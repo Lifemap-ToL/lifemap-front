@@ -154,10 +154,17 @@
   }
 }
 
+@mixin m-text-wrap {
+  &.-text-wrap-nowrap {
+    text-wrap: nowrap;
+  }
+}
+
 @mixin m-text {
   @include m-font-size;
   @include m-hover-color;
   @include m-text-align;
   @include m-text-color;
   @include m-text-style;
+  @include m-text-wrap;
 }

@@ -1,0 +1,34 @@
+$menu-item-vertical-spacing: 12px;
+$menu-item-horizontal-spacing: 24px;
+
+@mixin menu-item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $global-text-color-main-dark;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  &--item {
+     @include menu-item;
+    box-sizing: border-box;
+    padding: $menu-item-vertical-spacing $menu-item-horizontal-spacing;
+    font-size: $global-xl-font-size;
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    background: none;
+  }
+}

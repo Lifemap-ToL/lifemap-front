@@ -1,5 +1,5 @@
 <template>
-  <ToastVue @closed="close">
+  <ToastVue :type="type" @closed="close">
     {{ message }}
   </ToastVue>
 </template>
