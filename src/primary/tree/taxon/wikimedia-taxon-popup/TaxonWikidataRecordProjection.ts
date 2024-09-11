@@ -11,7 +11,7 @@ export interface TaxonWikidataRecordProjection {
   wormsIds: string[];
 }
 
-const IMAGES_BASE_URL = '/src/assets/images/';
+const IMAGES_BASE_URL = './images/';
 
 const IUCN_STATUS_URLS_EN = {
   [IUCNStatus.EX]: `${IMAGES_BASE_URL}EX_EN.svg`,
