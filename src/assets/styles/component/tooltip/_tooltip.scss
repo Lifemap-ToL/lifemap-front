@@ -1,0 +1,11 @@
+$tooltip-horizontal-spacing: 6px !default;
+$tooltip-vertical-spacing: 6px !default;
+$tooltip-fill-color: $global-fill-color-shade-0-70;
+$tooltip-text-color: $global-fill-color-shade-100;
+
+.tooltip {
+  display: inline-block;
+  padding: $tooltip-vertical-spacing $tooltip-horizontal-spacing;
+  background-color: $tooltip-fill-color;
+  color: $tooltip-text-color;
+}

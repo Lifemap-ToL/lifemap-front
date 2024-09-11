@@ -1,0 +1,13 @@
+$desktop-breakpoint: 800px !default;
+
+@media screen and (max-width: $desktop-breakpoint) {
+  .-desktop {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .-mobile {
+    display: none !important;
+  }
+}

@@ -1,0 +1,9 @@
+
+.circle {
+  @include m-sizes;
+  @include m-fill-color;
+  @include m-border;
+  border-radius: 50%;
+
+
+}

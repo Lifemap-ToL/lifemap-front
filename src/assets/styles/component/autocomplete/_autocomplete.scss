@@ -1,0 +1,55 @@
+$autocomplete-spacing: 0px !default;
+$autocomplete-suggestion-list-background-color: $global-fill-color-shade-0-70 !default;
+$autocomplete-suggestion-list-text-color: $global-text-color-shade-85 !default;
+$autocomplete-suggestion-item-vertical-spacing: 10px !default;
+$autocomplete-suggestion-item-horizontal-spacing: 4px !default;
+$autocomplete-suggestion-item-border-color: $global-fill-color-shade-75 !default;
+
+.autocomplete {
+  position: relative;
+
+  &.-stretch {
+    width: 100%;
+  }
+
+  & > &--suggestion-list {
+    @include m-widths;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $autocomplete-suggestion-list-background-color;
+    color: $autocomplete-suggestion-list-text-color;
+    left: 0;
+    top: calc(100% + $autocomplete-spacing);
+    max-height: 400px;
+    overflow: auto;
+    z-index: 1;
+  }
+
+  &--suggestion-item {
+    padding: $autocomplete-suggestion-item-vertical-spacing $autocomplete-suggestion-item-horizontal-spacing;
+    border-bottom: 1px solid $autocomplete-suggestion-item-border-color;
+    cursor: pointer;
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      background-color: $global-fill-color-shade-50-faded;
+    }
+  }
+
+  &.-closed {
+    > .autocomplete--suggestion-list {
+      display: none;
+    }
+  }
+
+  &.-open {
+    > .autocomplete--suggestion-list {
+      display: block;
+    }
+  }
+}

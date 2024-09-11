@@ -1,0 +1,10 @@
+$template-toasts-vertical-spacing: 60px;
+$template-toasts-horizontal-spacing: 30px;
+
+.template-toasts {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 6;
+  margin: $template-toasts-vertical-spacing $template-toasts-horizontal-spacing;
+}

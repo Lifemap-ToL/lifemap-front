@@ -1,8 +1,10 @@
 import { Component, Inject, Vue } from 'vue-facing-decorator';
 import { type ModalOpened } from '@/primary/common/modal/ModalOpened';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
+import { ToastsVue } from '@/primary/common/toast/toasts';
+import { SidebarVue } from '@/primary/common/sidebar';
 
-@Component
+@Component({ components: { ToastsVue, SidebarVue } })
 export default class AppComponent extends Vue {
   modal!: ModalOpened;
   isModalOpened = false;

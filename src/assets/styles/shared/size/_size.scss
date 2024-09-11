@@ -1,0 +1,48 @@
+@mixin m-height($height) {
+  $pixel-height: $height * 1px;
+
+  &.-h#{$height} {
+    height: $pixel-height;
+  }
+}
+
+@mixin m-heights {
+  $heights: 12, 20, 40, 60, 80, 200, 300;
+
+  @each $height in $heights {
+    @include m-height($height);
+  }
+}
+
+@mixin m-width($width) {
+  $pixel-width: $width * 1px;
+
+  &.-w#{$width} {
+    width: $pixel-width;
+  }
+}
+
+@mixin m-widths {
+  $widths: 100, 200, 300;
+
+  @each $width in $widths {
+    @include m-width($width);
+  }
+}
+
+@mixin m-size($size) {
+  $pixel-size: $size * 1px;
+
+  &.-s#{$size} {
+    width: $pixel-size;
+    height: $pixel-size;
+  }
+}
+
+@mixin m-sizes {
+  $sizes: 8, 10, 12, 14, 16, 18, 20;
+
+  @each $size in $sizes {
+    @include m-size($size);
+  }
+}

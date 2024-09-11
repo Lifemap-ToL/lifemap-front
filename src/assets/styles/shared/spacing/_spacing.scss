@@ -1,0 +1,59 @@
+@mixin m-margin($spacing) {
+  $spacing-width: $spacing * 1px;
+
+  &.-m#{$spacing} {
+    margin: $spacing-width;
+  }
+
+  &.-mv#{$spacing} {
+    margin-top: $spacing-width;
+    margin-bottom: $spacing-width;
+  }
+
+  &.-mh#{$spacing} {
+    margin-right: $spacing-width;
+    margin-left: $spacing-width;
+  }
+
+  &.-mb#{$spacing} {
+    margin-bottom: $spacing-width;
+  }
+}
+
+@mixin m-padding($spacing) {
+  $spacing-width: $spacing * 1px;
+
+  &.-p#{$spacing} {
+    padding: $spacing-width;
+  }
+
+  &.-pv#{$spacing} {
+    padding-top: $spacing-width;
+    padding-bottom: $spacing-width;
+  }
+
+  &.-ph#{$spacing} {
+    padding-right: $spacing-width;
+    padding-left: $spacing-width;
+  }
+
+  &.-pb#{$spacing} {
+    padding-bottom: $spacing-width;
+  }
+}
+
+@mixin m-margins {
+  $margins: 8, 16, 24, 100, 200, 300, 400;
+
+  @each $margin in $margins {
+    @include m-margin($margin);
+  }
+}
+
+@mixin m-paddings {
+  $paddings: 4, 8, 16, 24;
+
+  @each $padding in $paddings {
+    @include m-padding($padding);
+  }
+}

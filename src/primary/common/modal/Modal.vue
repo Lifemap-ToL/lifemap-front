@@ -1,14 +1,14 @@
 <template>
-  <div class="lifemap-template-modal -open">
-    <div class="lifemap-template-modal--content">
-      <div :class="`lifemap-modal -w${width}`">
-        <div class="lifemap-modal--header">
-          <div class="lifemap-modal--header--title">
-            <h2 class="lifemap-title-medium" data-selector="modal.title">{{ title }}</h2>
+  <div class="template-modal -open">
+    <div class="template-modal--content">
+      <div :class="`modal ${size ? `-${size}` : ''} ${secondary ? '-secondary' : ''}`">
+        <div class="modal--header">
+          <div class="modal--header--title">
+            <h2 class="title -small">{{ title }}</h2>
           </div>
-          <button data-selector="modal.closer" class="lifemap-modal--header--button mdi mdi-close" @click="close()"></button>
+          <button class="modal--header--button mdi mdi-close" @click="close()"></button>
         </div>
-        <div class="lifemap-modal--content">
+        <div class="modal--content">
           <slot></slot>
         </div>
       </div>

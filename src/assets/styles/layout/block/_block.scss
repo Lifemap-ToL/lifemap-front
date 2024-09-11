@@ -1,0 +1,33 @@
+$block-border-radius: 12px !default;
+
+.block {
+  @include m-clickable;
+  @include m-paddings;
+  @include m-margins;
+  @include m-border;
+  @include m-fill-color;
+  box-sizing: border-box;
+  border-radius: $block-border-radius;
+
+  &.-shadow {
+    @include m-shadow;
+  }
+
+  &.-stretch {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.-no-radius {
+    border-radius: 0;
+  }
+
+  &.-scrollable-y  {
+    overflow-y: auto;
+  }
+
+  &:hover.-hoverable {
+    @include m-shadow-darken;
+    cursor: pointer;
+  }
+}

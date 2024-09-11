@@ -1,0 +1,41 @@
+@mixin m-fill-color {
+  &.-fill-color-main {
+    background-color: $global-text-color-main;
+  }
+
+  &.-fill-color-shade-0 {
+    background-color: $global-text-color-shade-0;
+  }
+
+  &.-fill-color-shade-50 {
+    background-color: $global-text-color-shade-50;
+  }
+
+  &.-fill-color-shade-75 {
+    background-color: $global-text-color-shade-75;
+  }
+
+  &.-fill-color-shade-85 {
+    background-color: $global-text-color-shade-85;
+  }
+
+  &.-fill-color-shade-100 {
+    background-color: $global-text-color-shade-100;
+  }
+
+  &.-fill-color-path-start {
+    background-color: $global-fill-color-path-start;
+  }
+
+  &.-fill-color-path-start-40 {
+    background-color: $global-fill-color-path-start-40;
+  }
+
+  &.-fill-color-path-end {
+    background-color: $global-fill-color-path-end;
+  }
+
+  &.-fill-color-aqua {
+    background-color: $global-fill-color-aqua;
+  }
+}

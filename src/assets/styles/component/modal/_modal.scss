@@ -1,0 +1,66 @@
+$modal-size: 600px !default;
+$modal-size-small: 300px !default;
+$modal-size-large: 900px !default;
+$modal-color: $global-fill-color-shade-100 !default;
+$modal-color-background: $global-fill-color-shade-0-85 !default;
+$modal-padding: 20px !default;
+$modal-vertical-spacing: 15px !default;
+$modal-header--button-size: 18px !default;
+$modal-header-spacing: 10px !default;
+$modal-header-button-color-glyph: $global-text-color-shade-50 !default;
+$modal-content-max-height: calc(100vh - 150px) !default;
+
+$modal-secondary-border-radius: 8px !default;
+$modal-secondary-color-background: $global-fill-color-shade-100 !default;
+$modal-secondary-color: $global-fill-color-shade-30 !default;
+
+.modal {
+  @include m-shadow;
+  width: $modal-size;
+  background-color: $modal-color-background;
+  color: $modal-color;
+  padding: 0;
+
+  &.-secondary {
+    color: $modal-secondary-color;
+    background-color: $modal-secondary-color-background;
+    border-radius: $modal-secondary-border-radius;
+  }
+
+  &.-small {
+    width: $modal-size-small;
+  }
+
+  &.-large {
+    width: $modal-size-large;
+  }
+
+  &--header {
+    display: flex;
+    align-items: flex-start;
+    padding: $modal-header-spacing $modal-header-spacing 0 $modal-padding;
+
+    &--title {
+      flex-basis: 0;
+      flex-grow: 1;
+      padding-top: $modal-header-spacing;
+    }
+
+    &--button {
+      margin: 0;
+      outline: none;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      color: $modal-header-button-color-glyph;
+      font-size: $modal-header--button-size;
+    }
+  }
+
+  &--content {
+    padding: $modal-padding;
+    max-height: $modal-content-max-height;
+    overflow: auto;
+  }
+}

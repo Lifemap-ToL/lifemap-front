@@ -1,0 +1,17 @@
+$link-color: $global-text-color-secondary;
+$link-hover-color: $global-text-color-secondary-dark;
+
+.link {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}

@@ -1,0 +1,7 @@
+
+.icon {
+  @include m-clickable;
+  @include m-font-size;
+  @include m-hover-color;
+  @include m-text-color;
+}

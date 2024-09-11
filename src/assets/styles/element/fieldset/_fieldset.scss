@@ -1,0 +1,21 @@
+$fieldset-border-color: $global-fill-color-shade-100 !default;
+$fieldset-disabled-fill-color: $global-fill-color-shade-5;
+$fieldset-disabled-border-color: $global-fill-color-shade-20;
+
+.fieldset {
+  margin: 0;
+  padding: 12px;
+  outline: none;
+  border: 1px solid $fieldset-border-color;
+
+  &--legend {
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    background-color: $fieldset-disabled-fill-color;
+    border: 1px solid $fieldset-disabled-border-color;
+  }
+}

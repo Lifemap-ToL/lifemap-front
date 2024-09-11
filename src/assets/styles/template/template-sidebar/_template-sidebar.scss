@@ -1,0 +1,28 @@
+$template-sidebar-fill-color: $global-fill-color-shade-50-faded !default;
+$template-sidebar-content-width: 260px !default;
+$template-sidebar-content-fill-color: $global-fill-color-shade-0 !default;
+$template-sidebar-content-text-color: $global-fill-color-shade-100 !default;
+
+.template-sidebar {
+  @include m-slide;
+  z-index: 5;
+
+  &--obfuscator {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $template-sidebar-fill-color;
+  }
+
+  &--content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $template-sidebar-content-width;
+    background-color: $template-sidebar-content-fill-color;
+    color: $template-sidebar-content-text-color;
+  }
+}

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- To add translation, please edit inside <switch> below using text editor. -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 256 68.27"
+   width="512"
+   height="137"
+   version="1.1"
+   id="svg122"
+   sodipodi:docname="EX_EN.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata128">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs126" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     id="namedview124"
+     showgrid="false"
+     inkscape:zoom="7.03125"
+     inkscape:cx="383.9159"
+     inkscape:cy="79.840547"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg122" />
+  <g
+     stroke-width=".6"
+     stroke="#666"
+     fill="#FFF"
+     transform="translate(0 49.5)"
+     id="g16">
+    <circle
+       cx="24.4"
+       r="13.3"
+       fill="#000"
+       id="circle2" />
+    <circle
+       cx="58"
+       r="13.3"
+       id="circle4" />
+    <circle
+       cx="92"
+       r="13.3"
+       id="circle6" />
+    <circle
+       cx="126"
+       r="13.3"
+       id="circle8" />
+    <circle
+       cx="161"
+       r="13.3"
+       id="circle10" />
+    <circle
+       cx="194"
+       r="13.3"
+       id="circle12" />
+    <circle
+       cx="228"
+       r="13.3"
+       id="circle14" />
+  </g>
+  <g
+     fill="#333"
+     id="g36">
+    <path
+       d="m48.4 54.1v-8.93h6.82v1.51h-4.96v1.98h4.62v1.5h-4.62v2.43h5.14v1.5zm9.89 0-2.2-8.93h1.9l1.39 6.14 1.68-6.14h2.21l1.61 6.24 1.41-6.24h1.87l-2.23 8.93h-1.97l-1.83-6.68-1.83 6.68z"
+       id="path18" />
+    <path
+       d="M89.3 50.8l1.8.555c-.276.975-.735 1.7-1.38 2.17s-1.46.71-2.44.71c-1.22 0-2.23-.405-3.01-1.22s-1.18-1.92-1.18-3.32.395-2.64 1.19-3.46 1.83-1.23 3.12-1.23c1.12 0 2.04.323 2.74.969.418.382.732.93.941 1.64l-1.84.427c-.109-.463-.336-.829-.681-1.1s-.764-.402-1.26-.402c-.682 0-1.24.238-1.66.713s-.637 1.24-.637 2.31.209 1.93.628 2.41.962.719 1.63.719c.494 0 .918-.152 1.27-.457s.611-.784.766-1.44z"
+       id="path20" />
+    <path
+       d="M92.71 54.08v-8.93h3.91c.983 0 1.7.0802 2.14.241s.802.446 1.07.856.402.88.402 1.41c0 .67-.203 1.22-.609 1.66s-1.01.712-1.82.826c.402.228.733.477.995.75s.614.756 1.06 1.45l1.12 1.74h-2.22l-1.34-1.94c-.477-.695-.803-1.13-.979-1.31s-.362-.305-.558-.372-.508-.101-.935-.101h-.376v3.73zm1.86-5.16h1.37c.891 0 1.45-.0366 1.67-.11s.395-.199.521-.378.188-.402.188-.67-.0826-.543-.248-.728-.398-.302-.7-.35c-.151-.0203-.602-.0305-1.36-.0305h-1.45z"
+       id="path22" />
+    <path
+       d="m118 54.1v-8.93h6.82v1.51h-4.96v1.98h4.62v1.5h-4.62v2.43h5.14v1.5zm8.6 0v-8.93h1.81l3.76 5.97v-5.97h1.73v8.93h-1.86l-3.71-5.83v5.83z"
+       id="path24" />
+    <path
+       d="M156.98 54.1H155l-3.29-8.93h2.01l2.33 6.61 2.25-6.61h1.97zm4.24-8.93h1.86v4.84c0 .768.0231 1.27.0691 1.49.0795.366.269.659.568.881s.708.332 1.23.332.924-.105 1.19-.314.429-.466.483-.771.0816-.811.0816-1.52v-4.94h1.86v4.69c0 1.07-.0502 1.83-.151 2.27s-.286.817-.555 1.12-.631.548-1.08.728-1.04.271-1.77.271-1.54-.0985-2-.296-.813-.453-1.08-.768-.437-.645-.521-.99-.182-1.27-.182-2.27z"
+       id="path26" />
+    <path
+       d="m186 54.1v-8.93h1.81l3.76 5.97v-5.97h1.73v8.93h-1.86l-3.71-5.83v5.83zm11.3 0v-7.42h-2.73v-1.51h7.31v1.51h-2.72v7.42z"
+       id="path28" />
+    <path
+       d="M233.7 50.8l1.8.555c-.276.975-.735 1.7-1.38 2.17s-1.46.71-2.44.71c-1.22 0-2.23-.405-3.01-1.22s-1.18-1.92-1.18-3.32.395-2.64 1.19-3.46 1.83-1.23 3.12-1.23c1.12 0 2.04.323 2.74.969.418.382.732.93.941 1.64l-1.84.427c-.109-.463-.336-.829-.681-1.1s-.764-.402-1.26-.402c-.682 0-1.24.238-1.66.713s-.637 1.24-.637 2.31.209 1.93.628 2.41.962.719 1.63.719c.494 0 .918-.152 1.27-.457s.611-.784.766-1.44z"
+       id="path30" />
+    <path
+       d="M220 54.1v-8.86h1.86v7.36h4.62v1.5z"
+       id="path32" />
+    <path
+       d="M90.8 31.6c-3.51 0-6.27.244-8.28.731s-3.42 1.31-4.25 2.46c0-1.59.559-2.81 1.68-3.66s2.87-1.44 5.24-1.77 5.58-.493 9.6-.493h18.4c2.46 0 4.42-.0689 5.86-.207s2.75-.461 3.91-.97c1.47-.806 2.28-1.52 2.42-2.15.708 1.05 2.04 1.88 3.99 2.48s4.66.843 8.36.843h20.8c5.97 0 9.92.498 11.8 1.49s2.93 2.43 2.93 4.44c-1.05-1.21-2.51-2.04-4.4-2.5s-4.58-.692-8.09-.692h-21.2c-4.19 0-7.4-.246-9.62-.739s-3.77-1.44-4.65-2.84c-.821 1.44-2.41 2.4-4.78 2.87s-5.81.707-10.3.707z"
+       id="path34"
+       style="fill:#ffffff" />
+  </g>
+  <path
+     fill="#C33"
+     d="M16.3 54.1v-8.93h6.82v1.51h-4.96v1.98h4.62v1.5h-4.62v2.43h5.14v1.5zm9.86 0h-2.21l3.14-4.67-2.85-4.27h2.17l1.84 2.87 1.81-2.87h2.15l-2.86 4.34 3.14 4.6h-2.24l-2.04-3.09z"
+     id="path38" />
+  <path
+     d="M 24.4,25.1 V 28.918333 32.76 M 227,25.1 v 7.66"
+     id="path40"
+     style="fill:#ffffff;stroke:#ffffff;stroke-opacity:1"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
+  <g
+     fill="#333"
+     font-family="sans-serif"
+     font-size="11"
+     text-anchor="middle"
+     id="g120">
+    <switch
+       transform="translate(24.7 22.2)"
+       id="switch60">
+      <text
+         systemLanguage="de"
+         id="txex-de">
+        <tspan
+           id="tspex-de"
+           x="20">Ausgestorben</tspan>
+      </text>
+      <text
+         systemLanguage="fr"
+         id="txex-fr"
+         style="fill:#ffffff;">
+        <tspan
+           id="tspex-fr"
+           style="fill:#ffffff;">Éteint</tspan>
+      </text>
+      <text
+         systemLanguage="hu"
+         id="txex-hu">
+        <tspan
+           id="tspex-hu">Kihalt</tspan>
+      </text>
+      <text
+         systemLanguage="id"
+         id="txex-id">
+        <tspan
+           id="tspex-id">Punah</tspan>
+      </text>
+      <text
+         systemLanguage="ja"
+         id="txex-ja">
+        <tspan
+           id="tspex-ja">絶滅</tspan>
+      </text>
+      <text
+         systemLanguage="vi"
+         id="txex-vi">
+        <tspan
+           id="tspex-vi"
+           x="1">T. chủng</tspan>
+      </text>
+      <text
+         systemLanguage="my"
+         id="txex-my">
+        <tspan
+           id="tspex-my"
+           x="1">မျိုးသုဉ်းခြင်း</tspan>
+      </text>
+      <text
+         id="txex-tl"
+         systemLanguage="tl">
+        <tspan
+           id="tspex-tl"
+           x="1">Nalipol</tspan>
+      </text>
+      <text
+         id="txex">
+        <tspan
+           id="tspex"
+           x="1">Extinct</tspan>
+      </text>
+    </switch>
+    <switch
+       transform="translate(124.3 22.2)"
+       id="switch80"
+       style="fill:#ffffff">
+      <text
+         systemLanguage="de"
+         id="txth-de"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-de"
+           style="fill:#ffffff">Gefährdet</tspan>
+      </text>
+      <text
+         systemLanguage="fr"
+         id="txth-fr"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-fr"
+           style="fill:#ffffff">Menacé</tspan>
+      </text>
+      <text
+         systemLanguage="hu"
+         id="txth-hu"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-hu"
+           x="1"
+           style="fill:#ffffff">Veszélyeztetett</tspan>
+      </text>
+      <text
+         systemLanguage="id"
+         id="txth-id"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-id"
+           x="1"
+           style="fill:#ffffff">Terancam</tspan>
+      </text>
+      <text
+         systemLanguage="ja"
+         id="txth-ja"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-ja"
+           x="1"
+           style="fill:#ffffff">絶滅危惧</tspan>
+      </text>
+      <text
+         systemLanguage="vi"
+         id="txth-vi"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-vi"
+           x="1.5"
+           style="fill:#ffffff">Bị đe dọa</tspan>
+      </text>
+      <text
+         systemLanguage="my"
+         id="txth-my"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-my"
+           x="1.5"
+           style="fill:#ffffff">အန္တရာယ်ကျရောက်</tspan>
+      </text>
+      <text
+         id="txth-tl"
+         systemLanguage="tl"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth-tl"
+           x="1.5"
+           style="fill:#ffffff">Nanganganib</tspan>
+      </text>
+      <text
+         id="txth"
+         style="fill:#ffffff">
+        <tspan
+           id="tspth"
+           x="1.5"
+           style="fill:#ffffff">Threatened</tspan>
+      </text>
+    </switch>
+    <switch
+       transform="translate(226.6 11.4)"
+       id="switch98">
+      <text
+         systemLanguage="de"
+         id="txLC1-de">
+        <tspan
+           id="tspLC1-de">Nicht</tspan>
+      </text>
+      <text
+         systemLanguage="fr"
+         id="txLC1-fr"
+         style="fill:#ffffff;">
+        <tspan
+           id="tspLC1-fr"
+           x="-3"
+           style="fill:#ffffff;">Préoccup.</tspan>
+      </text>
+      <text
+         systemLanguage="hu"
+         id="txLC1-hu">
+        <tspan
+           id="tspLC1-hu"
+           x="-1">Nem</tspan>
+      </text>
+      <text
+         systemLanguage="id"
+         id="txLC1-id">
+        <tspan
+           id="tspLC1-id"
+           x="-1">Risiko</tspan>
+      </text>
+      <text
+         systemLanguage="vi"
+         id="txLC1-vi">
+        <tspan
+           id="tspLC1-vi">Ít</tspan>
+      </text>
+      <text
+         systemLanguage="my"
+         id="txLC1-my">
+        <tspan
+           id="tspLC1-my">အနည်းဆုံး</tspan>
+      </text>
+      <text
+         id="txLC1-tl"
+         systemLanguage="tl">
+        <tspan
+           id="tspLC1-tl">Maliit na</tspan>
+      </text>
+      <text
+         id="txLC1">
+        <tspan
+           id="tspLC1">Least</tspan>
+      </text>
+    </switch>
+    <switch
+       transform="translate(226 22.1)"
+       id="switch118">
+      <text
+         systemLanguage="de"
+         id="txLC2-de">
+        <tspan
+           id="tspLC2-de"
+           x="-6">Gefährdet</tspan>
+      </text>
+      <text
+         systemLanguage="fr"
+         id="txLC2-fr"
+         style="fill:#ffffff;">
+        <tspan
+           id="tspLC2-fr"
+           x="1"
+           style="fill:#ffffff;">min.</tspan>
+      </text>
+      <text
+         systemLanguage="hu"
+         id="txLC2-hu">
+        <tspan
+           id="tspLC2-hu"
+           x="1">vesz.</tspan>
+      </text>
+      <text
+         systemLanguage="id"
+         id="txLC2-id">
+        <tspan
+           id="tspLC2-id">rendah</tspan>
+      </text>
+      <text
+         systemLanguage="ja"
+         id="txLC2-ja">
+        <tspan
+           id="tspLC2-ja">低危険種</tspan>
+      </text>
+      <text
+         systemLanguage="vi"
+         id="txLC2-vi">
+        <tspan
+           id="tspLC2-vi">quan tâm</tspan>
+      </text>
+      <text
+         systemLanguage="my"
+         id="txLC2-my">
+        <tspan
+           id="tspLC2-my">စိုးရိမ်စရာ</tspan>
+      </text>
+      <text
+         id="txLC2-tl"
+         systemLanguage="tl">
+        <tspan
+           id="tspLC2-tl">Pag-alala</tspan>
+      </text>
+      <text
+         id="txLC2">
+        <tspan
+           id="tspLC2">Concern</tspan>
+      </text>
+    </switch>
+  </g>
+</svg>
