@@ -146,12 +146,13 @@ if (import.meta.env.VITE_ENABLE_MATOMO_TRACKING === 'true') {
   app.use(VueMatomo, {
     host: 'https://lbbe-analytics.univ-lyon1.fr/',
     siteId: 6,
-    trackerFileName: 'matomo',
     router: router,
-    disableCookies: false,
-    trackInitialView: true,
-    enableLinkTracking: true,
   });
+
+  window._paq.push(['trackPageView']); // Pour suivre les visites sur vos pages
+  window._paq.push(['disableCampaignParameters']);
+  window._paq.push(['disableCookies']);
+  window._paq.push(['enableLinkTracking']);
 }
 
 app.mount('#app');
