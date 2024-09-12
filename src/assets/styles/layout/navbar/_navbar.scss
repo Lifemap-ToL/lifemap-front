@@ -47,6 +47,11 @@ $navbar-separator-spacing: 18px !default;
     @include navbar-item;
     padding: 0 $navbar-link-spacing;
     font-size: $global-lg-font-size;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &--separator {
