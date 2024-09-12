@@ -26,13 +26,14 @@
     </a>
     <div class="navbar--separator -desktop"></div>
     <div class="navbar--social -desktop">
-      <i class="icon -color-facebook-light -hover-color-facebook -font-xl mdi mdi-facebook"></i>
+      <a href="https://x.com/lifemap_tol" target="_blank" rel="noopener noreferrer">
+        <XIconVue></XIconVue>
+      </a>
     </div>
     <div class="navbar--social -desktop">
-      <i class="icon -color-twitter-light -hover-color-twitter -font-xl mdi mdi-twitter"></i>
-    </div>
-    <div class="navbar--social -desktop">
-      <i class="icon -color-github-light -hover-color-github -clickable -font-xl mdi mdi-github"></i>
+      <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">
+        <GithubIconVue></GithubIconVue>
+      </a>
     </div>
     <div class="navbar--link">
       <LanguageDropdownVue></LanguageDropdownVue>

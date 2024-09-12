@@ -4,10 +4,13 @@
       <img src="@/assets/images/logo-lifemap.png" alt="Lifemap header logo" class="nav-sidebar--brand--logo" />
       <div class="nav-sidebar--brand--title">Lifemap</div>
     </div>
-    <div class="flex-container -gap-xs -justify-center">
-      <i class="icon -color-facebook-light -hover-color-facebook -font-xl mdi mdi-facebook"></i>
-      <i class="icon -color-twitter-light -hover-color-twitter -font-xl mdi mdi-twitter"></i>
-      <i class="icon -color-github-light -hover-color-github -clickable -font-xl mdi mdi-github"></i>
+    <div class="flex-container -justify-center">
+      <a href="https://x.com/lifemap_tol" target="_blank" rel="noopener noreferrer">
+        <XIconVue></XIconVue>
+      </a>
+      <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">
+        <GithubIconVue></GithubIconVue>
+      </a>
     </div>
     <div class="menu">
       <a
@@ -30,4 +33,4 @@
   </nav>
 </template>
 
-<script lang="ts" src="./NavSidebarComponent"></script>
+<script lang="ts" src="./NavSidebar.component.ts"></script>
