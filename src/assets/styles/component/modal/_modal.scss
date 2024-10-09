@@ -16,7 +16,7 @@ $modal-secondary-color: $global-fill-color-shade-30 !default;
 
 .modal {
   @include m-shadow;
-  width: $modal-size;
+  max-width: $modal-size;
   background-color: $modal-color-background;
   color: $modal-color;
   padding: 0;
@@ -28,11 +28,11 @@ $modal-secondary-color: $global-fill-color-shade-30 !default;
   }
 
   &.-small {
-    width: $modal-size-small;
+    max-width: $modal-size-small;
   }
 
   &.-large {
-    width: $modal-size-large;
+    max-width: $modal-size-large;
   }
 
   &--header {
