@@ -29,9 +29,11 @@ export class Clickable extends Interaction {
   }
 
   private onPointerMove(event: PointerEvent) {
-    this.hoveredFeature = this.getFeatureAtPixel(event.pixel);
-    const cursor = this.hoveredFeature ? 'pointer' : '';
-    this.getMap()!.getTargetElement().style.cursor = cursor;
+    if (event.originalEvent.target.nodeName === 'CANVAS') {
+      this.hoveredFeature = this.getFeatureAtPixel(event.pixel);
+      const cursor = this.hoveredFeature ? 'pointer' : '';
+      this.getMap()!.getTargetElement().style.cursor = cursor;
+    }
   }
 
   setMap(map: Map) {

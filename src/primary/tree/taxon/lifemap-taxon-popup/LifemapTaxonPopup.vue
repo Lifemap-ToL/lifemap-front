@@ -1,5 +1,5 @@
 <template>
-  <div class="popup" @pointermove.stop.prevent>
+  <div class="popup">
     <template v-if="state === 'ERROR'">
       <div class="popup--body">
         <div class="block -pv16 text -font-lg">
