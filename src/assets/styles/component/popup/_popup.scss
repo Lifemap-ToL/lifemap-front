@@ -13,6 +13,7 @@ $popup-line-height: (strip-units($popup-font-size)) * 1.55rem !default;
   font-size: $popup-font-size;
   line-height: $popup-line-height;
   overflow: hidden;
+  user-select: text;
 
   &--header {
     display: flex;
