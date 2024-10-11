@@ -9,6 +9,7 @@ $sidebar-width: 250px !default;
   padding: 24px 16px;
   background-color: $sidebar-fill-color;
   height: calc(100% - 48px);
+  user-select: text;
 
   &--slot {
 

@@ -104,19 +104,17 @@ export class Select extends Interaction {
   }
 
   onPointerMove(event: any): void {
-    if (event.originalEvent.target.nodeName === 'CANVAS') {
-      this.hoveredFeature = this.getFeatureAtPixel(event.pixel);
+    this.hoveredFeature = event.originalEvent.target.nodeName !== 'CANVAS' ? undefined : this.getFeatureAtPixel(event.pixel);
 
-      if (!this.sameFeatures(this.hoveredFeature, this.selectableFeature)) {
-        this.updateSelectableFeature();
-        this.updateSelectableStyles();
-        this.dispatchSelectableEvents(this.getMap()!.getCoordinateFromPixel(event.pixel));
+    if (!this.sameFeatures(this.hoveredFeature, this.selectableFeature)) {
+      this.updateSelectableFeature();
+      this.updateSelectableStyles();
+      this.dispatchSelectableEvents(this.getMap()!.getCoordinateFromPixel(event.pixel));
 
-        const position = this.selectableFeature ? this.selectableFeature.getGeometry()!.getCoordinates() : undefined;
+      const position = this.selectableFeature ? this.selectableFeature.getGeometry()!.getCoordinates() : undefined;
 
-        if (this.overlay) {
-          this.overlay.setPosition(position);
-        }
+      if (this.overlay) {
+        this.overlay.setPosition(position);
       }
     }
   }
