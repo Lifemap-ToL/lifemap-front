@@ -1,5 +1,6 @@
 import { Component, Prop, Vue } from 'vue-facing-decorator';
 import { Map } from 'ol';
+import { fromLonLat } from 'ol/proj';
 
 @Component
 export default class HomeControlComponent extends Vue {
@@ -10,6 +11,6 @@ export default class HomeControlComponent extends Vue {
   mapInitialZoom = 5;
 
   zoomToInitialExtent() {
-    this.map.getView().animate({ center: this.mapInitialCenter, zoom: this.mapInitialZoom });
+    this.map.getView().animate({ center: fromLonLat(this.mapInitialCenter), zoom: this.mapInitialZoom });
   }
 }
