@@ -51,6 +51,8 @@ export default class WikipediaContentComponent extends Vue {
   private update(locale: 'en' | 'fr') {
     this.state = ComponentState.PENDING;
 
+    console.log('update');
+
     this.taxonRepository()
       .findTaxonWikipediaPages(this.taxon.ncbiId)
       .then(taxonWikipediaPages => {
@@ -65,7 +67,9 @@ export default class WikipediaContentComponent extends Vue {
   }
 
   @Watch('taxon')
-  taxonWatcher() {
-    this.update(this.$i18n.locale as 'en' | 'fr');
+  taxonWatcher(newTaxon: TaxonFeatureProperties, oldTaxon: TaxonFeatureProperties) {
+    if (newTaxon.id !== oldTaxon.id) {
+      this.update(this.$i18n.locale as 'en' | 'fr');
+    }
   }
 }
