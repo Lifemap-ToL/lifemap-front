@@ -65,7 +65,9 @@ export default class WikipediaContentComponent extends Vue {
   }
 
   @Watch('taxon')
-  taxonWatcher() {
-    this.update(this.$i18n.locale as 'en' | 'fr');
+  taxonWatcher(newTaxon: TaxonFeatureProperties, oldTaxon: TaxonFeatureProperties) {
+    if (newTaxon.id !== oldTaxon.id) {
+      this.update(this.$i18n.locale as 'en' | 'fr');
+    }
   }
 }
