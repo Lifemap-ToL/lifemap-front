@@ -51,8 +51,6 @@ export default class WikipediaContentComponent extends Vue {
   private update(locale: 'en' | 'fr') {
     this.state = ComponentState.PENDING;
 
-    console.log('update');
-
     this.taxonRepository()
       .findTaxonWikipediaPages(this.taxon.ncbiId)
       .then(taxonWikipediaPages => {
