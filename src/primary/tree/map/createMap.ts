@@ -25,7 +25,7 @@ export function createMap(
     minZoom: MAP_MIN_ZOOM,
     maxZoom: MAP_MAX_ZOOM,
     extent: transformExtent(MAP_EXTENT, 'EPSG:4326', 'EPSG:3857'),
-    constrainResolution: true,
+    constrainResolution: false,
     enableRotation: false,
   });
 
