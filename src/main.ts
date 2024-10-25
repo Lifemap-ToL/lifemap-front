@@ -36,6 +36,7 @@ import { createSelectedLUCAStyle } from '@/primary/tree/map/style/createSelected
 import { createSelectableLUCAStyle } from '@/primary/tree/map/style/createSelectableLUCAStyle';
 import { Clickable } from '@/primary/tree/map/interaction/Clickable';
 import VueMatomo from 'vue-matomo';
+import { createView } from '@/primary/tree/map/view/createView';
 
 const browserLocale = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
 const wikipediaPreferredLanguage = window.localStorage.getItem('wikipedia-preferred-language');
@@ -72,7 +73,9 @@ const wikidataCaller = new WikidataCaller(wikidataQueryServiceAxiosInstance);
 const restTreeRepository = new RESTTreeRepository(lifemapAxiosInstance);
 const restTaxonRepository = new RESTTaxonRepository(lifemapAxiosInstance, wikidataCaller, i18n.global as VueI18n);
 
-const rankPolygonLayer = createRankPolygonLayer();
+const view = createView();
+
+const rankPolygonLayer = createRankPolygonLayer(view);
 const rankLabelLayer = createRankLabelLayer(locale as 'en' | 'fr');
 const branchLayer = createBranchLayer();
 
@@ -103,6 +106,7 @@ const lucaSelect = new Select(lucaSelectOptions);
 const clickable = new Clickable({ id: 'clickable', layers: [lucaLayer, taxonLayer] });
 
 const map = createMap(
+  view,
   [rankPolygonLayer, rankLabelLayer, branchLayer],
   [subtreeLayer, ancestorRouteLayer, taxonLayer, lucaLayer],
   [select, lucaSelect, clickable],
