@@ -16,7 +16,7 @@ $page-center-margin-bottom: $size-header-height + 60px !default;
   white-space: pre-wrap;
 
   &.-center {
-    justify-page: center;
+    justify-content: center;
     height: 0;
     margin-bottom: $page-center-margin-bottom;
   }

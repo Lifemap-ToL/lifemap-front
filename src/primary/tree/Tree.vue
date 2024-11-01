@@ -57,8 +57,12 @@
         </MapLayoutVue>
       </template>
       <template v-else-if="state === 'ERROR'">
-        <div class="content -center">
-          <MessageVue>{{ $t('lifemap-not-available-message') }}</MessageVue>
+        <div class="page -center">
+          <MessageVue>
+            <div class="content -center">
+              <span class="text -font-lg">{{ $t('lifemap-not-available-message') }}</span>
+            </div>
+          </MessageVue>
         </div>
       </template>
     </template>
