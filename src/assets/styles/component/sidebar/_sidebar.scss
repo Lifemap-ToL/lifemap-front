@@ -1,27 +1,36 @@
+$sidebar-border-color: $global-fill-color-shade-50-faded !default;
 $sidebar-fill-color: $global-fill-color-shade-0-85 !default;
-$sidebar-width: 250px !default;
+$sidebar-width: 280px !default;
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   width: $sidebar-width;
-  padding: 24px 16px;
   background-color: $sidebar-fill-color;
-  height: calc(100% - 48px);
+  border-right: 1px solid $sidebar-border-color;
+  height: 100%;
   user-select: text;
 
-  &--slot {
+  &--header {
+    padding: 12px 12px 6px 12px;
+  }
 
-    &.-expand {
-      flex-basis: 0;
-      flex-grow: 1;
-      min-width: 0;
-    }
+  &--body {
+    display: flex;
+    height: calc(100% - 28px);
+    flex-direction: column;
+    padding: 12px 16px 16px 16px;
+    gap: 24px;
 
-    &.-scrollable {
-      overflow-y: auto;
-      overflow-x: hidden;
+    &--slot {
+      &.-expand {
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 0;
+      }
+
+      &.-scrollable {
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
     }
   }
 }

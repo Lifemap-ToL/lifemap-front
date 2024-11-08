@@ -12,7 +12,6 @@
         </div>
       </template>
     </template>
-
     <template #navigation>
       <template v-if="state === 'SUCCESS'">
         <div class="block -ph16">

@@ -4,7 +4,7 @@ import { AncestorFormVue } from '@/primary/tree/ancestor/ancestor-sidebar/ancest
 import type { AppBus } from '@/primary/common/AppBus';
 import { MessageVue } from '@/primary/common/message';
 
-@Component({ components: { AncestorFormVue, MessageVue } })
+@Component({ components: { AncestorFormVue, MessageVue }, emits: ['close'] })
 export default class AncestorSidebarComponent extends Vue {
   @Prop({ type: Object, required: false })
   ancestor?: Taxon;
