@@ -27,7 +27,17 @@ $content-padding-xs: 8px !default;
     padding: $content-padding-xs;
   }
 
+  &.-padding-less {
+    padding: 0;
+  }
+
   &.-center {
     text-align: center;
+  }
+
+  &.-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

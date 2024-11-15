@@ -15,7 +15,7 @@
     <div class="autocomplete--suggestion-list">
       <template v-if="state === 'SUCCESS'">
         <div v-for="taxonSuggestion in taxonSuggestionProjections" :key="taxonSuggestion.ncbiId" class="autocomplete--suggestion-item">
-          <div class="flex-container -vertical -gap-xs" @click.stop.prevent="select(taxonSuggestion)">
+          <div class="flex-container -vertical -gap-xxs" @click.stop.prevent="select(taxonSuggestion)">
             <div>
               <span
                 v-for="(slice, index) in taxonSuggestion.scientificNameSlices"
@@ -25,15 +25,18 @@
               >
                 {{ slice }}
               </span>
-              <template v-if="taxonSuggestion.commonNameSlices.length > 0"></template>
-              <span
-                v-for="(slice, index) in taxonSuggestion.commonNameSlices"
-                :key="`${taxonSuggestion.ncbiId}-com-${index}`"
-                class="text"
-                :class="{ '-color-shade-100': matchSearch(slice), '-bold': matchSearch(slice) }"
-              >
-                {{ slice }}
-              </span>
+            </div>
+            <div>
+              <template v-if="taxonSuggestion.commonNameSlices.length > 0">
+                <span
+                  v-for="(slice, index) in taxonSuggestion.commonNameSlices"
+                  :key="`${taxonSuggestion.ncbiId}-com-${index}`"
+                  class="text -font-sm"
+                  :class="{ '-color-shade-100': matchSearch(slice), '-bold': matchSearch(slice) }"
+                >
+                  {{ slice }}
+                </span>
+              </template>
             </div>
             <div class="text -uppercase -font-xs -color-shade-75">
               <span
