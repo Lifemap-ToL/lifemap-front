@@ -14,9 +14,9 @@ export function queryTaxonWikidataRecord(ncbiId: number) {
 }
 
 export function queryTaxonWikipediaPages(ncbiId: number) {
-  return `SELECT DISTINCT ?article ?lang ?name WHERE {
+  return `SELECT DISTINCT ?article ?lang ?name  WHERE {
   {
-    SELECT DISTINCT ?article ?lang ?name WHERE {
+    SELECT DISTINCT ?article ?lang ?name  WHERE {
       ?taxid ps:P685 "${ncbiId}". 
       ?speciesId p:P685 ?taxid.
       ?article schema:about ?speciesId.
@@ -26,17 +26,33 @@ export function queryTaxonWikipediaPages(ncbiId: number) {
       SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
     }
   }
-  UNION {
-    SELECT DISTINCT ?article ?lang ?name WHERE {
-      ?taxid ps:P685 "${ncbiId}". 
-      ?speciesId p:P685 ?taxid.
-      ?species ^wdt:P366 ?speciesId .
-      ?article schema:about ?species.
-      ?article schema:name ?name.
-      ?article schema:isPartOf [ wikibase:wikiGroup "wikipedia" ] . 
-      ?article schema:inLanguage ?lang .
-      SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
+  OPTIONAL {
+    {
+      SELECT (COUNT(*) AS ?count) WHERE {
+          SELECT DISTINCT ?article ?lang ?name  WHERE {
+              ?taxid ps:P685 "${ncbiId}". 
+              ?speciesId p:P685 ?taxid.
+              ?article schema:about ?speciesId.
+              ?article schema:name ?name.
+              ?article schema:isPartOf [ wikibase:wikiGroup "wikipedia" ] . 
+              ?article schema:inLanguage ?lang .
+              SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
+          }
+        }
       }
-    }
+      FILTER(?count = 0)
+      {
+        SELECT DISTINCT ?article ?lang ?name  WHERE {
+            ?taxid ps:P685 "${ncbiId}". 
+            ?speciesId p:P685 ?taxid.
+            ?species ^wdt:P366 ?speciesId .
+            ?article schema:about ?species.
+            ?article schema:name ?name.
+            ?article schema:isPartOf [ wikibase:wikiGroup "wikipedia" ] . 
+            ?article schema:inLanguage ?lang .
+            SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
+        }
+      }
+    } 
   }`;
 }
