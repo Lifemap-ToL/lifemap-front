@@ -2,9 +2,17 @@ import Map from 'ol/Map.js';
 import { Overlay, View } from 'ol';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-import { type Interaction } from 'ol/interaction';
+import { MouseWheelZoom, type Interaction } from 'ol/interaction';
 import { defaults } from 'ol/interaction/defaults';
 import VectorTileLayer from 'ol/layer/VectorTile';
+
+const mouseWheelZoom = new MouseWheelZoom({
+  onFocusOnly: false,
+  constrainResolution: false,
+  maxDelta: 1,
+  duration: 300,
+  timeout: 100,
+});
 
 export function createMap(
   view: View,
@@ -16,7 +24,7 @@ export function createMap(
   return new Map({
     view,
     layers: [...vectorTileLayers, ...vectorLayers],
-    interactions: [...interactions, ...defaults().getArray()],
+    interactions: [...interactions, ...defaults().extend([mouseWheelZoom]).getArray()],
     overlays,
     controls: [],
   });
