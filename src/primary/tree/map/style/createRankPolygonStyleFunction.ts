@@ -17,7 +17,7 @@ export function createRankPolygonStyleFunction(view: View): (feature: FeatureLik
     const themeColor = FILL_COLORS[feature.get('ref') as number];
     const currentZoom = view.getZoom();
     const zoomLevel = feature.get('zoomview');
-    const opacityFactor = currentZoom !== undefined ? 1 - Math.abs(zoomLevel - currentZoom) / 6 : 1;
+    const opacityFactor = currentZoom !== undefined ? 1 - Math.abs(currentZoom - zoomLevel - 1) / 5 : 1;
     const fillColor = [themeColor[0], themeColor[1], themeColor[2], themeColor[3] * opacityFactor];
     return new Style({
       fill: new Fill({ color: fillColor }),

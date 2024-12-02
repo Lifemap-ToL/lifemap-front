@@ -11,5 +11,6 @@ export function createBranchLayer(): VectorTileLayer {
     style: createBranchStyle(),
     declutter: true,
     renderMode: 'vector',
+    renderBuffer: 256,
   });
 }
