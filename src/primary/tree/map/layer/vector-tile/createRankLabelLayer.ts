@@ -15,5 +15,6 @@ export function createRankLabelLayer(lang: 'en' | 'fr'): VectorTileLayer {
     style: createRankLabelStyleFunction(lang),
     declutter: true,
     renderMode: 'vector',
+    renderBuffer: 256,
   });
 }

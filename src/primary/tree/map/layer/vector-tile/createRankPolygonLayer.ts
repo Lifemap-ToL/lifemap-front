@@ -18,5 +18,6 @@ export function createRankPolygonLayer(view: View): VectorTileLayer {
     style: createRankPolygonStyleFunction(view),
     declutter: false,
     renderMode: 'vector',
+    renderBuffer: 256,
   });
 }
