@@ -144,4 +144,20 @@ export class Select extends Interaction {
     map.on('singleclick', this.onClick);
     map.on('pointermove', this.onPointerMove);
   }
+
+  activate() {
+    const map = this.getMap();
+    if (map !== null) {
+      map.on('singleclick', this.onClick);
+      map.on('pointermove', this.onPointerMove);
+    }
+  }
+
+  deactivate() {
+    const map = this.getMap();
+    if (map !== null) {
+      map.un('singleclick', this.onClick);
+      map.un('pointermove', this.onPointerMove);
+    }
+  }
 }

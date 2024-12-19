@@ -43,4 +43,18 @@ export class Clickable extends Interaction {
     super.setMap(map);
     map.on('pointermove', this.onPointerMove);
   }
+
+  activate() {
+    const map = this.getMap();
+    if (map !== null) {
+      map.on('pointermove', this.onPointerMove);
+    }
+  }
+
+  deactivate() {
+    const map = this.getMap();
+    if (map !== null) {
+      map.un('pointermove', this.onPointerMove);
+    }
+  }
 }

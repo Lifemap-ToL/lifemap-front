@@ -12,7 +12,7 @@ const FILL_COLORS: Record<number, Array<number>> = {
   3: BACTERIA_FILL_COLOR,
 };
 
-export function createRankPolygonStyleFunction(view: View): (feature: FeatureLike, resolution: number, context: any) => Style {
+export function createRankPolygonStyleFunction(view: View): (feature: FeatureLike) => Style {
   return function (feature: FeatureLike): Style {
     const themeColor = FILL_COLORS[feature.get('ref') as number];
     const currentZoom = view.getZoom();
