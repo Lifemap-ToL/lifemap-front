@@ -25,10 +25,6 @@ import { createSubtreeLayer } from '@/primary/tree/map/layer/vector/createSubtre
 import { MittAlertBus } from '@/secondary/alert/MittAlertBus';
 import { createI18n, type VueI18n } from 'vue-i18n';
 import { ConsoleLogger } from '@/secondary/ConsoleLogger';
-import { createRankPolygonLayer } from '@/primary/tree/map/layer/vector-tile/createRankPolygonLayer';
-import { createBranchLayer } from '@/primary/tree/map/layer/vector-tile/createBranchLayer';
-import { createRankLabelLayer } from '@/primary/tree/map/layer/vector-tile/createRankLabelLayer';
-import { createRankLabelStyleFunction } from '@/primary/tree/map/style/createRankLabelStyleFunction';
 import { RESTTreeRepository } from '@/secondary/tree/RESTTreeRepository';
 import { WikidataCaller } from '@/secondary/wikidata/WikidataCaller';
 import { createLUCALayer } from '@/primary/tree/map/layer/vector/createLUCALayer';
@@ -37,6 +33,8 @@ import { createSelectableLUCAStyle } from '@/primary/tree/map/style/createSelect
 import { Clickable } from '@/primary/tree/map/interaction/Clickable';
 import VueMatomo from 'vue-matomo';
 import { createView } from '@/primary/tree/map/view/createView';
+import { createCompositeLayer } from './primary/tree/map/layer/vector-tile/createCompositeLayer';
+import { createCompositeStyleFunction } from './primary/tree/map/style/createCompositeStyleFunction';
 
 const browserLocale = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
 const wikipediaPreferredLanguage = window.localStorage.getItem('wikipedia-preferred-language');
@@ -75,9 +73,7 @@ const restTaxonRepository = new RESTTaxonRepository(lifemapAxiosInstance, wikida
 
 const view = createView();
 
-const rankPolygonLayer = createRankPolygonLayer(view);
-const rankLabelLayer = createRankLabelLayer(locale as 'en' | 'fr');
-const branchLayer = createBranchLayer();
+const compositeLayer = createCompositeLayer(view, locale as 'en' | 'fr');
 
 const lucaLayer = createLUCALayer();
 const taxonLayer = createTaxonLayer();
@@ -107,7 +103,7 @@ const clickable = new Clickable({ id: 'clickable', layers: [lucaLayer, taxonLaye
 
 const map = createMap(
   view,
-  [rankPolygonLayer, rankLabelLayer, branchLayer],
+  [compositeLayer],
   [subtreeLayer, ancestorRouteLayer, taxonLayer, lucaLayer],
   [select, lucaSelect, clickable],
   [taxonTooltipOverlay]
@@ -130,7 +126,7 @@ const app = createApp(AppVue);
 const appBus = new AppBus(mitt());
 
 appBus.on('changelocale', locale => {
-  rankLabelLayer.setStyle(createRankLabelStyleFunction(locale));
+  compositeLayer.setStyle(createCompositeStyleFunction(view, locale));
   window.localStorage.setItem('app-language', locale);
 });
 
