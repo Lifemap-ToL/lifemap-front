@@ -113,6 +113,18 @@ const map = createMap(
   [taxonTooltipOverlay]
 );
 
+map.on('movestart', () => {
+  select.deactivate();
+  lucaSelect.deactivate();
+  clickable.deactivate();
+});
+
+map.on('moveend', () => {
+  select.activate();
+  lucaSelect.activate();
+  clickable.activate();
+});
+
 const app = createApp(AppVue);
 
 const appBus = new AppBus(mitt());
