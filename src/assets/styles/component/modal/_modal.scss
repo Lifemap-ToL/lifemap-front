@@ -10,12 +10,18 @@ $modal-header-spacing: 10px !default;
 $modal-header-button-color-glyph: $global-text-color-shade-50 !default;
 $modal-content-max-height: calc(100vh - 150px) !default;
 
+
 $modal-secondary-border-radius: 8px !default;
 $modal-secondary-color-background: $global-fill-color-shade-100 !default;
 $modal-secondary-color: $global-fill-color-shade-30 !default;
 
+$modal-desktop-breakpoint: 800px !default;
+
 .modal {
   @include m-shadow;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   max-width: $modal-size;
   background-color: $modal-color-background;
   color: $modal-color;
@@ -59,7 +65,9 @@ $modal-secondary-color: $global-fill-color-shade-30 !default;
   }
 
   &--content {
+    box-sizing: border-box;
     padding: $modal-padding;
+    height: 100%;
     max-height: $modal-content-max-height;
     overflow: auto;
   }

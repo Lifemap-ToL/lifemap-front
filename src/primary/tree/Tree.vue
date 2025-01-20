@@ -27,21 +27,27 @@
             </button>
           </template>
           <template #left-bar>
-            <SearchSidebarVue v-if="tool === 'search'" @select="searchTaxon"></SearchSidebarVue>
+            <SearchSidebarVue v-if="tool === 'search'" @select="searchTaxon" @close="changeTool('search')"></SearchSidebarVue>
             <AncestorSidebarVue
               v-if="tool === 'ancestor'"
               :ancestor="ancestor"
               :ancestorRoute="ancestorRoute"
               :onAncestorRouteFit="fitToAncestorRoute"
+              @close="changeTool('ancestor')"
             ></AncestorSidebarVue>
             <SubtreeSidebarVue
               v-if="tool === 'subtree'"
               :taxonSubtree="taxonSubtree"
               :leafs="subtreeLeafs"
               :onSubtreeFit="fitView"
+              @close="changeTool('subtree')"
             ></SubtreeSidebarVue>
-            <AdditionalDataSidebarVue v-if="tool === 'additional-data'" :additional="additional"></AdditionalDataSidebarVue>
-            <ParametersSidebarVue v-if="tool === 'parameters'"></ParametersSidebarVue>
+            <AdditionalDataSidebarVue
+              v-if="tool === 'additional-data'"
+              :additional="additional"
+              @close="changeTool('additional-data')"
+            ></AdditionalDataSidebarVue>
+            <ParametersSidebarVue v-if="tool === 'parameters'" @close="changeTool('parameters')"></ParametersSidebarVue>
           </template>
           <template #right-bar>
             <LUCAPopupVue v-if="lucaSelected" @close="unselectLUCA"></LUCAPopupVue>
