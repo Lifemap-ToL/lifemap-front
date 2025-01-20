@@ -32,6 +32,15 @@
           </template>
         </WikipediaPageSummaryVue>
       </div>
+      <div v-else-if="taxonWikipediaAvailablePages.length > 0" class="flex-container -vertical">
+        <MessageVue>
+          {{ $t('no-wikipedia-article-in-preferred-language-message') }}
+        </MessageVue>
+        <WikipediaAvailablePagesDropdownVue
+          :taxonWikipediaPages="taxonWikipediaAvailablePages"
+          @select="currentTaxonWikipediaPage = $event"
+        ></WikipediaAvailablePagesDropdownVue>
+      </div>
       <MessageVue v-else>
         {{ $t('no-wikipedia-article-message') }}
       </MessageVue>
