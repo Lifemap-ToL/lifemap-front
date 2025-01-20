@@ -55,6 +55,11 @@ export class TaxonMixin extends Vue {
   taxonSource!: VectorSource<Point>;
   taxonSelect!: Select;
 
+  get defaultTaxonIdToSelect(): number | undefined {
+    const { tid } = this.$router.currentRoute.value.query as Record<string, string>;
+    return tid && /^\d+$/.test(tid) ? parseInt(tid) : undefined;
+  }
+
   created() {
     this.taxonSource = this.taxonLayer().getSource()!;
     this.taxonSelect = this.map().getInteractions().item(0) as Select;
@@ -63,6 +68,7 @@ export class TaxonMixin extends Vue {
     this.taxonSelect.on('unselect', this.onUnselectTaxon);
     this.map().on('moveend', this.onMapMoveEnd);
     this.appBus().on('changelocale', this.loadTaxa);
+    this.selectDefaultTaxonIdIfDefined();
   }
 
   mounted() {
@@ -86,12 +92,27 @@ export class TaxonMixin extends Vue {
     return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
   }
 
+  private selectDefaultTaxonIdIfDefined() {
+    if (this.defaultTaxonIdToSelect) {
+      this.findTaxonByNCBIId(this.defaultTaxonIdToSelect).then(this.searchTaxonIfDefined).catch(this.logNoTaxonFoundError);
+    }
+  }
+
+  private logNoTaxonFoundError(error: Error) {
+    this.logger().error(`No taxon found for NCBI ID ${this.defaultTaxonIdToSelect}`, error);
+  }
+
+  private findTaxonByNCBIId(id: number) {
+    return this.taxonRepository().findByNCBIId(id);
+  }
+
   private onSelectableTaxon(event: any) {
     this.highlightedTaxon = event.feature;
   }
 
   private onUnselectTaxon() {
     this.selectedTaxon = null;
+    this.removeTaxonFromRoute();
   }
 
   private onSelectTaxon(event: any) {
@@ -99,7 +120,19 @@ export class TaxonMixin extends Vue {
       this.openTaxonModal(event.feature);
       return;
     }
+
     this.selectedTaxon = event.feature;
+    this.addTaxonToRoute(event.feature.get('ncbiId'));
+  }
+
+  private addTaxonToRoute(taxonId: number) {
+    const routeQuery = { ...this.$router.currentRoute.value.query, tid: taxonId };
+    this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
+  }
+
+  private removeTaxonFromRoute() {
+    const routeQuery = { ...this.$router.currentRoute.value.query, tid: undefined };
+    this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
   }
 
   private loadTaxa() {
@@ -138,6 +171,12 @@ export class TaxonMixin extends Vue {
     const properties = taxonFeature.getProperties() as TaxonFeatureProperties;
     view.setCenter(destination);
     view.setZoom(properties.zoomLevel - 1);
+  }
+
+  private searchTaxonIfDefined(taxon: Taxon | undefined) {
+    if (taxon) {
+      this.searchTaxon(taxon);
+    }
   }
 
   public searchTaxon(searchedTaxon: Taxon): void {
