@@ -54,7 +54,7 @@ export default class LifemapTaxonPopupComponent extends Vue {
   public lineageToRoot() {
     this.$router.push({
       name: this.$router.currentRoute.value.name!,
-      query: { ...this.$router.currentRoute.value.query, ancestor: `${this.taxon.ncbiId},0` },
+      query: { ...this.$router.currentRoute.value.query, ancestor: `${this.taxon.ncbiId},0`, tool: 'ancestor' },
     });
   }
 

@@ -13,6 +13,8 @@ import { fromLonLat } from 'ol/proj';
 import type { AppBus } from '@/primary/common/AppBus';
 import type { Logger } from '@/domain/Logger';
 
+const MOBILE_MAX_WIDTH = 650;
+
 @Component
 export class AncestorMixin extends Vue {
   @Prop({ type: Array, required: true })
@@ -33,8 +35,15 @@ export class AncestorMixin extends Vue {
   @Inject()
   private logger!: () => Logger;
 
+  @Inject()
+  private globalWindow!: () => Window;
+
   ancestor?: Taxon;
   ancestorRoute: Taxon[] = [];
+
+  private mobile() {
+    return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
+  }
 
   private updateAncestorRouteLayer() {
     const ancestorIndex = this.ancestorRoute.findIndex(taxon => taxon.id === this.ancestor?.id);
@@ -71,7 +80,7 @@ export class AncestorMixin extends Vue {
         this.ancestorRoute = taxa;
         this.updateAncestorRouteLayer();
         this.fitToAncestorRoute(0);
-        const routeQuery = { ...this.$router.currentRoute.value.query, tool: 'ancestor' };
+        const routeQuery = { ...this.$router.currentRoute.value.query };
         this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
       })
       .catch(error => {
@@ -89,7 +98,8 @@ export class AncestorMixin extends Vue {
   public fitToAncestorRoute(animationDuration = 1000) {
     const extent = this.ancestorRouteLayer().getSource()?.getExtent();
     const view = this.map().getView();
-    view.fit(extent!, { padding: [60, 320, 20, 360], duration: animationDuration });
+    const padding = this.mobile() ? [20, 20, 20, 60] : [60, 320, 20, 360];
+    view.fit(extent!, { padding, duration: animationDuration });
   }
 
   @Watch('ancestorRequest')

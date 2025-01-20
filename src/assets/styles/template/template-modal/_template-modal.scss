@@ -28,7 +28,14 @@ $template-modal-color-background: $global-fill-color-shade-50-faded !default;
   }
 
   &--content {
+    width: 100%;
     margin: auto;
     padding: $template-modal-padding;
+    display: flex;
+    justify-content: center;
+
+    &.-fullscreen {
+      height: calc(100% - $template-modal-padding * 2);
+    }
   }
 }

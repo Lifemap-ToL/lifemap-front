@@ -1,0 +1,51 @@
+$popover-triangle-color-background: $global-fill-color-main !default;
+$popover-triangle-spacing: 20px !default;
+$popover-triangle-height: 7px !default;
+$popover-spacing: 0px !default;
+$popover-min-width: 180px !default;
+$popover-fill-color: $global-fill-color-main !default;
+$popover-text-color: $global-text-color-shade-5 !default;
+
+$popover-triangle-width: $popover-triangle-height * 2;
+
+.popover {
+  display: inline-block;
+  position: relative;
+
+  &--area {
+    position: absolute;
+    top: 100%;
+    right: auto;
+    left: -$popover-triangle-spacing;
+    margin: $popover-triangle-height + $popover-spacing $popover-spacing $popover-spacing;
+    padding: 12px;
+    cursor: default;
+    min-width: $popover-min-width;
+    background-color: $popover-fill-color;
+    color: $popover-text-color;
+    z-index: 1;
+
+    &::before {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      right: auto;
+      bottom: 100%;
+      left: $popover-triangle-spacing;
+      border-right: $popover-triangle-height solid transparent;
+      border-bottom: $popover-triangle-height solid $popover-triangle-color-background;
+      border-left: $popover-triangle-height solid transparent;
+      width: $popover-triangle-width;
+      height: $popover-triangle-height;
+      content: '';
+    }
+  }
+
+  &.-closed &--area {
+    display: none;
+  }
+
+  &.-open &--area {
+    display: block;
+  }
+}

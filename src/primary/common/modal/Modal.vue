@@ -1,7 +1,7 @@
 <template>
   <div class="template-modal -open">
-    <div class="template-modal--content">
-      <div :class="`modal ${size ? `-${size}` : ''} ${secondary ? '-secondary' : ''}`">
+    <div class="template-modal--content" :class="{ '-fullscreen': fullscreen }">
+      <div class="modal" :class="[size ? `-${size}` : '', { '-secondary': secondary }]">
         <div class="modal--header">
           <div class="modal--header--title">
             <h2 class="title -small">{{ title }}</h2>

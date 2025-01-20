@@ -14,6 +14,11 @@ import { transformExtent } from 'ol/proj';
 import type { Logger } from '@/domain/Logger';
 import type { AlertBus } from '@/domain/alert/AlertBus';
 import { AlertMessageType } from '@/domain/alert/AlertMessageType';
+import { markRaw } from 'vue';
+import { TaxonModalVue } from '@/primary/tree/taxon/taxon-modal';
+import { MittModalBus } from '@/primary/common/modal/MittModalBus';
+
+const MOBILE_MAX_WIDTH = 650;
 
 @Component
 export class TaxonMixin extends Vue {
@@ -30,6 +35,9 @@ export class TaxonMixin extends Vue {
   readonly map!: () => Map;
 
   @Inject()
+  readonly modalBus!: () => MittModalBus;
+
+  @Inject()
   private appBus!: () => AppBus;
 
   @Inject()
@@ -37,6 +45,9 @@ export class TaxonMixin extends Vue {
 
   @Inject()
   private logger!: () => Logger;
+
+  @Inject()
+  private globalWindow!: () => Window;
 
   selectedTaxon: Feature<Point> | null = null;
   highlightedTaxon: Feature<Point> | null = null;
@@ -71,6 +82,10 @@ export class TaxonMixin extends Vue {
     this.appBus().off('changelocale', this.loadTaxa);
   }
 
+  private mobile() {
+    return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
+  }
+
   private onSelectableTaxon(event: any) {
     this.highlightedTaxon = event.feature;
   }
@@ -80,6 +95,10 @@ export class TaxonMixin extends Vue {
   }
 
   private onSelectTaxon(event: any) {
+    if (this.mobile()) {
+      this.openTaxonModal(event.feature);
+      return;
+    }
     this.selectedTaxon = event.feature;
   }
 
@@ -129,7 +148,11 @@ export class TaxonMixin extends Vue {
     const taxonFeatureToSelect = taxonFeature?.getId() === this.selectedTaxon?.getId() ? undefined : taxonFeature;
     this.zoomToTaxon(taxonFeature);
 
-    if (taxonFeatureToSelect) {
+    if (this.mobile()) {
+      this.changeTool('search');
+    }
+
+    if (taxonFeatureToSelect && !this.mobile()) {
       this.taxonSelect.select(taxonFeatureToSelect);
       this.updateSelectedTaxonSequencedGenomes();
     }
@@ -154,6 +177,16 @@ export class TaxonMixin extends Vue {
       this.selectedTaxon!.set('sequencedGenomes', undefined);
       this.selectedTaxon!.set('sequencedGenomesFormatted', undefined);
     }
+  }
+
+  private openTaxonModal(taxonFeature: TaxonFeature) {
+    this.modalBus().open({
+      component: markRaw(TaxonModalVue),
+      props: {
+        taxonNCBIId: taxonFeature.getProperties().ncbiId,
+        onClose: () => this.unselectTaxon(),
+      },
+    });
   }
 
   @Watch('additional')

@@ -1,11 +1,7 @@
-import { Component, Inject, Vue } from 'vue-facing-decorator';
-import type { TaxonRepository } from '@/domain/taxon/TaxonRepository';
+import { Component, Vue } from 'vue-facing-decorator';
 
 @Component({ emits: ['close'] })
 export default class LUCAPopupComponent extends Vue {
-  @Inject()
-  private taxonRepository!: () => TaxonRepository;
-
   public close() {
     this.$emit('close');
   }
