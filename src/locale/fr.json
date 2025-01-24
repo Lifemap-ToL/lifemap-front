@@ -36,6 +36,7 @@
   "failed-to-retrieve-taxon-info-message": "An error occurred while fetching taxon data",
   "no-wikipedia-article-message": "Absence d'article Wikipedia concernant ce groupe",
   "wikipedia-article-summary-not-found-message": "An error occurred while fetching article summary concerning this group on Wikipedia",
+  "no-wikipedia-article-in-preferred-language-message": "No article concerning this group in preferred or fallback language on Wikipedia.",
   "wikipedia-articles-not-found-message": "An error occurred while fetching articles concerning this group on Wikipedia",
   "wikipedia-link-text": "Plus sur Wikipedia",
   "ancestry-button-text": "Voir l'ascendance complète",
