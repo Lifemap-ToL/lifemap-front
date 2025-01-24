@@ -35,6 +35,7 @@ import VueMatomo from 'vue-matomo';
 import { createView } from '@/primary/tree/map/view/createView';
 import { createCompositeLayer } from './primary/tree/map/layer/vector-tile/createCompositeLayer';
 import { createCompositeStyleFunction } from './primary/tree/map/style/createCompositeStyleFunction';
+import { createLUCATooltipOverlay } from '@/primary/tree/map/overlay/createLUCATooltipOverlay';
 
 const browserLocale = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
 const wikipediaPreferredLanguage = window.localStorage.getItem('wikipedia-preferred-language');
@@ -81,6 +82,7 @@ const ancestorRouteLayer = createAncestorRouteLayer();
 const subtreeLayer = createSubtreeLayer();
 
 const taxonTooltipOverlay = createTaxonTooltipOverlay();
+const lucaTooltipOverlay = createLUCATooltipOverlay();
 
 const selectOptions = {
   id: 'select',
@@ -95,6 +97,7 @@ const lucaSelectOptions = {
   layer: lucaLayer,
   selectedStyle: createSelectedLUCAStyle() as StyleLike,
   selectableStyle: createSelectableLUCAStyle() as StyleLike,
+  overlay: lucaTooltipOverlay,
 };
 
 const select = new Select(selectOptions);
@@ -106,7 +109,7 @@ const map = createMap(
   [compositeLayer],
   [subtreeLayer, ancestorRouteLayer, taxonLayer, lucaLayer],
   [select, lucaSelect, clickable],
-  [taxonTooltipOverlay]
+  [taxonTooltipOverlay, lucaTooltipOverlay]
 );
 
 map.on('movestart', () => {
@@ -141,6 +144,7 @@ app.provide('inputBus', () => inputBus);
 app.provide('alertBus', () => alertBus);
 app.provide('clickBus', () => clickBus);
 app.provide('taxonLayer', () => taxonLayer);
+app.provide('lucaLayer', () => lucaLayer);
 app.provide('ancestorRouteLayer', () => ancestorRouteLayer);
 app.provide('subtreeLayer', () => subtreeLayer);
 app.provide('taxonRepository', () => restTaxonRepository);

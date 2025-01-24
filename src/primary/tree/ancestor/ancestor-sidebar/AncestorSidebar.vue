@@ -27,8 +27,12 @@
                   v-for="(taxon, index) in ancestorRoute"
                   :key="`${ancestorRouteExtremes.join('-')}-${taxon.id}`"
                   class="step-list--item"
+                  @click.stop.prevent="$emit('select', taxon)"
                 >
-                  <div class="step-list--item--marker" :class="{ '-emphasized': taxon.id === ancestorId }"></div>
+                  <div
+                    class="step-list--item--marker"
+                    :class="{ '-emphasized': taxon.id === ancestorId, '-selected': taxon.ncbiId === selected }"
+                  ></div>
                   <div class="step-list--item--text">
                     <div
                       class="text"
