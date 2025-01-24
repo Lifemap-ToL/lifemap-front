@@ -21,6 +21,7 @@ import { ComponentState } from '@/primary/ComponentState';
 import { MessageVue } from '@/primary/common/message';
 import { LUCAMixin } from '@/primary/tree/luca/LUCAMixin';
 import { LUCAPopupVue } from '@/primary/tree/luca/luca-popup';
+import { LUCATooltipVue } from '@/primary/tree/luca/luca-tooltip';
 
 @Component({
   components: {
@@ -36,6 +37,7 @@ import { LUCAPopupVue } from '@/primary/tree/luca/luca-popup';
     TaxonSearchBarVue,
     TaxonTooltipVue,
     WikimediaTaxonPopupVue,
+    LUCATooltipVue,
     LUCAPopupVue,
     MessageVue,
   },

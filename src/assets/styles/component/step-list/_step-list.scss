@@ -40,6 +40,7 @@
     display: flex;
     align-items: center;
     z-index: 0;
+    cursor: pointer;
 
     &:not(:first-child):before {
       @include line(0);
@@ -53,6 +54,10 @@
       @include circle(10, $global-color-deep-pink, $global-fill-color-shade-100);
       margin: 0 12px;
       z-index: 2;
+
+      &.-selected {
+        @include circle(10, $global-fill-color-path-start, $global-fill-color-shade-100);
+      }
 
       &.-emphasized:before {
         @include pseudo;

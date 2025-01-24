@@ -27,12 +27,18 @@
             </button>
           </template>
           <template #left-bar>
-            <SearchSidebarVue v-if="tool === 'search'" @select="searchTaxon" @close="changeTool('search')"></SearchSidebarVue>
+            <SearchSidebarVue
+              v-if="tool === 'search'"
+              @select="searchTaxon($event, true, !mobile())"
+              @close="changeTool('search')"
+            ></SearchSidebarVue>
             <AncestorSidebarVue
               v-if="tool === 'ancestor'"
               :ancestor="ancestor"
               :ancestorRoute="ancestorRoute"
+              :selected="selectedTaxon ? selectedTaxon.getProperties().ncbiId : lucaSelected ? 0 : undefined"
               :onAncestorRouteFit="fitToAncestorRoute"
+              @select="$event => [selectLUCA, searchTaxon].forEach(callback => callback($event, false))"
               @close="changeTool('ancestor')"
             ></AncestorSidebarVue>
             <SubtreeSidebarVue
@@ -60,6 +66,7 @@
             </keep-alive>
           </template>
           <TaxonTooltipVue :taxon="highlightedTaxon" ref="taxon-tooltip"></TaxonTooltipVue>
+          <LUCATooltipVue ref="luca-tooltip"></LUCATooltipVue>
         </MapLayoutVue>
       </template>
       <template v-else-if="state === 'ERROR'">

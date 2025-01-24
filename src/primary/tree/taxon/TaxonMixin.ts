@@ -56,8 +56,8 @@ export class TaxonMixin extends Vue {
   taxonSelect!: Select;
 
   get defaultTaxonIdToSelect(): number | undefined {
-    const { tid } = this.$router.currentRoute.value.query as Record<string, string>;
-    return tid && /^\d+$/.test(tid) ? parseInt(tid) : undefined;
+    const { subtree, tid } = this.$router.currentRoute.value.query as Record<string, string>;
+    return tid && !subtree && /^\d+$/.test(tid) ? parseInt(tid) : undefined;
   }
 
   created() {
@@ -116,13 +116,14 @@ export class TaxonMixin extends Vue {
   }
 
   private onSelectTaxon(event: any) {
+    this.addTaxonToRoute(event.feature.get('ncbiId'));
+
     if (this.mobile()) {
       this.openTaxonModal(event.feature);
       return;
     }
 
     this.selectedTaxon = event.feature;
-    this.addTaxonToRoute(event.feature.get('ncbiId'));
   }
 
   private addTaxonToRoute(taxonId: number) {
@@ -175,23 +176,36 @@ export class TaxonMixin extends Vue {
 
   private searchTaxonIfDefined(taxon: Taxon | undefined) {
     if (taxon) {
-      this.searchTaxon(taxon);
+      this.searchTaxon(taxon, true, !this.mobile());
     }
   }
 
-  public searchTaxon(searchedTaxon: Taxon): void {
+  private findTaxonFeature(searchedTaxon: Taxon): TaxonFeature {
     const searchTaxonFeature = toTaxonFeature(5)(searchedTaxon);
     const taxa = this.taxonSource.getFeatures();
     const existingTaxonFeature = taxa.find(feature => feature.getId() === searchTaxonFeature.getId());
-    const taxonFeature = existingTaxonFeature || searchTaxonFeature;
-    const taxonFeatureToSelect = taxonFeature?.getId() === this.selectedTaxon?.getId() ? undefined : taxonFeature;
-    this.zoomToTaxon(taxonFeature);
 
-    if (this.mobile()) {
-      this.changeTool('search');
+    if (!existingTaxonFeature) {
+      this.taxonSource.addFeature(searchTaxonFeature);
     }
 
-    if (taxonFeatureToSelect && !this.mobile()) {
+    return existingTaxonFeature || searchTaxonFeature;
+  }
+
+  public searchTaxon(searchedTaxon: Taxon, zoom = true, select = true): void {
+    if (searchedTaxon.id === 'root') {
+      this.unselectTaxon();
+      return;
+    }
+
+    const taxonFeature = this.findTaxonFeature(searchedTaxon);
+    const taxonFeatureToSelect = taxonFeature?.getId() === this.selectedTaxon?.getId() ? undefined : taxonFeature;
+
+    if (zoom) {
+      this.zoomToTaxon(taxonFeature);
+    }
+
+    if (taxonFeatureToSelect && select) {
       this.taxonSelect.select(taxonFeatureToSelect);
       this.updateSelectedTaxonSequencedGenomes();
     }
