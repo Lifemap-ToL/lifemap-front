@@ -193,11 +193,6 @@ export class TaxonMixin extends Vue {
   }
 
   public searchTaxon(searchedTaxon: Taxon, zoom = true, select = true): void {
-    if (searchedTaxon.id === 'root') {
-      this.unselectTaxon();
-      return;
-    }
-
     const taxonFeature = this.findTaxonFeature(searchedTaxon);
     const taxonFeatureToSelect = taxonFeature?.getId() === this.selectedTaxon?.getId() ? undefined : taxonFeature;
 

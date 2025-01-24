@@ -66,12 +66,7 @@ export class LUCAMixin extends Vue {
     this.lucaSelected = true;
   }
 
-  public selectLUCA(feature: Taxon) {
-    if (feature.id !== 'root') {
-      this.unselectLUCA();
-      return;
-    }
-
+  public selectLUCA() {
     this.lucaSelect.select(this.lucaSource.getFeatures()[0]);
   }
 

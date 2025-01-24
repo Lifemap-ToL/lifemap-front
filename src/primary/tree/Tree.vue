@@ -38,7 +38,10 @@
               :ancestorRoute="ancestorRoute"
               :selected="selectedTaxon ? selectedTaxon.getProperties().ncbiId : lucaSelected ? 0 : undefined"
               :onAncestorRouteFit="fitToAncestorRoute"
-              @select="$event => [selectLUCA, searchTaxon].forEach(callback => callback($event, false))"
+              @select="
+                $event =>
+                  ($event.id === 'root' ? [unselectTaxon, selectLUCA] : [searchTaxon, unselectLUCA]).forEach(cb => cb($event, false))
+              "
               @close="changeTool('ancestor')"
             ></AncestorSidebarVue>
             <SubtreeSidebarVue
