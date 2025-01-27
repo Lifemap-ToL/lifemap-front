@@ -11,6 +11,10 @@ export default class TaxonTooltipComponent extends Vue {
     return this.taxon ? this.taxon.get('name') : '';
   }
 
+  get taxonNameInItalic(): boolean {
+    return this.taxon ? this.taxon.get('nameInItalic') : false;
+  }
+
   get taxonSequencedGenomes(): string {
     return this.taxon ? this.taxon.get('sequencedGenomesFormatted') : '';
   }

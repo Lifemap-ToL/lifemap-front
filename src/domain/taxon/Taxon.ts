@@ -7,6 +7,7 @@ interface TaxonCore {
   id: string;
   ncbiId: number;
   name: string;
+  nameInItalic: boolean;
   commonName?: string;
   rank: string;
   zoomLevel: number;

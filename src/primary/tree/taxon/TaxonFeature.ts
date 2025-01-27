@@ -5,12 +5,11 @@ import { fromLonLat } from 'ol/proj';
 
 export type TaxonFeature = Feature<Point>;
 
-const TAXON_RANK_REQUIRING_NAME_IN_ITALIC = ['espèce', 'sous-espèce', 'genre', 'species', 'subspecies', 'genus'];
-
 export interface TaxonFeatureProperties {
   id: string;
   ncbiId: number;
   name: string;
+  nameInItalic: boolean;
   commonName?: string;
   rank: string;
   zoomLevel: number;
@@ -26,8 +25,8 @@ function computeLabelNameFontSize(taxonZoomLevel: number, zoomLevel: number): nu
   return 26 - (taxonZoomLevel - zoomLevel) * 2;
 }
 
-function buildLabelNameCSSFont(taxonRank: string, labelNameFontSize: number): string {
-  const labelNameFontStyle = TAXON_RANK_REQUIRING_NAME_IN_ITALIC.includes(taxonRank) ? 'italic' : '';
+function buildLabelNameCSSFont(taxonRank: string, labelNameFontSize: number, labelNameInItalic: boolean): string {
+  const labelNameFontStyle = labelNameInItalic ? 'italic' : '';
   return `${labelNameFontStyle} ${labelNameFontSize}px sans-serif`;
 }
 
@@ -38,13 +37,14 @@ function buildLabelCommonNameCSSFont(labelNameFontSize: number): string | undefi
 
 export function toTaxonFeatureProperties(taxon: Taxon, zoom: number): TaxonFeatureProperties {
   const labelNameFontSize = computeLabelNameFontSize(taxon.zoomLevel, zoom);
-  const labelNameCSSFont = buildLabelNameCSSFont(taxon.rank, labelNameFontSize);
+  const labelNameCSSFont = buildLabelNameCSSFont(taxon.rank, labelNameFontSize, taxon.nameInItalic);
   const labelCommonNameCSSFont = buildLabelCommonNameCSSFont(labelNameFontSize);
 
   return {
     id: taxon.id,
     ncbiId: taxon.ncbiId,
     name: taxon.name,
+    nameInItalic: taxon.nameInItalic,
     commonName: taxon.commonName,
     rank: taxon.rank,
     zoomLevel: taxon.zoomLevel,
@@ -70,7 +70,7 @@ export function toTaxonFeature(zoom: number): (taxon: Taxon) => TaxonFeature {
 
 export function updateFeature(taxonFeature: TaxonFeature, zoom: number) {
   const labelNameFontSize = computeLabelNameFontSize(taxonFeature.get('zoomLevel'), zoom);
-  const labelNameCSSFont = buildLabelNameCSSFont(taxonFeature.get('rank'), labelNameFontSize);
+  const labelNameCSSFont = buildLabelNameCSSFont(taxonFeature.get('rank'), labelNameFontSize, taxonFeature.get('nameInItalic'));
   const labelCommonNameCSSFont = buildLabelCommonNameCSSFont(labelNameFontSize);
 
   taxonFeature.set('labelNameCSSFont', labelNameCSSFont);

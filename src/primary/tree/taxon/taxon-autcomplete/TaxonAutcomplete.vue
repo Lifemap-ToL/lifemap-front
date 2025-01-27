@@ -21,7 +21,7 @@
                 v-for="(slice, index) in taxonSuggestion.scientificNameSlices"
                 :key="`${taxonSuggestion.ncbiId}-sci-${index}`"
                 class="text"
-                :class="{ '-color-shade-100': matchSearch(slice), '-bold': matchSearch(slice) }"
+                :class="{ '-color-shade-100': matchSearch(slice), '-bold': matchSearch(slice), '-italic': taxonSuggestion.nameInItalic }"
               >
                 {{ slice }}
               </span>

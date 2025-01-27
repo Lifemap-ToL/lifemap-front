@@ -1,6 +1,8 @@
 import { type Taxon } from '@/domain/taxon/Taxon';
 import { Numeral } from '@/domain/Numeral';
 
+const TAXON_RANK_REQUIRING_NAME_IN_ITALIC = ['species', 'subspecies', 'genus'];
+
 export interface RESTTaxon {
   id: string;
   taxid: [number];
@@ -24,6 +26,7 @@ export function toTaxon(lang: 'en' | 'fr'): (restTaxon: RESTTaxon) => Taxon {
       id: restTaxon.id,
       ncbiId: restTaxon.taxid[0],
       name: restTaxon.sci_name[0],
+      nameInItalic: TAXON_RANK_REQUIRING_NAME_IN_ITALIC.includes(restTaxon.rank_en[0]),
       commonName: lang === 'fr' ? undefinedOrFirstElement(restTaxon.common_name_fr) : undefinedOrFirstElement(restTaxon.common_name_en),
       rank: lang === 'fr' ? restTaxon.rank_fr[0] : restTaxon.rank_en[0],
       zoomLevel: restTaxon.zoom[0],
