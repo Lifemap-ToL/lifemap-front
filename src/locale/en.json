@@ -51,10 +51,13 @@
   "descendants": "Descendants",
   "sequenced-genome": "Sequenced genomes",
   "age": "Age",
+  "no-estimate": "no estimate",
   "age-unit": "Mya",
   "iucn-status": "IUCN Status",
   "number-of-language": "{number} languages | {number} language | {number} languages",
   "identifier": "Identifier",
+  "no-entry": "no entry",
+  "no-status": "no status",
   "wikipedia-language-message": "Preferred language for wikipedia content can be configured in parameters",
   "help": "Help",
   "luca-description": "The last universal common ancestor (LUCA) is the hypothesized common ancestral cell from which the three domains of life, the Bacteria, the Archaea, and the Eukarya originated"
