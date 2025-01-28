@@ -53,6 +53,9 @@
           <div class="separator"></div>
         </div>
         <div class="flex-item -expand">
+          <template v-if="taxonWikidataRecordFetchingState === 'FAILED'">
+            <WikipediaContentVue :taxon="taxon"></WikipediaContentVue>
+          </template>
           <template v-if="taxonWikidataRecordFetchingState === 'DONE'">
             <div class="flex-container -vertical">
               <div class="tab-list -equivalent">

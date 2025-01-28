@@ -10,7 +10,7 @@
       <span class="text -font-sm">{{ $t('sequenced-genome') }}: </span>
       <span class="text -font-sm -bold">{{ taxonAdditionalData.sequencedGenomes.toHuman() }}</span>
     </div>
-    <div v-if="taxonAdditionalData.age">
+    <div>
       <span class="text -font-sm">
         {{ $t('age') }}
         <PopoverVue>
@@ -22,7 +22,8 @@
         </PopoverVue>
         :
       </span>
-      <span class="text -font-sm -bold">{{ taxonAdditionalData.age.toHuman() }} {{ $t('age-unit') }}</span>
+      <span v-if="taxonAdditionalData.age" class="text -font-sm -bold">{{ taxonAdditionalData.age.toHuman() }} {{ $t('age-unit') }}</span>
+      <span v-else class="text -font-sm -color-shade-50">{{ $t('no-estimate') }}</span>
     </div>
   </template>
 </template>

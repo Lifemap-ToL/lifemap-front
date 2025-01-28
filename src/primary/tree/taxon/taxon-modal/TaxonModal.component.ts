@@ -17,7 +17,7 @@ import { TaxonIdentifierListVue } from '@/primary/tree/taxon/wikimedia-taxon-pop
 import { MessageVue } from '@/primary/common/message';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
 
-@Component({ components: { MessageVue, TaxonAdditionalDataVue, ModalVue }, emits: ['close'] })
+@Component({ components: { MessageVue, TaxonAdditionalDataVue, WikipediaContentVue, ModalVue }, emits: ['close'] })
 export default class TaxonModalComponent extends Vue {
   @Prop({ type: Number, required: true })
   readonly taxonNCBIId!: number;
@@ -43,6 +43,7 @@ export default class TaxonModalComponent extends Vue {
   taxonWikidataRecordProjection!: TaxonWikidataRecordProjection;
   taxonWikidataRecordFetchingState = FetchingState.ONGOING;
 
+  activeTab: 'wikipedia' | 'databases' = 'wikipedia';
   activeComponent: VueComponent = WikipediaContentVue;
   activeComponentProps!: any;
 
