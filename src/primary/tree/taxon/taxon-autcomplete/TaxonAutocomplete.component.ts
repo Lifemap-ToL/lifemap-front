@@ -1,4 +1,4 @@
-import { Component, Inject, Prop, toNative, Vue, Watch } from 'vue-facing-decorator';
+import { Component, Inject, Prop, Vue, Watch } from 'vue-facing-decorator';
 import { type TaxonRepository } from '@/domain/taxon/TaxonRepository';
 import { MittClickBus } from '@/primary/common/MittClickBus';
 import {
@@ -8,7 +8,6 @@ import {
 import { ComponentState } from '@/primary/ComponentState';
 import type { Logger } from '@/domain/Logger';
 import { MessageVue } from '@/primary/common/message';
-import type { AppBus } from '@/primary/common/AppBus';
 
 type DropdownState = 'OPEN' | 'CLOSED';
 

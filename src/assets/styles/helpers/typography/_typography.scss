@@ -14,6 +14,7 @@ $title-extra-large-font-size: math.div(64, strip-units($global-font-size)) * 1re
 .title {
   @include m-text-color;
   @include m-text-align;
+  @include m-text-style;
   line-height: $title-line-height;
   font-size: $title-font-size;
   font-weight: initial;

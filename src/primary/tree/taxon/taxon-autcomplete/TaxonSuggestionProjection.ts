@@ -6,6 +6,7 @@ export interface TaxonSuggestionProjection {
   scientificNameSlices: string[];
   commonNameSlices: string[];
   fullName: string;
+  nameInItalic: boolean;
   rankSlices: string[];
 }
 
@@ -23,6 +24,7 @@ export function toTaxonSuggestionProjection(search: string) {
       scientificNameSlices: slice(taxonSuggestion.scientificName, search),
       commonNameSlices: slice(taxonSuggestion.commonName, search),
       fullName: `${taxonSuggestion.scientificName} ${taxonSuggestion.commonName}`.trim(),
+      nameInItalic: taxonSuggestion.nameInItalic,
       rankSlices: slice(taxonSuggestion.rank, search),
     };
   };
@@ -34,6 +36,7 @@ export function taxonToTaxonSuggestionProjection(taxon: Taxon): TaxonSuggestionP
     scientificNameSlices: [],
     commonNameSlices: [],
     fullName: taxon.name,
+    nameInItalic: taxon.nameInItalic,
     rankSlices: [],
   };
 }

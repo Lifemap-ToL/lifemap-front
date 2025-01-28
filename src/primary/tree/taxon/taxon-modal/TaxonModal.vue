@@ -25,7 +25,7 @@
               <div class="twinkle-area -h20"></div>
             </template>
             <template v-else-if="taxonFetchingState === 'DONE'">
-              <div class="title -break-words">{{ taxon.name }}</div>
+              <div class="title -break-words" :class="{ '-italic': taxon.nameInItalic }">{{ taxon.name }}</div>
               <div class="text -color-shade-85 -uppercase">{{ taxon.rank }}</div>
             </template>
           </div>

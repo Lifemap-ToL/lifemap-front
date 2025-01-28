@@ -40,6 +40,7 @@
                         '-font-sm': index !== 0 && index !== ancestorRoute.length - 1 && taxon.id !== ancestorId && taxon.id !== ancestorId,
                         '-color-shade-95': index !== 0 && index !== ancestorRoute.length - 1 && taxon.id !== ancestorId,
                         '-color-shade-100': index === 0 || index === ancestorRoute.length - 1 || taxon.id === ancestorId,
+                        '-italic': taxon.nameInItalic,
                       }"
                     >
                       {{ taxon.name }}

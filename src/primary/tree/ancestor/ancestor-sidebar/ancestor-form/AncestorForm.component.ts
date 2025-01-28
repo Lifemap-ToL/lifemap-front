@@ -34,7 +34,7 @@ export default class AncestorFormComponent extends Vue {
   }
 
   private notify() {
-    if (this.ancestorRouteStartTaxonNCBIId && this.ancestorRouteEndTaxonNCBIId) {
+    if (this.ancestorRouteStartTaxonNCBIId !== undefined && this.ancestorRouteEndTaxonNCBIId !== undefined) {
       this.$router.push({
         name: this.$router.currentRoute.value.name!,
         query: {
