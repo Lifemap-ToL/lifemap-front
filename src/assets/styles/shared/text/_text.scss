@@ -45,6 +45,10 @@
     color: $global-text-color-main;
   }
 
+  &:hover.-hover-color-secondary {
+    color: $global-text-color-secondary;
+  }
+
   &:hover.-hover-color-shade-50 {
     color: $global-text-color-shade-50;
   }

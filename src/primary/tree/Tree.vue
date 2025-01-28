@@ -7,23 +7,23 @@
       <template v-if="state === 'SUCCESS'">
         <MapLayoutVue :map="map()" key="tree-map">
           <template #toolbar>
-            <button class="button -text -icon" @click.prevent.stop="changeTool('search')">
-              <i class="mdi mdi-magnify"></i>
+            <button class="button -text -icon" @click.prevent.stop="changeTool('search')" :title="$t('search-a-taxa')">
+              <i class="mdi mdi-magnify text -hover-color-secondary" :class="{ '-color-secondary': tool === 'search' }"></i>
             </button>
-            <button class="button -text -icon" @click.prevent.stop="changeTool('ancestor')">
-              <i class="mdi mdi-map-marker-path"></i>
+            <button class="button -text -icon" @click.prevent.stop="changeTool('ancestor')" :title="$t('itinerary')">
+              <i class="mdi mdi-map-marker-path text -hover-color-secondary" :class="{ '-color-secondary': tool === 'ancestor' }"></i>
             </button>
-            <button class="button -text -icon" @click.prevent.stop="changeTool('subtree')">
-              <i class="mdi mdi-family-tree"></i>
+            <button class="button -text -icon" @click.prevent.stop="changeTool('subtree')" :title="$t('get-a-subtree')">
+              <i class="mdi mdi-family-tree text -hover-color-secondary" :class="{ '-color-secondary': tool === 'subtree' }"></i>
             </button>
-            <button class="button -text -icon" @click.prevent.stop="changeTool('additional-data')">
-              <i class="mdi mdi-database text"></i>
+            <button class="button -text -icon" @click.prevent.stop="changeTool('additional-data')" :title="$t('display-additional-data')">
+              <i class="mdi mdi-database text text -hover-color-secondary" :class="{ '-color-secondary': tool === 'additional-data' }"></i>
             </button>
-            <button class="button -text -icon">
-              <i class="mdi mdi-image-outline text" @click.prevent.stop="exportAsPng"></i>
+            <button class="button -text -icon" :title="$t('get-a-snapshot')">
+              <i class="mdi mdi-image-outline text -hover-color-secondary" @click.prevent.stop="exportAsPng"></i>
             </button>
-            <button class="button -text -icon" @click.prevent.stop="changeTool('parameters')">
-              <i class="mdi mdi-cog text"></i>
+            <button class="button -text -icon" :title="$t('parameters')" @click.prevent.stop="changeTool('parameters')">
+              <i class="mdi mdi-cog text -hover-color-secondary" :class="{ '-color-secondary': tool === 'parameters' }"></i>
             </button>
           </template>
           <template #left-bar>
