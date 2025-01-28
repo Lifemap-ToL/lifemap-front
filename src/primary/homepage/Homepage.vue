@@ -52,9 +52,11 @@
     </template>
     <template #footer>
       <div class="flex-container -gap-xl -justify-center -wrap-reverse">
+        <!-- To be uncommented once the android app will be back
         <a href="https://play.google.com/store/apps/details?id=fr.univ_lyon1.lifemapcom&hl=en" target="_blank" rel="noopener noreferrer">
           <img class="image -h40" src="../../assets/images/playstore.png" alt="Playstore" />
         </a>
+        -->
         <div class="flex-container -vertical -gap-xs">
           <div class="flex-container -gap-xs -wrap">
             <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
