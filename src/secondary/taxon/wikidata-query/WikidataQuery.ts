@@ -1,5 +1,5 @@
 export function queryTaxonWikidataRecord(ncbiId: number) {
-  return `SELECT ?item ?ncbi ?gbifID ?opentolID ?wormsID ?inaturalistID ?catalogueOfLifeID ?iucn ?iucnStatus
+  return `SELECT ?item ?ncbi ?gbifID ?opentolID ?wormsID ?inaturalistID ?catalogueOfLifeID ?iucn ?taxRefID ?iucnStatus
       WHERE {
       ?item wdt:P685 "${ncbiId}".
       OPTIONAL { ?item wdt:P685 ?ncbi. }  
@@ -9,6 +9,7 @@ export function queryTaxonWikidataRecord(ncbiId: number) {
       OPTIONAL { ?item wdt:P3151 ?inaturalistID. } 
       OPTIONAL { ?item wdt:P10585 ?catalogueOfLifeID. } 
       OPTIONAL { ?item wdt:P627 ?iucn. }   
+      OPTIONAL { ?item wdt:P3186 ?taxRefID. }
       OPTIONAL { ?item wdt:P141 ?iucnStatus. }
       }`;
 }

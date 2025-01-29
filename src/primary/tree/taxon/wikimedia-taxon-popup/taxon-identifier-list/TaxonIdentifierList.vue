@@ -92,6 +92,21 @@
         </td>
       </tr>
       <tr class="table--body--line">
+        <td class="table--body--cell"><span class="text -text-wrap-nowrap">INPN</span></td>
+        <td class="table--body--cell">
+          <template v-if="taxonWikidataRecord.taxRefIds.length === 0">
+            <span class="text -color-shade-50">
+              {{ $t('no-entry') }}
+            </span>
+          </template>
+          <template v-for="taxRefId in taxonWikidataRecord.taxRefIds" :key="taxRefId">
+            <a :href="` https://inpn.mnhn.fr/espece/cd_nom/${taxRefId}`" target="_blank" rel="noopener noreferrer" class="link -font-sm">
+              {{ taxRefId }} </a
+            >&nbsp;
+          </template>
+        </td>
+      </tr>
+      <tr class="table--body--line">
         <td class="table--body--cell"><span class="text -text-wrap-nowrap">IUCN</span></td>
         <td class="table--body--cell">
           <template v-if="taxonWikidataRecord.iucnIds.length === 0">

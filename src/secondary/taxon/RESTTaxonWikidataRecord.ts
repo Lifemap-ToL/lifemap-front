@@ -9,6 +9,7 @@ export interface RESTTaxonWikidataRecord {
   wormsID?: WikidataQueryServiceBinding;
   inaturalistID?: WikidataQueryServiceBinding;
   catalogueOfLifeID?: WikidataQueryServiceBinding;
+  taxRefID?: WikidataQueryServiceBinding;
   iucn?: WikidataQueryServiceBinding;
   iucnStatus?: WikidataQueryServiceBinding;
 }
@@ -22,5 +23,6 @@ export function toTaxonWikidataRecord(restTaxonWikidataRecords: RESTTaxonWikidat
     openTreeOfLifeIds: restTaxonWikidataRecords.opentolID ? [restTaxonWikidataRecords.opentolID.value] : [],
     catalogueOfLifeIds: restTaxonWikidataRecords.catalogueOfLifeID ? [restTaxonWikidataRecords.catalogueOfLifeID.value] : [],
     wormsIds: restTaxonWikidataRecords.wormsID ? [restTaxonWikidataRecords.wormsID.value] : [],
+    taxRefIds: restTaxonWikidataRecords.taxRefID ? [restTaxonWikidataRecords.taxRefID.value] : [],
   };
 }
