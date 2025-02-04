@@ -92,7 +92,7 @@
         </td>
       </tr>
       <tr class="table--body--line">
-        <td class="table--body--cell"><span class="text -text-wrap-nowrap">INPN</span></td>
+        <td class="table--body--cell"><span class="text -text-wrap-nowrap">TaxRef (INPN)</span></td>
         <td class="table--body--cell">
           <template v-if="taxonWikidataRecord.taxRefIds.length === 0">
             <span class="text -color-shade-50">
@@ -121,6 +121,25 @@
               rel="noopener noreferrer"
               class="link -font-sm"
               >{{ iucnId }}</a
+            >&nbsp;
+          </template>
+        </td>
+      </tr>
+      <tr class="table--body--line">
+        <td class="table--body--cell"><span class="text -text-wrap-nowrap">WoRMS</span></td>
+        <td class="table--body--cell">
+          <template v-if="taxonWikidataRecord.wormsIds.length === 0">
+            <span class="text -color-shade-50">
+              {{ $t('no-entry') }}
+            </span>
+          </template>
+          <template v-for="wormsId in taxonWikidataRecord.wormsIds" :key="wormsId">
+            <a
+              :href="`https://www.marinespecies.org/aphia.php?p=taxdetails&id=${wormsId}`"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link -font-sm"
+              >{{ wormsId }}</a
             >&nbsp;
           </template>
         </td>
