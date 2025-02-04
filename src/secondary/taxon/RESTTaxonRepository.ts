@@ -24,6 +24,7 @@ const ROOT: Taxon = {
   id: 'root',
   ncbiId: 0,
   name: 'Root',
+  nameInItalic: false,
   rank: '',
   zoomLevel: 7,
   descendants: Numeral.of(0),
@@ -54,6 +55,7 @@ function mergeTaxonWikidataRecord(
     openTreeOfLifeIds: mergeUniq(taxonWikidataRecord1.openTreeOfLifeIds, taxonWikidataRecord2.openTreeOfLifeIds),
     catalogueOfLifeIds: mergeUniq(taxonWikidataRecord1.catalogueOfLifeIds, taxonWikidataRecord2.catalogueOfLifeIds),
     wormsIds: mergeUniq(taxonWikidataRecord1.wormsIds, taxonWikidataRecord2.wormsIds),
+    taxRefIds: mergeUniq(taxonWikidataRecord1.taxRefIds, taxonWikidataRecord2.taxRefIds),
   };
 }
 

@@ -8,4 +8,5 @@ export interface TaxonWikidataRecord {
   openTreeOfLifeIds: string[];
   catalogueOfLifeIds: string[];
   wormsIds: string[];
+  taxRefIds: string[];
 }

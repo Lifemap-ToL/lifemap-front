@@ -9,6 +9,7 @@ export interface TaxonWikidataRecordProjection {
   openTreeOfLifeIds: string[];
   catalogueOfLifeIds: string[];
   wormsIds: string[];
+  taxRefIds: string[];
 }
 
 const IMAGES_BASE_URL = './images/';
@@ -49,5 +50,6 @@ export function toTaxonWikidataRecordProjection(
     openTreeOfLifeIds: taxonWikidataRecord.openTreeOfLifeIds,
     catalogueOfLifeIds: taxonWikidataRecord.catalogueOfLifeIds,
     wormsIds: taxonWikidataRecord.wormsIds,
+    taxRefIds: taxonWikidataRecord.taxRefIds,
   };
 }
