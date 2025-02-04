@@ -17,8 +17,18 @@
           <template #trigger>
             <i class="link mdi mdi-information"></i>
           </template>
-          TimeTree is a public knowledge-base for information on the evolutionary timescale of life. Data from thousands of published
-          studies are assembled into a searchable tree of life scaled to time.
+          <i18n-t keypath="age-description" tag="span">
+            <template v-slot:timetree>
+              <a
+                href="https://timetree.org/"
+                class="link text -color-shade-95 -hover-color-shade-100"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Timetree
+              </a>
+            </template>
+          </i18n-t>
         </PopoverVue>
         :
       </span>
