@@ -69,5 +69,10 @@
   "no-status": "No status",
   "wikipedia-language-message": "La langue préférentielle pour le contenu Wikipedia peut être configurée dans les paramètres",
   "help": "Aide",
+  "help-lifemap": "{lifemap} is an interactive tool to explore the tree of life. The concept used in {lifemap} is similar to the one used in cartography with tools like Google Maps© or OpenStreetMap: exploring is done by zooming and panning.",
+  "help-tree": "The current tree contains {species} species: {archaea} Archaea, {bacteria} Bacteria and {eukaryotes} Eukaryotes. It is based on the taxonomy published by the NCBI and updated regularly.",
+  "help-nodes": "All the nodes in the tree are clickable. It displays information (description and picture) concerning the taxa (retrieved from the Wikipedia page, if any). If you have description or pictures you would like to see in Lifemap, simply create or update the corresponding Wikipedia page.",
+  "help-itineraries": "Itineraries between taxa can be computed by clicking on the icon {itineraryIcon}. When filling the two new search fields, the route is drawn between the taxa and the Most Recent Common Ancestor (MRCA) of the two groups/species is returned. The user gets also access to a list of all the nodes that are encountered in the way from one group to the other. This list is clickable.",
+  "help-credits": "Lifemap was written by Damien M. de Vienne (web page), a CNRS researcher working in the Laboratory of Biometry and Evolutionary Biology (LBBE) in Lyon (France) with support from the informatics departement (especially Stephane Delmotte and Bruno Spataro).",
   "luca-description": "The last universal common ancestor (LUCA) is the hypothesized common ancestral cell from which the three domains of life, the Bacteria, the Archaea, and the Eukarya originated"
 }
