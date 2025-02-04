@@ -26,11 +26,6 @@
     </a>
     <div class="navbar--separator -desktop"></div>
     <div class="navbar--social -desktop">
-      <a href="https://x.com/lifemap_tol" target="_blank" rel="noopener noreferrer">
-        <XIconVue></XIconVue>
-      </a>
-    </div>
-    <div class="navbar--social -desktop">
       <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">
         <GithubIconVue></GithubIconVue>
       </a>
