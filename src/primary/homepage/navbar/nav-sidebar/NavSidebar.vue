@@ -5,9 +5,6 @@
       <div class="nav-sidebar--brand--title">Lifemap</div>
     </div>
     <div class="flex-container -justify-center">
-      <a href="https://x.com/lifemap_tol" target="_blank" rel="noopener noreferrer">
-        <XIconVue></XIconVue>
-      </a>
       <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">
         <GithubIconVue></GithubIconVue>
       </a>
