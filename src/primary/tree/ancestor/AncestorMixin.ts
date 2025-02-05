@@ -41,6 +41,12 @@ export class AncestorMixin extends Vue {
   ancestor?: Taxon;
   ancestorRoute: Taxon[] = [];
 
+  mounted() {
+    if (this.ancestorRequest.length === 2) {
+      this.processAncestorRequest(this.ancestorRequest[0], this.ancestorRequest[1], false);
+    }
+  }
+
   private mobile() {
     return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
   }
@@ -69,7 +75,7 @@ export class AncestorMixin extends Vue {
     return ancestorRoute.find(taxon => taxon.ncbiId === ancestorId);
   }
 
-  private async processAncestorRequest(ncbiId1: number, ncbiId2: number): Promise<void> {
+  private async processAncestorRequest(ncbiId1: number, ncbiId2: number, fit = true): Promise<void> {
     return this.taxonRepository()
       .listAncestors([ncbiId1, ncbiId2])
       .then(ancestries => all([this.findAncestorId(ancestries), resolve(ancestries)]))
@@ -79,9 +85,12 @@ export class AncestorMixin extends Vue {
         this.ancestor = this.findAncestor(taxa, ancestorId);
         this.ancestorRoute = taxa;
         this.updateAncestorRouteLayer();
-        this.fitToAncestorRoute(0);
         const routeQuery = { ...this.$router.currentRoute.value.query };
         this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
+
+        if (fit) {
+          this.fitToAncestorRoute(0);
+        }
       })
       .catch(error => {
         this.logger().error(`Fail to list ancestors for taxa ${ncbiId1} and ${ncbiId2}`, error);

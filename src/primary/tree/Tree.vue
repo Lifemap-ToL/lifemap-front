@@ -29,7 +29,7 @@
           <template #left-bar>
             <SearchSidebarVue
               v-if="tool === 'search'"
-              @select="searchTaxon($event, true, !mobile())"
+              @select="searchTaxon($event, true, false, !mobile())"
               @close="changeTool('search')"
             ></SearchSidebarVue>
             <AncestorSidebarVue
@@ -40,7 +40,9 @@
               :onAncestorRouteFit="fitToAncestorRoute"
               @select="
                 $event =>
-                  ($event.id === 'root' ? [unselectTaxon, selectLUCA] : [searchTaxon, unselectLUCA]).forEach(cb => cb($event, false))
+                  $event.id === 'root'
+                    ? [unselectTaxon(), searchLUCA(true, true, !mobile())]
+                    : [searchTaxon($event, true, true, !mobile()), unselectLUCA()]
               "
               @close="changeTool('ancestor')"
             ></AncestorSidebarVue>
