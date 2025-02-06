@@ -9,6 +9,8 @@ import { Map, Feature } from 'ol';
 import { TaxonTree } from '@/domain/taxon/TaxonTree';
 import { fromLonLat } from 'ol/proj';
 
+const MOBILE_MAX_WIDTH = 650;
+
 @Component
 export class SubtreeMixin extends Vue {
   @Prop({ type: Array, required: true })
@@ -23,6 +25,9 @@ export class SubtreeMixin extends Vue {
   @Inject()
   private map!: () => Map;
 
+  @Inject()
+  private globalWindow!: () => Window;
+
   private subtreeBranches: Taxon[][] = [];
   private taxonSubtree = new TaxonTree([]);
 
@@ -32,6 +37,10 @@ export class SubtreeMixin extends Vue {
 
   mounted() {
     this.updateSubtree();
+  }
+
+  private mobile() {
+    return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
   }
 
   private removeBranches(): void {
@@ -91,7 +100,8 @@ export class SubtreeMixin extends Vue {
       const points = pointsCoordinates.map(pointCoordinates => new Feature(new Point(pointCoordinates)));
       const extent = new VectorSource({ features: points }).getExtent();
       const view = this.map().getView();
-      view.fit(extent!, { padding: [60, 320, 20, 360], duration: 0 });
+      const padding = this.mobile() ? [20, 20, 20, 60] : [60, 320, 20, 360];
+      view.fit(extent!, { padding, duration: 0 });
     }
   }
 

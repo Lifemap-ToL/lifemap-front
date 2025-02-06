@@ -80,4 +80,16 @@ export class LUCAMixin extends Vue {
       props: { onClose: () => this.unselectLUCA() },
     });
   }
+
+  public searchLUCA(zoom = true, animation = false, select = true): void {
+    if (zoom) {
+      const view = this.map().getView();
+      const duration = animation ? 1000 : 0;
+      view.animate({ center: [0, -5], zoom: 5, duration });
+    }
+
+    if (select) {
+      this.selectLUCA();
+    }
+  }
 }

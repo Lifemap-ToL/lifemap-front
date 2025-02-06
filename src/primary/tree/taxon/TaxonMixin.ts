@@ -166,17 +166,17 @@ export class TaxonMixin extends Vue {
     this.loadTaxa();
   }
 
-  zoomToTaxon(taxonFeature: TaxonFeature): void {
+  zoomToTaxon(taxonFeature: TaxonFeature, animation = false): void {
     const view = this.map().getView();
     const destination = taxonFeature.getGeometry()?.getCoordinates();
     const properties = taxonFeature.getProperties() as TaxonFeatureProperties;
-    view.setCenter(destination);
-    view.setZoom(properties.zoomLevel - 1);
+    const duration = animation ? 1000 : 0;
+    view.animate({ zoom: properties.zoomLevel - 1, center: destination, duration });
   }
 
   private searchTaxonIfDefined(taxon: Taxon | undefined) {
     if (taxon) {
-      this.searchTaxon(taxon, true, !this.mobile());
+      this.searchTaxon(taxon, true, false, !this.mobile());
     }
   }
 
@@ -192,12 +192,12 @@ export class TaxonMixin extends Vue {
     return existingTaxonFeature || searchTaxonFeature;
   }
 
-  public searchTaxon(searchedTaxon: Taxon, zoom = true, select = true): void {
+  public searchTaxon(searchedTaxon: Taxon, zoom = true, animation = false, select = true): void {
     const taxonFeature = this.findTaxonFeature(searchedTaxon);
     const taxonFeatureToSelect = taxonFeature?.getId() === this.selectedTaxon?.getId() ? undefined : taxonFeature;
 
     if (zoom) {
-      this.zoomToTaxon(taxonFeature);
+      this.zoomToTaxon(taxonFeature, animation);
     }
 
     if (taxonFeatureToSelect && select) {
