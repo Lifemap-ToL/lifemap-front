@@ -16,8 +16,30 @@ $template-standard--content-margin-bottom: 70px !default;
   overflow: auto;
   background-color: $global-fill-color-shade-0;
 
+  &--banner {
+    align-self: flex-start;
+    position: sticky;
+    z-index: 2;
+    width: calc(100% - 60px);
+    background-color: $global-fill-color-main;
+    padding: 12px 20px 12px 40px;
+    color: $global-text-color-shade-5;
+
+    &--closer {
+      outline: none;
+      border-color: transparent;
+      cursor: pointer;
+      text-align: center;
+      background-color: transparent;
+      color: $global-text-color-shade-35;
+
+      &:hover {
+        color: $global-text-color-shade-5;
+      }
+    }
+  }
+
   &--header {
-    top: 0;
     align-self: flex-start;
     position: sticky;
     border-bottom: $template-standard-border-size solid $template-standard-border-color;

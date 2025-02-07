@@ -32,13 +32,25 @@ $slide-duration: 250ms !default;
   .-slide-right-enter-active,
   .-slide-right-leave-active,
   .-slide-left-enter-active,
-  .-slide-left-leave-active {
+  .-slide-left-leave-active
+  .-slide-top-enter-active,
+  .-slide-top-leave-active,{
     transition: transform $slide-duration cubic-bezier(0.785, 0.135, 0.150, 0.860);
   }
+
   .-slide-left-leave-to, .-slide-right-enter-from {
     transform: translate3d(-100%, 0, 0);
   }
+
   .-slide-left-enter-from, .-slide-right-leave-to {
     transform: translate3d(100%, 0, 0);
+  }
+
+  .-slide-top-enter-from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .-slide-top-leave-to {
+    transform: translate3d(0, -100%, 0);
   }
 }
