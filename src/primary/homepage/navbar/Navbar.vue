@@ -16,14 +16,7 @@
     >
       {{ $t('publication') }}
     </a>
-    <a
-      href="https://lbbe.univ-lyon1.fr/fr/annuaires-des-membres/de-vienne-damien"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="navbar--link -desktop"
-    >
-      {{ $t('author') }}
-    </a>
+    <div class="navbar--link -desktop" @click.stop.prevent="openCreditsModal">{{ $t('credits') }}</div>
     <div class="navbar--separator -desktop"></div>
     <div class="navbar--social -desktop">
       <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">
