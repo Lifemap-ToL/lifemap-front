@@ -5,7 +5,7 @@
         <div class="flex-container -align-center">
           <i18n-t keypath="banner-message" tag="div" class="flex-item -expand">
             <template v-slot:mail>
-              <span class="text -bold">contact@lifemap.fr</span>
+              <a class="link" href="mailto:damien.de-vienne@cnrs.fr">damien.de-vienne@cnrs.fr</a>
             </template>
           </i18n-t>
           <div>
