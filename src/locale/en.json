@@ -1,5 +1,12 @@
 {
   "author": "The Author",
+  "credits": "Credits",
+  "credits-creation-title": "Initial creation and design",
+  "credits-frontend-title": "Frontend design and development",
+  "credits-backend-title": "Backend development and maintenance",
+  "credits-vector-tiles-title": "Vector tiles server ({bbox})",
+  "credits-server-title": "Server management",
+  "credits-notice": "For any questions, comments, or suggestions, please send an email to {mail}.",
   "publication": "Publication",
   "french": "Français",
   "english": "English",

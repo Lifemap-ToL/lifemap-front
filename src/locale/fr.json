@@ -1,5 +1,12 @@
 {
   "author": "L'auteur",
+  "credits": "Crédits",
+  "credits-creation-title": "Création et conception initiale",
+  "credits-frontend-title": "Design et développement frontend",
+  "credits-backend-title": "Développement backend et maintenance",
+  "credits-vector-tiles-title": "Serveur de tuiles vectorielles ({bbox})",
+  "credits-server-title": "Gestion des serveurs",
+  "credits-notice": "Pour toute question, remarque, suggestion, veuillez envoyer un mail à {mail}.",
   "publication": "Publication",
   "french": "Français",
   "english": "Anglais",
