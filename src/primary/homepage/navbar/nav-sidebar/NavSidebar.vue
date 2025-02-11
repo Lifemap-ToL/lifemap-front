@@ -11,21 +11,14 @@
     </div>
     <div class="menu">
       <a
-        href="https://journals.plos.org/plosbiology/article/authors?id=10.1371/journal.pbio.2001624"
+        href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001624"
         target="_blank"
         rel="noopener noreferrer"
         class="menu--item"
       >
         {{ $t('publication') }}
       </a>
-      <a
-        href="https://lbbe.univ-lyon1.fr/fr/annuaires-des-membres/de-vienne-damien"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="menu--item"
-      >
-        {{ $t('author') }}
-      </a>
+      <div class="menu--item" @click.stop.prevent="openCreditsModal">{{ $t('credits') }}</div>
     </div>
   </nav>
 </template>
