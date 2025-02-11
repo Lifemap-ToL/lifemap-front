@@ -11,7 +11,7 @@
     </div>
     <div class="menu">
       <a
-        href="https://journals.plos.org/plosbiology/article/authors?id=10.1371/journal.pbio.2001624"
+        href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001624"
         target="_blank"
         rel="noopener noreferrer"
         class="menu--item"
