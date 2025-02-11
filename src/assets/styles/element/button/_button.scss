@@ -3,22 +3,22 @@ $button-border-radius: 4px !default;
 $button-color-background: $global-fill-color-shade-100 !default;
 $button-color-border: $button-color-background !default;
 $button-padding: 10px !default;
-$button-height: 44px !default;
+
 $button-extra-small-height: 28px !default;
 $button-extra-small-border-radius: 2px !default;
 
-$button-line-height: $button-height - ($button-border-size * 2);
+$button-line-height: 44px - ($button-border-size * 2);
 $button-color-text: $global-text-color-shade-5 !default;
 $button-font-family: $global-sans-primary-font-family !default;
 $button-font-size: $global-lg-font-size !default;
 $button-small-font-size: $global-font-size !default;
 
-$button-large-padding: 20px !default;
-$button-large-height: 60px !default;
+$button-large-horizontal-padding: 10px !default;
+$button-large-vertical-padding: 20px !default;
 $button-large-font-size: $global-xl-font-size !default;
 
-$button-extra-large-padding: 24px !default;
-$button-extra-large-height: 72px !default;
+$button-extra-large-horizontal-padding: 24px !default;
+$button-extra-large-vertical-padding: 12px !default;
 $button-extra-large-font-size: $global-xxl-font-size !default;
 
 $button-color-text-disabled: $global-text-color-shade-50 !default;
@@ -43,7 +43,6 @@ $button-icon-size: 32px !default;
   background-color: $button-color-background;
   cursor: pointer;
   padding: 0 $button-padding;
-  height: $button-height;
   text-align: center;
   line-height: $button-line-height;
   color: $button-color-text;
@@ -99,7 +98,6 @@ $button-icon-size: 32px !default;
   &.-extra-small {
     font-size: $button-small-font-size;
     line-height: $button-extra-small-height;
-    height: $button-extra-small-height;
     border-radius: $button-extra-small-border-radius;
   }
 
@@ -109,14 +107,12 @@ $button-icon-size: 32px !default;
 
   &.-large {
     font-size: $button-large-font-size;
-    padding: 0 $button-large-padding;
-    height: $button-large-height;
+    padding: $button-large-vertical-padding $button-large-horizontal-padding;
   }
 
   &.-extra-large {
     font-size: $button-extra-large-font-size;
-    padding: 0 $button-extra-large-padding;
-    height: $button-extra-large-height;
+    padding: $button-extra-large-vertical-padding $button-extra-large-horizontal-padding;
   }
 
   &:disabled {
