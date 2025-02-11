@@ -18,14 +18,7 @@
       >
         {{ $t('publication') }}
       </a>
-      <a
-        href="https://lbbe.univ-lyon1.fr/fr/annuaires-des-membres/de-vienne-damien"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="menu--item"
-      >
-        {{ $t('author') }}
-      </a>
+      <div class="menu--item" @click.stop.prevent="openCreditsModal">{{ $t('credits') }}</div>
     </div>
   </nav>
 </template>

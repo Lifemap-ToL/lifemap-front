@@ -33,7 +33,7 @@
         </i18n-t>
       </div>
       <div>
-        <div class="flex-container -gap-xl -middle -justify-center">
+        <div class="flex-container -gap-xl -middle -justify-center -wrap">
           <a href="https://lbbe.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">
             <img src="@/assets/images/LBBE.png" alt="LBBE" class="image -h60 -width-auto" />
           </a>
