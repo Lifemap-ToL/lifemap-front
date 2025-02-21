@@ -44,15 +44,7 @@
               </div>
             </DropdownVue>
           </div>
-          <!--
-      </div>
-      <div class="sidebar--body--slot">
-      -->
           <hr class="separator" />
-          <!--
-      </div>
-      <div class="sidebar--body--slot">
-      -->
           <fieldset class="fieldset">
             <legend class="fieldset--legend">{{ $t('efficiency-mode') }}</legend>
             <div class="flex-container -gap-xs -align-start">

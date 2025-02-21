@@ -165,20 +165,4 @@ export class Select extends Interaction {
       map.un('pointermove', this.onPointerMove);
     }
   }
-
-  /*
-  deactivateSelectable() {
-    const map = this.getMap();
-    if (map) {
-      map.un('pointermove', this.onPointerMove);
-    }
-  }
-
-  activateSelectable() {
-    const map = this.getMap();
-    if (map) {
-      map.on('pointermove', this.onPointerMove);
-    }
-  }
-   */
 }
