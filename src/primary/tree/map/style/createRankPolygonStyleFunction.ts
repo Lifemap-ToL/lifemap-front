@@ -12,13 +12,20 @@ const FILL_COLORS: Record<number, Array<number>> = {
   3: BACTERIA_FILL_COLOR,
 };
 
-export function createRankPolygonStyleFunction(view: View): (feature: FeatureLike) => Style {
+function computeOpacity(view: View, feature: FeatureLike): number {
+  const currentZoom = view.getZoom();
+  const zoomLevel = feature.get('zoomview');
+  return currentZoom !== undefined ? 1 - Math.abs(currentZoom - zoomLevel - 1) / 5 : 1;
+}
+
+export function createRankPolygonStyleFunction(view: View, preservePerformance: boolean): (feature: FeatureLike) => Style {
   return function (feature: FeatureLike): Style {
     const themeColor = FILL_COLORS[feature.get('ref') as number];
-    const currentZoom = view.getZoom();
-    const zoomLevel = feature.get('zoomview');
-    const opacityFactor = currentZoom !== undefined ? 1 - Math.abs(currentZoom - zoomLevel - 1) / 5 : 1;
-    const fillColor = [themeColor[0], themeColor[1], themeColor[2], themeColor[3] * opacityFactor];
+
+    const fillColor = preservePerformance
+      ? themeColor
+      : [themeColor[0], themeColor[1], themeColor[2], themeColor[3] * computeOpacity(view, feature)];
+
     return new Style({
       fill: new Fill({ color: fillColor }),
       zIndex: 1,

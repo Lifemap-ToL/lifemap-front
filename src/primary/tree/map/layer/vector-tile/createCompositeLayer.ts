@@ -7,7 +7,7 @@ import { createCompositeStyleFunction } from '../../style/createCompositeStyleFu
 const BACKGROUND_COLOR = '#000';
 const TILES_URL = 'https://lifemap-back.univ-lyon1.fr/vector_tiles/xyz/composite/{z}/{x}/{y}.pbf';
 
-export function createCompositeLayer(view: View, lang: 'en' | 'fr'): VectorTileLayer {
+export function createCompositeLayer(view: View, preservePerformance: boolean, lang: 'en' | 'fr'): VectorTileLayer {
   return new VectorTileLayer({
     background: BACKGROUND_COLOR,
     source: new VectorTileSource({
@@ -16,11 +16,11 @@ export function createCompositeLayer(view: View, lang: 'en' | 'fr'): VectorTileL
       url: TILES_URL,
       transition: 100,
     }),
-    style: createCompositeStyleFunction(view, lang),
+    style: createCompositeStyleFunction(view, preservePerformance, lang),
     declutter: true,
     renderMode: 'vector',
-    updateWhileAnimating: true,
-    updateWhileInteracting: true,
+    updateWhileAnimating: !preservePerformance,
+    updateWhileInteracting: !preservePerformance,
     renderBuffer: 256,
     preload: Infinity,
   });

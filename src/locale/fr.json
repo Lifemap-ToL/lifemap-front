@@ -55,6 +55,8 @@
   "databases": "Bases de données",
   "parameters": "Paramètres",
   "wikipedia-preferred-language": "Langue préférentielle pour Wikipedia",
+  "efficiency-mode": "Efficiency Mode",
+  "enabled": "Activé",
   "app-language": "Langue de l'app ({lang})",
   "by-name": "Par nom",
   "by-tax-id": "Par TaxId",

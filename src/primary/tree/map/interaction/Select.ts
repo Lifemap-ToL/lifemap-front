@@ -11,6 +11,7 @@ interface SelectOptions {
   selectedStyle: StyleLike;
   selectableStyle: StyleLike;
   overlay: Overlay;
+  selectable?: boolean;
 }
 
 export class Select extends Interaction {
@@ -24,6 +25,7 @@ export class Select extends Interaction {
   private selectedFeature?: Feature;
   private lastSelectableFeature?: Feature;
   private selectableFeature?: Feature;
+  private selectable!: boolean;
 
   constructor(options: SelectOptions) {
     super();
@@ -31,6 +33,7 @@ export class Select extends Interaction {
     this.selectableStyle = options.selectableStyle;
     this.layer = options.layer;
     this.overlay = options.overlay;
+    this.selectable = options.selectable === undefined ? false : options.selectable;
     this.setProperties({ id: options.id });
     this.onClick = this.onClick.bind(this);
     this.onPointerMove = this.onPointerMove.bind(this);
@@ -142,22 +145,40 @@ export class Select extends Interaction {
   setMap(map: Map) {
     super.setMap(map);
     map.on('singleclick', this.onClick);
-    map.on('pointermove', this.onPointerMove);
-  }
 
-  activate() {
-    const map = this.getMap();
-    if (map !== null) {
-      map.on('singleclick', this.onClick);
+    if (this.selectable) {
       map.on('pointermove', this.onPointerMove);
     }
   }
 
-  deactivate() {
+  setSelectable(selectable: boolean) {
     const map = this.getMap();
-    if (map !== null) {
-      map.un('singleclick', this.onClick);
+
+    if (map && !this.selectable && selectable) {
+      this.selectable = selectable;
+      map.on('pointermove', this.onPointerMove);
+      return;
+    }
+
+    if (map && this.selectable && !selectable) {
+      this.selectable = selectable;
       map.un('pointermove', this.onPointerMove);
     }
   }
+
+  /*
+  deactivateSelectable() {
+    const map = this.getMap();
+    if (map) {
+      map.un('pointermove', this.onPointerMove);
+    }
+  }
+
+  activateSelectable() {
+    const map = this.getMap();
+    if (map) {
+      map.on('pointermove', this.onPointerMove);
+    }
+  }
+   */
 }
