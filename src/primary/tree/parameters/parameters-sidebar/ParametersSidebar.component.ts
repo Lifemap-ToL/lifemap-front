@@ -25,10 +25,15 @@ export default class ParametersSidebarComponent extends Vue {
   selectedLanguage!: { key: string; title: string };
   languageDropdownBus = new DropdownBus(mitt());
 
+  efficiencyMode!: boolean;
+
   created() {
     const selectedLanguageKey = this.$router.currentRoute.value.query['wikipedia-lang'] as string;
     const queryLanguage = this.languages.find(language => language.key === selectedLanguageKey);
     this.selectedLanguage = queryLanguage || { key: 'app', title: '' };
+
+    const efficiencyModeQueryString = this.$router.currentRoute.value.query['efficiency-mode'] as string;
+    this.efficiencyMode = efficiencyModeQueryString === 'true';
   }
 
   public changeWikipediaLanguage(language: { key: string; title: string }) {
@@ -38,5 +43,12 @@ export default class ParametersSidebarComponent extends Vue {
     this.languageDropdownBus.close();
     this.selectedLanguage = language;
     this.appBus().fire('changewikipedialanguage', language.key);
+  }
+
+  public toggleEfficiencyMode() {
+    this.efficiencyMode = !this.efficiencyMode;
+    const routeQuery = { ...this.$router.currentRoute.value.query, 'efficiency-mode': `${this.efficiencyMode}` };
+    this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
+    this.appBus().fire('changeefficiencymode', this.efficiencyMode);
   }
 }

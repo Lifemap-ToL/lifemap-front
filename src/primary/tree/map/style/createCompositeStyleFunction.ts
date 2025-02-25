@@ -5,8 +5,8 @@ import { createRankPolygonStyleFunction } from './createRankPolygonStyleFunction
 import { createBranchStyle } from './createBranchStyle';
 import { createRankLabelStyleFunction } from './createRankLabelStyleFunction';
 
-export function createCompositeStyleFunction(view: View, lang: 'en' | 'fr'): (feature: FeatureLike) => Style {
-  const rankPolygonStyleFunction = createRankPolygonStyleFunction(view);
+export function createCompositeStyleFunction(view: View, preservePerformance: boolean, lang: 'en' | 'fr'): (feature: FeatureLike) => Style {
+  const rankPolygonStyleFunction = createRankPolygonStyleFunction(view, preservePerformance);
   const branchStyle = createBranchStyle();
   const rankLabelStyleFunction = createRankLabelStyleFunction(lang);
 
