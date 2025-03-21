@@ -41,7 +41,8 @@ export class TaxonTree {
 
     taxonBranches.forEach(taxonBranch => {
       const taxonTreeNodes = this.getTaxonTreeNodes(taxonBranch);
-      this.allNodes = [...this.allNodes, ...taxonTreeNodes.slice(1)];
+
+      this.allNodes = [...this.allNodes, ...taxonTreeNodes];
 
       if (!this.rootNode) {
         this.rootNode = taxonTreeNodes[0];
@@ -59,7 +60,7 @@ export class TaxonTree {
 
   private branch(nodeToBranch: TaxonTreeNode): void {
     const commonNode = this.allNodes.find(node => node.taxonNCBIId === nodeToBranch.taxonNCBIId)!;
-    commonNode.descendants = [...commonNode.descendants, nodeToBranch.descendants[0]];
+    commonNode.descendants = [...commonNode.descendants, ...(nodeToBranch.descendants[0] ? [nodeToBranch.descendants[0]] : [])];
     this.updateForkNodeWithSmallestDepth(commonNode);
   }
 
