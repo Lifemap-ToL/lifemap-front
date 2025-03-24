@@ -59,7 +59,7 @@ export default class SubtreeSidebarComponent extends Vue {
   }
 
   getSubtree() {
-    const queryString = this.leafTaxonIds.replace(/ /g, ',');
+    const queryString = this.leafTaxonIds.trim().replace(/ +/g, ',');
     this.$router.push({
       name: this.$router.currentRoute.value.name!,
       query: { ...this.$router.currentRoute.value.query, subtree: queryString },
