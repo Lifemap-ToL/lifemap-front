@@ -5,3 +5,11 @@ export class NotFound extends LifemapError {
     super(message);
   }
 }
+
+export class NotFoundIds extends LifemapError {
+  notFoundIds: number[];
+  constructor(message: string, notFoundIds: number[]) {
+    super(message);
+    this.notFoundIds = notFoundIds;
+  }
+}

@@ -4,10 +4,14 @@ import VectorSource from 'ol/source/Vector';
 import { type TaxonRepository } from '@/domain/taxon/TaxonRepository';
 import { type Taxon } from '@/domain/taxon/Taxon';
 import { all } from '@/domain/Promise';
+import { NotFoundIds } from '@/domain/NotFound';
 import { LineString, Point } from 'ol/geom';
 import { Map, Feature } from 'ol';
 import { TaxonTree } from '@/domain/taxon/TaxonTree';
 import { fromLonLat } from 'ol/proj';
+import { type AlertBus } from '@/domain/alert/AlertBus';
+import { AlertMessageType } from '@/domain/alert/AlertMessageType';
+import { type VueI18n } from 'vue-i18n';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -28,6 +32,9 @@ export class SubtreeMixin extends Vue {
   @Inject()
   private globalWindow!: () => Window;
 
+  @Inject()
+  private alertBus!: () => AlertBus;
+
   private subtreeBranches: Taxon[][] = [];
   private taxonSubtree = new TaxonTree([]);
 
@@ -47,9 +54,26 @@ export class SubtreeMixin extends Vue {
     this.subtreeBranches = this.subtreeBranches.filter(branch => this.subtree.includes(branch[0].ncbiId));
   }
 
-  private async listTaxonAncestries(ncbiIds: number[]) {
+  private async getTaxonAncestries(ncbiIds: number[]): Promise<number[][] | []> {
     return this.taxonRepository()
       .listAncestors(ncbiIds)
+      .catch(error => {
+        if (error instanceof NotFoundIds) {
+          const warningMsg = this.$t('not-found-ids', { ids: error.notFoundIds.join(', ') });
+          this.alertBus().alert({
+            message: warningMsg as string,
+            type: AlertMessageType.ERROR,
+          });
+          const foundIds = ncbiIds.filter(id => !error.notFoundIds.includes(id));
+          return foundIds.length > 0 ? this.getTaxonAncestries(foundIds) : [];
+        } else {
+          throw error;
+        }
+      });
+  }
+
+  private async listTaxonAncestries(ncbiIds: number[]) {
+    return this.getTaxonAncestries(ncbiIds)
       .then(ancestries => all<Taxon[]>(ancestries.map(ancestry => this.taxonRepository().listByNCBIIds(ancestry))))
       .then(taxonAncestries => (this.subtreeBranches = [...this.subtreeBranches, ...taxonAncestries]))
       .catch(error => {

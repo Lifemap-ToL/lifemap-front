@@ -9,7 +9,7 @@ import { Numeral } from '@/domain/Numeral';
 import type { AxiosInstance } from 'axios';
 import type { TaxonAdditionalData } from '@/domain/taxon/TaxonAdditionalData';
 import type { VueI18n } from 'vue-i18n';
-import { NotFound } from '@/domain/NotFound';
+import { NotFound, NotFoundIds } from '@/domain/NotFound';
 import type { WikidataCaller } from '@/secondary/wikidata/WikidataCaller';
 import type { TaxonWikidataRecord } from '@/domain/taxon/TaxonWikidataRecord';
 import { type RESTTaxonWikidataRecord, toTaxonWikidataRecord } from '@/secondary/taxon/RESTTaxonWikidataRecord';
@@ -84,10 +84,16 @@ export class RESTTaxonRepository implements TaxonRepository {
 
     const url = `/solr/addi/select?q=*:*&fq=taxid:(${ncbiIds.join(' ')})&rows=1000&wt=json`;
 
-    return this.axiosInstance
-      .get<RESTResponse<RESTTaxonAdditionalData>>(url)
-      .then(response => response.data.response.docs)
-      .then(docs => ncbiIds.map(toAncestry(docs)));
+    const docs = await this.axiosInstance.get<RESTResponse<RESTTaxonAdditionalData>>(url).then(response => response.data.response.docs);
+
+    // Check if some taxids have not been found
+    const foundTaxids = docs.map(d => d['taxid'][0]);
+    const notFoundTaxids = ncbiIds.filter(d => !foundTaxids.includes(d));
+    if (notFoundTaxids.length > 0) {
+      throw new NotFoundIds('Some taxonomy ids have not been found', notFoundTaxids);
+    }
+
+    return ncbiIds.map(toAncestry(docs));
   }
 
   public findByNCBIId(ncbiId: number): Promise<Taxon> {
@@ -126,7 +132,10 @@ export class RESTTaxonRepository implements TaxonRepository {
     return this.axiosInstance
       .get<RESTResponse<RESTTaxonAdditionalData>>(url)
       .then(response => response.data.response.docs)
-      .then(docs => ({ sequencedGenomes: Numeral.of(docs[0].genomes[0]), age: docs[0].age ? Numeral.of(docs[0].age[0]) : undefined }));
+      .then(docs => ({
+        sequencedGenomes: Numeral.of(docs[0].genomes[0]),
+        age: docs[0].age ? Numeral.of(docs[0].age[0]) : undefined,
+      }));
   }
 
   public async findTaxonWikidataRecord(ncbiId: number): Promise<TaxonWikidataRecord> {
@@ -182,7 +191,10 @@ export class RESTTaxonRepository implements TaxonRepository {
       listTaxa()
         .then(taxa => Promise.all([Promise.resolve(taxa), this.listFullySequencedGenomes(taxa.map(taxon => taxon.ncbiId))]))
         .then(([taxa, fullySequencedGenomes]) =>
-          taxa.map((taxon, index) => ({ ...taxon, sequencedGenomes: Numeral.of(fullySequencedGenomes[index]) }))
+          taxa.map((taxon, index) => ({
+            ...taxon,
+            sequencedGenomes: Numeral.of(fullySequencedGenomes[index]),
+          }))
         );
 
     return loadFullySequencedGenomes ? listTaxaWithFullySequencedGenomes() : listTaxa();
