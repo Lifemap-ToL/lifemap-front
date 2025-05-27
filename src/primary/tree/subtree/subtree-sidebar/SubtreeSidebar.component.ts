@@ -5,7 +5,6 @@ import { ExportSubtreeModalVue } from '@/primary/tree/subtree/subtree-sidebar/ex
 import { type MittModalBus } from '@/primary/common/modal/MittModalBus';
 import { type TaxonTree } from '@/domain/taxon/TaxonTree';
 import { type Taxon } from '@/domain/taxon/Taxon';
-import { type AlertBus } from '@/domain/alert/AlertBus';
 
 @Component({ components: { TaxonTaginputVue } })
 export default class SubtreeSidebarComponent extends Vue {
@@ -18,10 +17,11 @@ export default class SubtreeSidebarComponent extends Vue {
   @Prop({ type: Function, required: true })
   readonly onSubtreeFit!: () => void;
 
+  @Prop({ type: Array, required: false })
+  notFoundTaxonIds!: [];
+
   @Inject()
   private modalBus!: () => MittModalBus;
-  @Inject()
-  private alertBus!: () => AlertBus;
 
   leafTaxonIds = '';
   leafTaxonIdsTextarea!: HTMLInputElement;
@@ -63,6 +63,7 @@ export default class SubtreeSidebarComponent extends Vue {
 
   getSubtree() {
     const queryString = this.leafTaxonIds.trim().replace(/ +/g, ',');
+    console.log(queryString);
     this.$router.push({
       name: this.$router.currentRoute.value.name!,
       query: { ...this.$router.currentRoute.value.query, subtree: queryString },

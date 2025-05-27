@@ -10,8 +10,6 @@ import { Map, Feature } from 'ol';
 import { TaxonTree } from '@/domain/taxon/TaxonTree';
 import { fromLonLat } from 'ol/proj';
 import { type AlertBus } from '@/domain/alert/AlertBus';
-import { AlertMessageType } from '@/domain/alert/AlertMessageType';
-import { type VueI18n } from 'vue-i18n';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -38,6 +36,8 @@ export class SubtreeMixin extends Vue {
   private subtreeBranches: Taxon[][] = [];
   private taxonSubtree = new TaxonTree([]);
 
+  notFoundTaxonIds: number[] = [];
+
   get subtreeLeafs(): Taxon[] {
     return this.subtreeBranches.map(branch => branch[0]);
   }
@@ -59,11 +59,7 @@ export class SubtreeMixin extends Vue {
       .listAncestors(ncbiIds)
       .catch(error => {
         if (error instanceof NotFoundIds) {
-          const warningMsg = this.$t('not-found-ids', { ids: error.notFoundIds.join(', ') });
-          this.alertBus().alert({
-            message: warningMsg as string,
-            type: AlertMessageType.ERROR,
-          });
+          this.notFoundTaxonIds = error.notFoundIds;
           const foundIds = ncbiIds.filter(id => !error.notFoundIds.includes(id));
           return foundIds.length > 0 ? this.getTaxonAncestries(foundIds) : [];
         } else {
@@ -130,6 +126,7 @@ export class SubtreeMixin extends Vue {
   }
 
   private updateSubtree() {
+    this.notFoundTaxonIds = [];
     this.removeBranches();
     this.addBranches().then(this.updateSubtreeLayer).then(this.fitView);
   }

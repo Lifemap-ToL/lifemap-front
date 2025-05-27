@@ -51,6 +51,7 @@
               :taxonSubtree="taxonSubtree"
               :leafs="subtreeLeafs"
               :onSubtreeFit="fitView"
+              :notFoundTaxonIds="notFoundTaxonIds"
               @close="changeTool('subtree')"
             ></SubtreeSidebarVue>
             <AdditionalDataSidebarVue
