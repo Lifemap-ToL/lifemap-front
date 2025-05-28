@@ -9,7 +9,6 @@ import { LineString, Point } from 'ol/geom';
 import { Map, Feature } from 'ol';
 import { TaxonTree } from '@/domain/taxon/TaxonTree';
 import { fromLonLat } from 'ol/proj';
-import { type AlertBus } from '@/domain/alert/AlertBus';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -29,9 +28,6 @@ export class SubtreeMixin extends Vue {
 
   @Inject()
   private globalWindow!: () => Window;
-
-  @Inject()
-  private alertBus!: () => AlertBus;
 
   private subtreeBranches: Taxon[][] = [];
   private taxonSubtree = new TaxonTree([]);
