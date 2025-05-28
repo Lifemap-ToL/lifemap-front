@@ -55,6 +55,9 @@
               <label for="by-tax-id">{{ $t('by-tax-id') }}</label>
             </div>
             <fieldset class="fieldset flex-container -vertical -gap-xs" :disabled="inputMethod !== 'ID'">
+              <div v-if="notFoundTaxonIds && notFoundTaxonIds.length > 0" class="sidebar--body--slot --error">
+                {{ $t('not-found-ids', { ids: notFoundTaxonIds.join(', ') }) }}
+              </div>
               <textarea class="textarea" rows="4" :value="leafTaxonIds" ref="leaf-taxon-ids-textarea" @input="inputTaxonIds"></textarea>
               <button class="button -extra-small -main" @click.stop.prevent="getSubtree">{{ $t('get-subtree') }}</button>
               <div class="flex-container -gap-xs">

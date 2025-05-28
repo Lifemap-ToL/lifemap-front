@@ -17,6 +17,9 @@ export default class SubtreeSidebarComponent extends Vue {
   @Prop({ type: Function, required: true })
   readonly onSubtreeFit!: () => void;
 
+  @Prop({ type: Array, required: false })
+  notFoundTaxonIds!: [];
+
   @Inject()
   private modalBus!: () => MittModalBus;
 
@@ -60,6 +63,7 @@ export default class SubtreeSidebarComponent extends Vue {
 
   getSubtree() {
     const queryString = this.leafTaxonIds.trim().replace(/ +/g, ',');
+    console.log(queryString);
     this.$router.push({
       name: this.$router.currentRoute.value.name!,
       query: { ...this.$router.currentRoute.value.query, subtree: queryString },

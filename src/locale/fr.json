@@ -79,5 +79,6 @@
   "help-nodes": "Tous les nœuds de l'arbre sont cliquables. Cliquer sur un nœud affiche des informations diverses concernant le taxon : article Wikipedia, image, statut de conservation IUCN, âge, nombre de génomes séquencés, etc. Cela donne aussi accès à des liens vers ce taxon dans d'autres bases de données (NCBI, IUCN, INPN, Open Tree of Life, iNaturalist, etc.).",
   "help-itineraries": "Les itinéraires entre taxons peuvent être calculés en cliquant sur l'icône {itineraryIcon}. En remplissant les deux nouveaux champs de recherche, l'itinéraire est tracé entre les taxons et le dernier ancêtre commun (MRCA) des deux groupes/espèces est retourné. L'utilisateur accède également à une liste de tous les nœuds rencontrés sur le chemin d'un groupe à l'autre. Cette liste est cliquable.",
   "help-credits": "Lifemap a été initialement développé par Damien M. de Vienne (CNRS, LBBE), avec le soutien du département informatique du laboratoire (Julien Barnier, Simon Penel, Stéphane Delmotte, Bruno Spataro). L'interface de la dernière version a été créée par Joaquim Martin.",
-  "luca-description": "Le dernier ancêtre commun universel (LUCA) est la cellule ancestrale hypothétique dont sont originaires les trois domaines du vivant : les bactéries, les archées et les eucaryotes."
+  "luca-description": "Le dernier ancêtre commun universel (LUCA) est la cellule ancestrale hypothétique dont sont originaires les trois domaines du vivant : les bactéries, les archées et les eucaryotes.",
+  "not-found-ids": "Les taxids suivants n'ont pas été trouvés: {ids}"
 }

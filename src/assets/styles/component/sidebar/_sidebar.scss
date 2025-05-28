@@ -1,6 +1,8 @@
 $sidebar-border-color: $global-fill-color-shade-50-faded !default;
 $sidebar-fill-color: $global-fill-color-shade-0-85 !default;
 $sidebar-width: 280px !default;
+$sidebar-background-error-color: $global-color-red-70 !default;
+$sidebar-text-error-color: $global-text-color-shade-100 !default;
 
 .sidebar {
   width: $sidebar-width;
@@ -32,5 +34,11 @@ $sidebar-width: 280px !default;
         overflow-x: hidden;
       }
     }
+  }
+
+  .--error {
+    background-color: $sidebar-background-error-color;
+    color: $sidebar-text-error-color;
+    padding: 4px 8px;
   }
 }
