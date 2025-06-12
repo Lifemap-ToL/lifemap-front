@@ -88,7 +88,10 @@ export class RESTTaxonRepository implements TaxonRepository {
 
     // Check if some taxids have not been found
     const foundTaxids = docs.map(d => d['taxid'][0]);
-    const notFoundTaxids = ncbiIds.filter(d => !foundTaxids.includes(d));
+    let notFoundTaxids = ncbiIds.filter(d => !foundTaxids.includes(d));
+    // taxid 0 is used for the root element
+    notFoundTaxids = notFoundTaxids.filter(d => d != 0);
+
     if (notFoundTaxids.length > 0) {
       throw new NotFoundIds('Some taxonomy ids have not been found', notFoundTaxids);
     }
