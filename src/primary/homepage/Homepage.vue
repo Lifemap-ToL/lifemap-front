@@ -38,6 +38,9 @@
             </template>
           </div>
           <div>
+            <template v-if="state === 'PENDING'">
+              <p class="text">{{ $t('lifemap-availability-check') }}</p>
+            </template>
             <template v-if="state === 'SUCCESS'">
               <button class="button -extra-large -main" @click.stop.prevent="goToTree">{{ $t('start-exploring') }}</button>
             </template>
