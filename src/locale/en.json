@@ -41,6 +41,7 @@
   "sequenced-genomes-label": "Number of genomes fully sequenced",
   "error": "Error",
   "lifemap-not-available-message": "Sorry Lifemap is not available for the moment. Please try again later",
+  "lifemap-availability-check": "Checking if Lifemap is available...",
   "taxon-retrieval-error-message": "An error occurred while retrieving taxa data",
   "taxon-suggestions-error-message": "An error occurred while fetching taxon suggestions",
   "ancestor-error-message": "An error occurred while retrieving taxa ancestries",
