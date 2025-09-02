@@ -4,7 +4,7 @@ import type { TreeSummary } from '@/domain/tree/TreeSummary';
 import { type RESTTreeSummary, toTreeSummary } from '@/secondary/tree/RESTTreeSummary';
 import { NotFound } from '@/domain/NotFound';
 
-const TIMEOUT = 3000;
+const TIMEOUT = 8000;
 
 export class RESTTreeRepository implements TreeRepository {
   constructor(private axiosInstance: AxiosInstance) {}
