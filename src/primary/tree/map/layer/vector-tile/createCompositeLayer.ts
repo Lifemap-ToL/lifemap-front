@@ -4,8 +4,8 @@ import { MVT } from 'ol/format';
 import type { View } from 'ol';
 import { createCompositeStyleFunction } from '../../style/createCompositeStyleFunction';
 
+const TILES_URL = import.meta.env.VITE_LIFEMAP_API_BASE_URL + '/vector_tiles/xyz/composite/{z}/{x}/{y}.pbf';
 const BACKGROUND_COLOR = '#000';
-const TILES_URL = 'https://lifemap-back.univ-lyon1.fr/vector_tiles/xyz/composite/{z}/{x}/{y}.pbf';
 
 export function createCompositeLayer(view: View, preservePerformance: boolean, lang: 'en' | 'fr'): VectorTileLayer {
   return new VectorTileLayer({
