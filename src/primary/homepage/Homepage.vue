@@ -63,7 +63,12 @@
         <div class="flex-container -vertical -gap-xs">
           <div class="flex-container -gap-xs -wrap">
             <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
-              <img class="image" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" alt="license" />
+              <img
+                class="image"
+                src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc.png"
+                alt="license"
+                style="width: 80px; height: 15px"
+              />
             </a>
             <i18n-t keypath="license-notice" tag="div" class="text -font-xs">
               <template v-slot:author>
