@@ -72,7 +72,12 @@
             </a>
             <i18n-t keypath="license-notice" tag="div" class="text -font-xs">
               <template v-slot:author>
-                <a class="link" href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="link"
+                  href="https://lbbe.univ-lyon1.fr/fr/annuaires-des-membres/de-vienne-damien"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Damien de Vienne
                 </a>
               </template>
