@@ -66,13 +66,13 @@ export default class TreeComponent extends mixins(SubtreeMixin, TaxonMixin, Ance
 
   openFeedback() {
     const subject = encodeURIComponent('[Lifemap] Feedback');
-    const body = encodeURIComponent('Hello,\n\nI would like to provide the following feedback:\n');
+    const body = encodeURIComponent('Hello,\nI would like to provide the following feedback:\n');
 
     // hide email from bots
     const email = ['damien.de-vienne', 'cnrs.fr'].join('@');
     const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 
-    this.globalWindow().location.href = mailtoLink;
+    this.globalWindow().open(mailtoLink, '_blank');
   }
 
   exportAsPng() {
