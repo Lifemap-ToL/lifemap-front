@@ -10,6 +10,15 @@ export function createTaxonNameText(
   labelCommonNameCSSFont?: string
 ): Text {
   const nameText = [taxonName, labelNameCSSFont];
+  console.log(taxonCommonName);
+  if (taxonCommonName !== undefined) {
+    if (taxonCommonName.length > 70) {
+      taxonCommonName = taxonCommonName.substring(0, 70);
+      const commaPos = taxonCommonName.lastIndexOf(',');
+      taxonCommonName = taxonCommonName.substring(0, commaPos) + '...';
+    }
+    taxonCommonName = `(${taxonCommonName})`;
+  }
   const commonNameText = taxonCommonName && labelCommonNameCSSFont ? ['\n', labelNameCSSFont, taxonCommonName, labelCommonNameCSSFont] : [];
   const text = [...nameText, ...commonNameText];
   const offsetY = taxonCommonName ? 32 : 22;
