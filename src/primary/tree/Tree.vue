@@ -27,7 +27,7 @@
             </button>
             <div style="width:50%; height:1px; background:rgb(104 104 104); margin:8px auto;"></div>
             <!-- Feedback button -->
-            <button class="button -text -icon" @click.prevent.stop="openFeedback" title="Send feedback">
+            <button class="button -text -icon" :title="$t('feedback')" @click.prevent.stop="openFeedback">
               <i class="mdi mdi-message-text-outline text -hover-color-secondary"></i>
             </button>
           </template>
