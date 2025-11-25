@@ -25,6 +25,11 @@
             <button class="button -text -icon" :title="$t('parameters')" @click.prevent.stop="changeTool('parameters')">
               <i class="mdi mdi-cog text -hover-color-secondary" :class="{ '-color-secondary': tool === 'parameters' }"></i>
             </button>
+            <div style="width:50%; height:1px; background:rgb(104 104 104); margin:8px auto;"></div>
+            <!-- Feedback button -->
+            <button class="button -text -icon" :title="$t('feedback')" @click.prevent.stop="openFeedback">
+              <i class="mdi mdi-message-text-outline text -hover-color-secondary"></i>
+            </button>
           </template>
           <template #left-bar>
             <SearchSidebarVue
