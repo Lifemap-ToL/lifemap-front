@@ -10,6 +10,7 @@ $sidebar-text-error-color: $global-text-color-shade-100 !default;
   border-right: 1px solid $sidebar-border-color;
   height: 100%;
   user-select: text;
+  touch-action: pan-x pan-y;
 
   &--header {
     padding: 12px 12px 6px 12px;

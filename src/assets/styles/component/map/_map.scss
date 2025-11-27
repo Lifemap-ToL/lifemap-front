@@ -24,6 +24,7 @@ $map-info-bar-right-spacing: 20px !default;
     padding: $map-toolbar-vertical-spacing $map-toolbar-horizontal-spacing;
     border-right: 1px solid $map-toolbar-border-color;
     background-color: $map-toolbar-fill-color;
+    touch-action: pan-x pan-y;
   }
 
   &--search-bar {

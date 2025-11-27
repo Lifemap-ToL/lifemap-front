@@ -1,7 +1,7 @@
 $navbar-height: $size-header-height !default;
 $navbar-color-text: $global-text-color-main !default;
-$navbar-left-spacing: 12px !default;;
-$navbar-right-spacing: 20px !default;;
+$navbar-left-spacing: 12px !default;
+$navbar-right-spacing: 20px !default;
 $navbar-brand-spacing: 18px !default;
 $navbar-link-spacing: 12px !default;
 $navbar-social-spacing: 8px !default;
@@ -29,6 +29,7 @@ $navbar-separator-spacing: 18px !default;
   height: $navbar-height;
   color: $navbar-color-text;
   padding: 0 $navbar-right-spacing 0 $navbar-left-spacing;
+  touch-action: pan-x pan-y;
 
   &--brand {
     cursor: pointer;
