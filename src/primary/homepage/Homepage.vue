@@ -13,6 +13,11 @@
             </div>
             <div class="title -align-center -large -color-main">{{ $t('lifemap-baseline') }}</div>
             <hr class="separator" />
+            <template v-if="mobile">
+              <div>
+                <ExploreButtonVue />
+              </div>
+            </template>
             <p class="text -font-lg">{{ $t('platform-description') }}</p>
             <template v-if="treeSummary">
               <i18n-t keypath="platform-figures" tag="span" class="text -italic -color-main">
@@ -37,19 +42,11 @@
               </i18n-t>
             </template>
           </div>
-          <div>
-            <template v-if="state === 'PENDING'">
-              <p>{{ $t('lifemap-availability-check') }}</p>
-            </template>
-            <template v-if="state === 'SUCCESS'">
-              <button class="button -extra-large -main" @click.stop.prevent="goToTree">{{ $t('start-exploring') }}</button>
-            </template>
-            <template v-if="state === 'ERROR'">
-              <MessageVue>
-                {{ $t('lifemap-not-available-message') }}
-              </MessageVue>
-            </template>
-          </div>
+          <template v-if="!mobile">
+            <div>
+              <ExploreButtonVue />
+            </div>
+          </template>
         </div>
       </div>
     </template>

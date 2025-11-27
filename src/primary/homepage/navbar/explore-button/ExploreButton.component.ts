@@ -2,38 +2,25 @@ import { Component, Inject, Vue } from 'vue-facing-decorator';
 import { TemplateVue } from '@/primary/common/template';
 import { ComponentState } from '@/primary/ComponentState';
 import type { TreeRepository } from '@/domain/tree/TreeRepository';
-import type { TreeSummary } from '@/domain/tree/TreeSummary';
 import type { Logger } from '@/domain/Logger';
 import { format } from '@/domain/DateUtil';
 import { MessageVue } from '@/primary/common/message';
-import { NavbarVue } from '@/primary/homepage/navbar';
-import { ExploreButtonVue } from './navbar/explore-button';
 
 @Component({
   methods: { format },
-  components: { TemplateVue, NavbarVue, MessageVue, ExploreButtonVue },
+  components: { TemplateVue, MessageVue },
 })
-export default class HomepageComponent extends Vue {
+export default class ExploreButtonComponent extends Vue {
   @Inject()
   private treeRepository!: () => TreeRepository;
 
   @Inject()
   private logger!: () => Logger;
 
-  treeSummary!: TreeSummary;
-  lastUpdateDate!: string;
-  today = format(new Date());
   state = ComponentState.PENDING;
-  mobile = false;
-
-  private mobileDevice() {
-    this.mobile = window.document.body.clientWidth < 1024;
-  }
 
   created() {
     this.treeRepository().findIfTreeIsAvailable().then(this.handleTreeAvailability).catch(this.handleTreeAvailabilityError);
-    this.treeRepository().findTreeSummary().then(this.handleTreeSummary).catch(this.handleTreeSummaryError);
-    this.mobileDevice();
   }
 
   private handleTreeAvailability(treeAvailable: boolean) {
@@ -43,15 +30,6 @@ export default class HomepageComponent extends Vue {
   private handleTreeAvailabilityError(error: Error) {
     this.state = ComponentState.ERROR;
     this.logger().error('Fail to retrieve tree availability', error);
-  }
-
-  private handleTreeSummary(treeSummary: TreeSummary) {
-    this.treeSummary = treeSummary;
-    this.lastUpdateDate = format(treeSummary.lastUpdate);
-  }
-
-  private handleTreeSummaryError(error: Error) {
-    this.logger().error('Fail to find tree summary data', error);
   }
 
   goToTree() {
