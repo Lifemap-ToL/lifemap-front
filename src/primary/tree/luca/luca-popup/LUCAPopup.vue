@@ -17,7 +17,7 @@
     </div>
     <div class="popup--body">
       <div class="flex-container -vertical -gap-lg">
-        <img src="../../../../assets/images/galaxy.png" alt="galaxy" class="image -full-width" />
+        <img src="../../../../assets/images/galaxy.jpg" alt="galaxy" class="image -full-width" />
         <span>
           {{ $t('luca-description') }}
         </span>

@@ -6,7 +6,7 @@
           <div class="title">ROOT</div>
           <div class="separator"></div>
           <div class="flex-container -vertical -gap-lg">
-            <img src="../../../../assets/images/galaxy.png" alt="galaxy" class="image -full-width" />
+            <img src="../../../../assets/images/galaxy.jpg" alt="galaxy" class="image -full-width" />
             <span>
               {{ $t('luca-description') }}
             </span>
