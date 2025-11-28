@@ -29,7 +29,6 @@ $navbar-separator-spacing: 18px !default;
   height: $navbar-height;
   color: $navbar-color-text;
   padding: 0 $navbar-right-spacing 0 $navbar-left-spacing;
-  touch-action: pan-x pan-y;
 
   &--brand {
     cursor: pointer;
