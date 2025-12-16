@@ -7,11 +7,12 @@ import type { Logger } from '@/domain/Logger';
 import { format } from '@/domain/DateUtil';
 import { MessageVue } from '@/primary/common/message';
 import { NavbarVue } from '@/primary/homepage/navbar';
-import { ExploreButtonVue } from './navbar/explore-button';
+import { FooterVue } from '@/primary/homepage/footer';
+import { ExploreButtonVue } from './explore-button';
 
 @Component({
   methods: { format },
-  components: { TemplateVue, NavbarVue, MessageVue, ExploreButtonVue },
+  components: { TemplateVue, NavbarVue, FooterVue, MessageVue, ExploreButtonVue },
 })
 export default class HomepageComponent extends Vue {
   @Inject()
