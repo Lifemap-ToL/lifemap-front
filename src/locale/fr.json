@@ -82,5 +82,41 @@
   "help-itineraries": "Les itinéraires entre taxons peuvent être calculés en cliquant sur l'icône {itineraryIcon}. En remplissant les deux nouveaux champs de recherche, l'itinéraire est tracé entre les taxons et le dernier ancêtre commun (MRCA) des deux groupes/espèces est retourné. L'utilisateur accède également à une liste de tous les nœuds rencontrés sur le chemin d'un groupe à l'autre. Cette liste est cliquable.",
   "help-credits": "Lifemap a été initialement développé par Damien M. de Vienne (CNRS, LBBE), avec le soutien du département informatique du laboratoire (Julien Barnier, Simon Penel, Stéphane Delmotte, Bruno Spataro). L'interface de la dernière version a été créée par Joaquim Martin.",
   "luca-description": "Le dernier ancêtre commun universel (LUCA) est la cellule ancestrale hypothétique dont sont originaires les trois domaines du vivant : les bactéries, les archées et les eucaryotes.",
-  "not-found-ids": "Les taxids suivants n'ont pas été trouvés: {ids}"
+  "not-found-ids": "Les taxids suivants n'ont pas été trouvés: {ids}",
+  "about": {
+    "link": "À propos",
+    "title": "About Lifemap",
+    "terms-of-use": {
+      "title": "Terms of Use"
+    },
+    "disclaimer": {
+      "title": "Disclaimer of Liability",
+      "content": "The taxonomic data provided on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is an exact copy of the <strong>NCBI Taxonomy</strong> database, which is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>). However, <strong>we accept no responsibility for errors, omissions, or discrepancies</strong> in the taxonomic information. Users are encouraged to verify data with the original sources and acknowledge NCBI as the data origin."
+    },
+    "subtree": {
+      "title": "Subtree Viewer and Download Tool",
+      "content": "The subtree viewer and download tool is provided <strong>\"as is\"</strong>, without any warranty of accuracy, completeness, or fitness for a particular purpose. Users assume full responsibility for the use of downloaded data."
+    },
+    "license": {
+      "title": "License",
+      "content1": "<div>All content on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is licensed under <strong><a class=\"link\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)</a> </strong>.</div>",
+      "content2": "<div>This means you are free to:</div><ul><li><strong>Share</strong> and adapt the material for non-commercial purposes,</li><li><strong>Attribute</strong> <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> as the source.</li></ul><div>For commercial use, please contact us for permission.</div>"
+    },
+    "citation": {
+      "title": "Citation Requirement",
+      "content": "If you use <a class=\"link\" href=\"https://lifemap.cnrs.fr\">lifemap.cnrs.fr</a> in your research or publications, you must cite the following article:"
+    },
+    "data-sources": {
+      "title": "Data sources",
+      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> aggregates data from the following sources:</div><ul><li><strong>NCBI Taxonomy</strong>: Provides taxonomic hierarchy and names. This data is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>).</li><li><strong>Wikipedia/Wikidata</strong>: Provides descriptions and images, licensed under <a class=\"link\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC-BY-SA 3.0</a>.</li><li><strong>Timetree of Life</strong>: Provides divergence dates for nodes. See their <a class=\"link\" href=\"https://www.timetree.org/\">Terms of Use</a>.</li><li><strong>IUCN Red List</strong>: Provides conservation status categories. See their <a class=\"link\" href=\"https://www.iucnredlist.org/terms/terms-of-use\">Terms of Use</a>.</li></ul>",
+      "content2": "Additionally, <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> provides <strong>links</strong> to the following external resources for further information: Catalogue of Life, GBIF, iNaturalist, INPN, Open Tree of Life, WoRMS, and IUCN. These links are provided for convenience and do not imply endorsement or responsibility for their content."
+    },
+    "related": {
+      "title": "Related Work",
+      "pylifemap": {
+        "title": "Pylifemap",
+        "content": "<div><a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap</a> is a Python package designed to map any type of user-provided data on the <strong>Lifemap</strong> basemap. It provides a collection of functions to easily create an interactive map that can be shared through notebooks or directy as a standalone HTML file. </div> <p> For more details, visit the <a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">pylifemap documentation</a>. </p>"
+      }
+    }
+  }
 }

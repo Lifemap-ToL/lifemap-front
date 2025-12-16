@@ -18,6 +18,10 @@
   &.-mb#{$spacing} {
     margin-bottom: $spacing-width;
   }
+
+  &.-ml#{$spacing} {
+    margin-left: $spacing-width;
+  }
 }
 
 @mixin m-padding($spacing) {

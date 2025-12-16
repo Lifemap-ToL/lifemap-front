@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar--menu -mobile" @click="openSidebar"><i class="mdi mdi-menu"></i></div>
     <div class="navbar--brand">
-      <div class="flex-container -align-center">
+      <div class="flex-container -align-center" @click.stop.prevent="goToRoot">
         <img src="@/assets/images/logo-lifemap.png" alt="Lifemap header logo" class="image -h40 -width-auto" />
         <div class="text -font-xl">Lifemap</div>
       </div>
@@ -17,6 +17,7 @@
       {{ $t('publication') }}
     </a>
     <div class="navbar--link -desktop" @click.stop.prevent="openCreditsModal">{{ $t('credits') }}</div>
+    <div class="navbar--link -desktop" @click.stop.prevent="goToAbout">{{ $t('about.link') }}</div>
     <div class="navbar--separator -desktop"></div>
     <div class="navbar--social -desktop">
       <a href="https://github.com/Lifemap-ToL/lifemap-front" target="_blank" rel="noopener noreferrer">

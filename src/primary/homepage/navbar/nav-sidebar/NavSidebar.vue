@@ -1,6 +1,6 @@
 <template>
   <nav class="nav-sidebar">
-    <div class="nav-sidebar--brand">
+    <div class="nav-sidebar--brand" @click.stop.prevent="goToRoot">
       <img src="@/assets/images/logo-lifemap.png" alt="Lifemap header logo" class="nav-sidebar--brand--logo" />
       <div class="nav-sidebar--brand--title">Lifemap</div>
     </div>
@@ -19,6 +19,7 @@
         {{ $t('publication') }}
       </a>
       <div class="menu--item" @click.stop.prevent="openCreditsModal">{{ $t('credits') }}</div>
+      <div class="menu--item" @click.stop.prevent="goToAbout">{{ $t('about.link') }}</div>
     </div>
   </nav>
 </template>

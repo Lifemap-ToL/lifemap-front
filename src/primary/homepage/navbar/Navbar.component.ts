@@ -22,4 +22,12 @@ export default class NavbarComponent extends Vue {
   openCreditsModal() {
     this.modalBus().open({ component: markRaw(CreditsModalVue) });
   }
+
+  goToAbout() {
+    this.$router.push('/about');
+  }
+
+  goToRoot() {
+    this.$router.push('/');
+  }
 }
