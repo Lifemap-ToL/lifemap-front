@@ -5,7 +5,7 @@ export type RESTIUCNStatus = string;
 
 export function toIUCNStatus(restIUCNStatus: RESTIUCNStatus): IUCNStatus {
   const wikidataId = restIUCNStatus.split('/').reverse()[0];
-
+  console.log(wikidataId);
   switch (wikidataId) {
     case 'Q237350':
       return IUCNStatus.EX;
@@ -19,6 +19,8 @@ export function toIUCNStatus(restIUCNStatus: RESTIUCNStatus): IUCNStatus {
       return IUCNStatus.NT;
     case 'Q211005':
       return IUCNStatus.LC;
+    case 'Q96377276':
+      return IUCNStatus.EN;
   }
 
   throw new InvalidRESTIUCNStatus(restIUCNStatus);
