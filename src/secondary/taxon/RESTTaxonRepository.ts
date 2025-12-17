@@ -142,9 +142,12 @@ export class RESTTaxonRepository implements TaxonRepository {
   }
 
   public async findTaxonWikidataRecord(ncbiId: number): Promise<TaxonWikidataRecord> {
-    return this.wikidataCaller
-      .get<RESTTaxonWikidataRecord>(queryTaxonWikidataRecord(ncbiId))
-      .then(restTaxonWikidataRecords => restTaxonWikidataRecords.map(toTaxonWikidataRecord).reduce(mergeTaxonWikidataRecord));
+    return this.wikidataCaller.get<RESTTaxonWikidataRecord>(queryTaxonWikidataRecord(ncbiId)).then(restTaxonWikidataRecords => {
+      const records = restTaxonWikidataRecords.map(toTaxonWikidataRecord);
+      const reduced =
+        records.length > 0 ? records.reduce(mergeTaxonWikidataRecord) : toTaxonWikidataRecord({ ncbi: { value: ncbiId.toString() } });
+      return reduced;
+    });
   }
 
   public async findTaxonWikipediaPages(ncbiId: number): Promise<TaxonWikipediaPage[]> {
