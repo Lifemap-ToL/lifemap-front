@@ -1,5 +1,9 @@
-$template-map-color-background: $global-fill-color-background !default;
-$template-map-map-top-spacing: $size-header-height !default;
+@use "../../shared/shadow/shadow";
+@use "../../token/color/color";
+@use "../../token/size/size";
+
+$template-map-color-background: color.$global-fill-color-background !default;
+$template-map-map-top-spacing: size.$size-header-height !default;
 
 .template-map {
   display: flex;
@@ -13,7 +17,7 @@ $template-map-map-top-spacing: $size-header-height !default;
   overflow: auto;
 
   &--header {
-    @include m-shadow;
+    @include shadow.m-shadow;
     z-index: 2;
   }
 

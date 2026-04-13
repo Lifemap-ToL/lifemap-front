@@ -1,3 +1,5 @@
+@use "../../token/color/color";
+
 @mixin pseudo {
   content: "";
   display: block;
@@ -17,7 +19,7 @@
   @include pseudo;
   width: 2px;
   height: calc(50% - 6px);
-  background-color: $global-color-deep-pink;
+  background-color: color.$global-color-deep-pink;
   top: $top;
   left: 18px;
 }
@@ -51,31 +53,31 @@
     }
 
     &--marker {
-      @include circle(10, $global-color-deep-pink, $global-fill-color-shade-100);
+      @include circle(10, color.$global-color-deep-pink, color.$global-fill-color-shade-100);
       margin: 0 12px;
       z-index: 2;
 
       &.-selected {
-        @include circle(10, $global-fill-color-path-start, $global-fill-color-shade-100);
+        @include circle(10, color.$global-fill-color-path-start, color.$global-fill-color-shade-100);
       }
 
       &.-emphasized:before {
         @include pseudo;
-        @include on-top-circle($global-color-deep-pink-30, $global-color-deep-pink);
+        @include on-top-circle(color.$global-color-deep-pink-30, color.$global-color-deep-pink);
       }
     }
 
     &:first-child {
       .step-list--item--marker:before {
         @include pseudo;
-        @include on-top-circle($global-fill-color-path-start-40, $global-fill-color-path-start);
+        @include on-top-circle(color.$global-fill-color-path-start-40, color.$global-fill-color-path-start);
       }
     }
 
     &:last-child {
       .step-list--item--marker:after {
         @include pseudo;
-        @include on-top-circle($global-fill-color-path-end-40, $global-fill-color-path-end);
+        @include on-top-circle(color.$global-fill-color-path-end-40, color.$global-fill-color-path-end);
       }
     }
 

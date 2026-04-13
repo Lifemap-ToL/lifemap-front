@@ -1,5 +1,8 @@
-$table-head-border-color: $global-fill-color-shade-100 !default;
-$table-body-line-color: $global-fill-color-shade-30 !default;
+@use "../../shared/text/text";
+@use "../../token/color/color";
+
+$table-head-border-color: color.$global-fill-color-shade-100 !default;
+$table-body-line-color: color.$global-fill-color-shade-30 !default;
 $table-cell-horizontal-spacing: 8px !default;
 $table-cell-vertical-spacing: 8px !default;
 
@@ -11,7 +14,7 @@ $table-cell-vertical-spacing: 8px !default;
     border-bottom: 1px solid $table-head-border-color;
 
     &--cell {
-      @include m-text;
+      @include text.m-text;
       box-sizing: border-box;
       padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
       text-align: left;
@@ -28,7 +31,7 @@ $table-cell-vertical-spacing: 8px !default;
     }
 
     &--cell {
-      @include m-text;
+      @include text.m-text;
       padding: $table-cell-vertical-spacing $table-cell-horizontal-spacing;
     }
   }

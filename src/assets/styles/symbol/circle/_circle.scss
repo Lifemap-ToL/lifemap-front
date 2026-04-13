@@ -1,8 +1,12 @@
+@use "../../shared/border/border";
+@use "../../shared/fill/fill";
+@use "../../shared/size/size";
+
 
 .circle {
-  @include m-sizes;
-  @include m-fill-color;
-  @include m-border;
+  @include size.m-sizes;
+  @include fill.m-fill-color;
+  @include border.m-border;
   border-radius: 50%;
 
 

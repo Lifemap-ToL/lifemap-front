@@ -1,6 +1,8 @@
-$fieldset-border-color: $global-fill-color-shade-100 !default;
-$fieldset-disabled-fill-color: $global-fill-color-shade-5;
-$fieldset-disabled-border-color: $global-fill-color-shade-20;
+@use "../../token/color/color";
+
+$fieldset-border-color: color.$global-fill-color-shade-100 !default;
+$fieldset-disabled-fill-color: color.$global-fill-color-shade-5;
+$fieldset-disabled-border-color: color.$global-fill-color-shade-20;
 
 .fieldset {
   margin: 0;

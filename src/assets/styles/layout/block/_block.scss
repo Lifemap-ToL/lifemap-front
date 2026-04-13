@@ -1,16 +1,22 @@
+@use "../../shared/border/border";
+@use "../../shared/cursor/cursor";
+@use "../../shared/fill/fill";
+@use "../../shared/shadow/shadow";
+@use "../../shared/spacing/spacing";
+
 $block-border-radius: 12px !default;
 
 .block {
-  @include m-clickable;
-  @include m-paddings;
-  @include m-margins;
-  @include m-border;
-  @include m-fill-color;
+  @include cursor.m-clickable;
+  @include spacing.m-paddings;
+  @include spacing.m-margins;
+  @include border.m-border;
+  @include fill.m-fill-color;
   box-sizing: border-box;
   border-radius: $block-border-radius;
 
   &.-shadow {
-    @include m-shadow;
+    @include shadow.m-shadow;
   }
 
   &.-stretch {
@@ -27,7 +33,7 @@ $block-border-radius: 12px !default;
   }
 
   &:hover.-hoverable {
-    @include m-shadow-darken;
+    @include shadow.m-shadow-darken;
     cursor: pointer;
   }
 }

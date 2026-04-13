@@ -1,7 +1,10 @@
+@use "../../shared/cursor/cursor";
+@use "../../shared/text/text";
+
 
 .icon {
-  @include m-clickable;
-  @include m-font-size;
-  @include m-hover-color;
-  @include m-text-color;
+  @include cursor.m-clickable;
+  @include text.m-font-size;
+  @include text.m-hover-color;
+  @include text.m-text-color;
 }

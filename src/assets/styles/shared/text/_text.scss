@@ -1,3 +1,6 @@
+@use "../../token/color/color";
+@use "../../token/font/font";
+
 @mixin m-text-bold {
   &.-bold {
     font-weight: bold;
@@ -24,57 +27,57 @@
 
 @mixin m-font-size {
   &.-font-xs {
-    font-size: $global-xs-font-size;
+    font-size: font.$global-xs-font-size;
   }
 
   &.-font-sm {
-    font-size: $global-sm-font-size;
+    font-size: font.$global-sm-font-size;
   }
 
   &.-font-lg {
-    font-size: $global-lg-font-size;
+    font-size: font.$global-lg-font-size;
   }
 
   &.-font-xl {
-    font-size: $global-xl-font-size;
+    font-size: font.$global-xl-font-size;
   }
 }
 
 @mixin m-hover-color {
   &:hover.-hover-color-main {
-    color: $global-text-color-main;
+    color: color.$global-text-color-main;
   }
 
   &:hover.-hover-color-secondary {
-    color: $global-text-color-secondary;
+    color: color.$global-text-color-secondary;
   }
 
   &:hover.-hover-color-shade-50 {
-    color: $global-text-color-shade-50;
+    color: color.$global-text-color-shade-50;
   }
 
   &:hover.-hover-color-shade-75 {
-    color: $global-text-color-shade-75;
+    color: color.$global-text-color-shade-75;
   }
 
   &:hover.-hover-color-shade-85 {
-    color: $global-text-color-shade-85;
+    color: color.$global-text-color-shade-85;
   }
 
   &:hover.-hover-color-shade-100 {
-    color: $global-text-color-shade-100;
+    color: color.$global-text-color-shade-100;
   }
 
   &:hover.-hover-color-facebook {
-    color: $global-text-color-facebook;
+    color: color.$global-text-color-facebook;
   }
 
   &:hover.-hover-color-twitter {
-    color: $global-text-color-twitter;
+    color: color.$global-text-color-twitter;
   }
 
   &:hover.-hover-color-github {
-    color: $global-text-color-github;
+    color: color.$global-text-color-github;
   }
 }
 
@@ -98,67 +101,67 @@
 
 @mixin m-text-color {
   &.-color-main {
-    color: $global-text-color-main;
+    color: color.$global-text-color-main;
   }
 
   &.-color-secondary {
-    color: $global-text-color-secondary;
+    color: color.$global-text-color-secondary;
   }
 
   &.-color-shade-5 {
-    color: $global-text-color-shade-5;
+    color: color.$global-text-color-shade-5;
   }
 
   &.-color-shade-20 {
-    color: $global-text-color-shade-20;
+    color: color.$global-text-color-shade-20;
   }
 
   &.-color-shade-30 {
-    color: $global-text-color-shade-30;
+    color: color.$global-text-color-shade-30;
   }
 
   &.-color-shade-50 {
-    color: $global-text-color-shade-50;
+    color: color.$global-text-color-shade-50;
   }
 
   &.-color-shade-75 {
-    color: $global-text-color-shade-75;
+    color: color.$global-text-color-shade-75;
   }
 
   &.-color-shade-85 {
-    color: $global-text-color-shade-85;
+    color: color.$global-text-color-shade-85;
   }
 
   &.-color-shade-95 {
-    color: $global-text-color-shade-95;
+    color: color.$global-text-color-shade-95;
   }
 
   &.-color-shade-100 {
-    color: $global-text-color-shade-100;
+    color: color.$global-text-color-shade-100;
   }
 
   &.-color-path-start {
-    color: $global-text-color-path-start;
+    color: color.$global-text-color-path-start;
   }
 
   &.-color-path-end {
-    color: $global-text-color-path-end;
+    color: color.$global-text-color-path-end;
   }
 
   &.-color-aqua {
-    color: $global-text-color-aqua;
+    color: color.$global-text-color-aqua;
   }
 
   &.-color-facebook-light {
-    color: $global-text-color-facebook-light;
+    color: color.$global-text-color-facebook-light;
   }
 
   &.-color-twitter-light {
-    color: $global-text-color-twitter-light;
+    color: color.$global-text-color-twitter-light;
   }
 
   &.-color-github-light {
-    color: $global-text-color-github-light;
+    color: color.$global-text-color-github-light;
   }
 }
 

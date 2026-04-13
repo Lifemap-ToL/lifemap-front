@@ -1,5 +1,9 @@
-$navbar-height: $size-header-height !default;
-$navbar-color-text: $global-text-color-main !default;
+@use "../../token/color/color";
+@use "../../token/font/font";
+@use "../../token/size/size";
+
+$navbar-height: size.$size-header-height !default;
+$navbar-color-text: color.$global-text-color-main !default;
 $navbar-left-spacing: 12px !default;
 $navbar-right-spacing: 20px !default;
 $navbar-brand-spacing: 18px !default;
@@ -18,7 +22,7 @@ $navbar-separator-spacing: 18px !default;
   cursor: pointer;
 
   &:hover {
-    color: $global-text-color-main-dark;
+    color: color.$global-text-color-main-dark;
   }
 }
 
@@ -33,20 +37,20 @@ $navbar-separator-spacing: 18px !default;
   &--brand {
     cursor: pointer;
     padding: 0 $navbar-brand-spacing;
-    font-size: $global-lg-font-size;
+    font-size: font.$global-lg-font-size;
   }
 
   &--link {
     @include navbar-item;
     padding: 0 $navbar-link-spacing;
-    font-size: $global-lg-font-size;
+    font-size: font.$global-lg-font-size;
     text-decoration: none;
   }
 
   &--social {
     @include navbar-item;
     padding: 0 $navbar-link-spacing;
-    font-size: $global-lg-font-size;
+    font-size: font.$global-lg-font-size;
     opacity: 0.8;
 
     &:hover {
@@ -69,7 +73,7 @@ $navbar-separator-spacing: 18px !default;
     @include navbar-item;
     display: flex;
     padding: 0 $navbar-link-spacing;
-    font-size: $global-xl-font-size;
+    font-size: font.$global-xl-font-size;
     text-decoration: none;
   }
 }

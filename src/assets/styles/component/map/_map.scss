@@ -1,10 +1,12 @@
-$map-fill-color: $global-fill-color-shade-0;
-$map-text-color: $global-fill-color-shade-100;
+@use "../../token/color/color";
+
+$map-fill-color: color.$global-fill-color-shade-0;
+$map-text-color: color.$global-fill-color-shade-100;
 $map-toolbar-width: 32px !default;
 $map-toolbar-vertical-spacing: 8px !default;
 $map-toolbar-horizontal-spacing: 4px !default;
-$map-toolbar-border-color: $global-fill-color-shade-50-faded !default;
-$map-toolbar-fill-color: $global-fill-color-shade-0-85 !default;
+$map-toolbar-border-color: color.$global-fill-color-shade-50-faded !default;
+$map-toolbar-fill-color: color.$global-fill-color-shade-0-85 !default;
 $map-sidebar-left-spacing: $map-toolbar-width + $map-toolbar-horizontal-spacing * 2 + 1px !default;
 $map-info-bar-top-spacing: 20px !default;
 $map-info-bar-right-spacing: 20px !default;

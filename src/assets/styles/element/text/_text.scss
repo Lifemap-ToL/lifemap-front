@@ -1,4 +1,6 @@
+@use "../../shared/text/text";
+
 
 .text {
-  @include m-text;
+  @include text.m-text;
 }

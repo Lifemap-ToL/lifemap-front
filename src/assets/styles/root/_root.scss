@@ -1,9 +1,12 @@
-$root-color-text: $global-text-color-shade-100 !default;
-$root-color-fill: $global-text-color-shade-0 !default;
-$root-font-family: $global-sans-primary-font-family !default;
-$root-font-size: $global-font-size !default;
+@use "../token/color/color";
+@use "../token/font/font";
 
-$root-scrollbar-color: $global-fill-color-main !default;
+$root-color-text: color.$global-text-color-shade-100 !default;
+$root-color-fill: color.$global-text-color-shade-0 !default;
+$root-font-family: font.$global-sans-primary-font-family !default;
+$root-font-size: font.$global-font-size !default;
+
+$root-scrollbar-color: color.$global-fill-color-main !default;
 $root-scrollbar-size: 6px !default;
 $root-scrollbar-border-radius: 1.5px !default;
 

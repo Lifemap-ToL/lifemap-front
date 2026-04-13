@@ -1,9 +1,11 @@
-$message-border-color: $global-fill-color-main !default;
-$message-header-fill-color: $global-fill-color-main !default;
-$message-header-closer-text-color: $global-text-color-shade-20 !default;
-$message-header-closer-hover-text-color: $global-text-color-shade-0 !default;
+@use "../../token/color/color";
+
+$message-border-color: color.$global-fill-color-main !default;
+$message-header-fill-color: color.$global-fill-color-main !default;
+$message-header-closer-text-color: color.$global-text-color-shade-20 !default;
+$message-header-closer-hover-text-color: color.$global-text-color-shade-0 !default;
 $message-content-padding: 10px !default;
-$message-content-text-color: $global-fill-color-main !default;
+$message-content-text-color: color.$global-fill-color-main !default;
 
 .message {
   display: flex;

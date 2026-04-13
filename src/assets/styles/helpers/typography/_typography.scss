@@ -1,20 +1,24 @@
+@use "../../function/function";
+@use "../../shared/text/text";
+@use "../../token/font/font";
+
 @use 'sass:math';
 
-$title-line-height: math.div(24, strip-units($global-font-size)) * 1.2rem !default;
-$title-font-size: math.div(24, strip-units($global-font-size)) * 1rem !default;
-$title-extra-small-line-height: math.div(16, strip-units($global-font-size)) * 1.2rem !default;
-$title-extra-small-font-size: math.div(16, strip-units($global-font-size)) * 1rem !default;
-$title-small-line-height: math.div(20, strip-units($global-font-size)) * 1.2rem !default;
-$title-small-font-size: math.div(20, strip-units($global-font-size)) * 1rem !default;
-$title-large-line-height: math.div(32, strip-units($global-font-size)) * 1.2rem !default;
-$title-large-font-size: math.div(32, strip-units($global-font-size)) * 1rem !default;
-$title-extra-large-line-height: math.div(64, strip-units($global-font-size)) * 1.2rem !default;
-$title-extra-large-font-size: math.div(64, strip-units($global-font-size)) * 1rem !default;
+$title-line-height: math.div(24, function.strip-units(font.$global-font-size)) * 1.2rem !default;
+$title-font-size: math.div(24, function.strip-units(font.$global-font-size)) * 1rem !default;
+$title-extra-small-line-height: math.div(16, function.strip-units(font.$global-font-size)) * 1.2rem !default;
+$title-extra-small-font-size: math.div(16, function.strip-units(font.$global-font-size)) * 1rem !default;
+$title-small-line-height: math.div(20, function.strip-units(font.$global-font-size)) * 1.2rem !default;
+$title-small-font-size: math.div(20, function.strip-units(font.$global-font-size)) * 1rem !default;
+$title-large-line-height: math.div(32, function.strip-units(font.$global-font-size)) * 1.2rem !default;
+$title-large-font-size: math.div(32, function.strip-units(font.$global-font-size)) * 1rem !default;
+$title-extra-large-line-height: math.div(64, function.strip-units(font.$global-font-size)) * 1.2rem !default;
+$title-extra-large-font-size: math.div(64, function.strip-units(font.$global-font-size)) * 1rem !default;
 
 .title {
-  @include m-text-color;
-  @include m-text-align;
-  @include m-text-style;
+  @include text.m-text-color;
+  @include text.m-text-align;
+  @include text.m-text-style;
   line-height: $title-line-height;
   font-size: $title-font-size;
   font-weight: initial;
@@ -46,5 +50,5 @@ $title-extra-large-font-size: math.div(64, strip-units($global-font-size)) * 1re
 }
 
 .text {
-  @include m-text;
+  @include text.m-text;
 }

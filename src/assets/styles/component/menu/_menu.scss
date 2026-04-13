@@ -1,3 +1,6 @@
+@use "../../token/color/color";
+@use "../../token/font/font";
+
 $menu-item-vertical-spacing: 12px;
 $menu-item-horizontal-spacing: 24px;
 
@@ -13,7 +16,7 @@ $menu-item-horizontal-spacing: 24px;
   cursor: pointer;
 
   &:hover {
-    color: $global-text-color-main-dark;
+    color: color.$global-text-color-main-dark;
   }
 }
 
@@ -25,7 +28,7 @@ $menu-item-horizontal-spacing: 24px;
      @include menu-item;
     box-sizing: border-box;
     padding: $menu-item-vertical-spacing $menu-item-horizontal-spacing;
-    font-size: $global-xl-font-size;
+    font-size: font.$global-xl-font-size;
     text-decoration: none;
     color: inherit;
     border: 0;

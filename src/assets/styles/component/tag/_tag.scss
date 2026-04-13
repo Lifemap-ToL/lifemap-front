@@ -1,17 +1,20 @@
+@use "../../token/color/color";
+@use "../../token/font/font";
+
 
 .tag {
   display: flex;
   gap: 4px;
   align-items: center;
   padding: 2px;
-  background-color: $global-fill-color-shade-20;
-  border: 1px solid $global-fill-color-shade-30;
+  background-color: color.$global-fill-color-shade-20;
+  border: 1px solid color.$global-fill-color-shade-30;
 
   &--text {
-    font-size: $global-xs-font-size;
+    font-size: font.$global-xs-font-size;
   }
 
   &--remover {
-    font-size: $global-sm-font-size;
+    font-size: font.$global-sm-font-size;
   }
 }

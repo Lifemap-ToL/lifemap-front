@@ -1,19 +1,23 @@
-$contextual-menu-color-background: $global-fill-color-shade-100 !default;
+@use "../../shared/shadow/shadow";
+@use "../../token/color/color";
+@use "../../token/font/font";
+
+$contextual-menu-color-background: color.$global-fill-color-shade-100 !default;
 $contextual-menu-border-radius: 4px !default;
 $contextual-menu-vertical-spacing: 4px !default;
 
-$contextual-menu--entry-fill-color: $global-fill-color-shade-100 !default;
-$contextual-menu--entry-text-color: $global-text-color-shade-5 !default;
-$contextual-menu--entry-font-size: $global-font-size !default;
-$contextual-menu--entry-font-family: $global-sans-primary-font-family !default;
-$contextual-menu--entry-hover-fill-color: $global-fill-color-shade-95 !default;
+$contextual-menu--entry-fill-color: color.$global-fill-color-shade-100 !default;
+$contextual-menu--entry-text-color: color.$global-text-color-shade-5 !default;
+$contextual-menu--entry-font-size: font.$global-font-size !default;
+$contextual-menu--entry-font-family: font.$global-sans-primary-font-family !default;
+$contextual-menu--entry-hover-fill-color: color.$global-fill-color-shade-95 !default;
 $contextual-menu--entry-horizontal-spacing: 12px !default;
 $contextual-menu--entry-vertical-spacing: 8px !default;
 
 $contextual-menu--entry--slot-horizontal-spacing: 6px !default;
 
 .contextual-menu {
-  @include m-shadow;
+  @include shadow.m-shadow;
   padding: $contextual-menu-vertical-spacing 0;
   border-radius: $contextual-menu-border-radius;
   background-color: $contextual-menu-color-background;
@@ -73,11 +77,11 @@ $contextual-menu--entry--slot-horizontal-spacing: 6px !default;
     background-color: $contextual-menu--entry-fill-color;
     text-align: left;
     font-family: $contextual-menu--entry-font-family;
-    font-size: $global-sm-font-size;
+    font-size: font.$global-sm-font-size;
     white-space: nowrap;
     padding: 6px $contextual-menu--entry-horizontal-spacing;
-    border-bottom: 1px solid $global-fill-color-shade-85;
-    color: $global-fill-color-shade-50;
+    border-bottom: 1px solid color.$global-fill-color-shade-85;
+    color: color.$global-fill-color-shade-50;
     max-width: 220px;
 
     &--slot {
@@ -100,11 +104,11 @@ $contextual-menu--entry--slot-horizontal-spacing: 6px !default;
     margin: 8px 0;
     height: 1px;
     width: 100%;
-    background-color: $global-fill-color-shade-50;
+    background-color: color.$global-fill-color-shade-50;
   }
 
   &--content {
-    background-color: $global-fill-color-shade-100;
+    background-color: color.$global-fill-color-shade-100;
     padding: $contextual-menu--entry-vertical-spacing $contextual-menu--entry-horizontal-spacing;
   }
 }

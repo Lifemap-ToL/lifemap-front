@@ -1,6 +1,9 @@
+@use "../../token/color/color";
+@use "../../token/font/font";
+
 $button-border-size: 2px !default;
 $button-border-radius: 4px !default;
-$button-color-background: $global-fill-color-shade-100 !default;
+$button-color-background: color.$global-fill-color-shade-100 !default;
 $button-color-border: $button-color-background !default;
 $button-padding: 10px !default;
 
@@ -8,20 +11,20 @@ $button-extra-small-height: 28px !default;
 $button-extra-small-border-radius: 2px !default;
 
 $button-line-height: 44px - ($button-border-size * 2);
-$button-color-text: $global-text-color-shade-5 !default;
-$button-font-family: $global-sans-primary-font-family !default;
-$button-font-size: $global-lg-font-size !default;
-$button-small-font-size: $global-font-size !default;
+$button-color-text: color.$global-text-color-shade-5 !default;
+$button-font-family: font.$global-sans-primary-font-family !default;
+$button-font-size: font.$global-lg-font-size !default;
+$button-small-font-size: font.$global-font-size !default;
 
 $button-large-horizontal-padding: 10px !default;
 $button-large-vertical-padding: 20px !default;
-$button-large-font-size: $global-xl-font-size !default;
+$button-large-font-size: font.$global-xl-font-size !default;
 
 $button-extra-large-horizontal-padding: 24px !default;
 $button-extra-large-vertical-padding: 12px !default;
-$button-extra-large-font-size: $global-xxl-font-size !default;
+$button-extra-large-font-size: font.$global-xxl-font-size !default;
 
-$button-color-text-disabled: $global-text-color-shade-50 !default;
+$button-color-text-disabled: color.$global-text-color-shade-50 !default;
 
 $button-icon-size: 32px !default;
 
@@ -33,11 +36,11 @@ $button-icon-size: 32px !default;
 }
 
 .button {
-  @include button-color('main', $global-fill-color-main, $global-text-color-shade-0);
-  @include button-color('shade-100', $global-text-color-shade-100, $global-fill-color-shade-0);
-  @include button-color('shade-85', $global-text-color-shade-85, $global-fill-color-shade-30);
-  @include button-color('shade-0', $global-fill-color-shade-0, $global-text-color-shade-100);
-  @include button-color('shade-0-70', $global-text-color-shade-0-70, $global-fill-color-shade-100);
+  @include button-color('main', color.$global-fill-color-main, color.$global-text-color-shade-0);
+  @include button-color('shade-100', color.$global-text-color-shade-100, color.$global-fill-color-shade-0);
+  @include button-color('shade-85', color.$global-text-color-shade-85, color.$global-fill-color-shade-30);
+  @include button-color('shade-0', color.$global-fill-color-shade-0, color.$global-text-color-shade-100);
+  @include button-color('shade-0-70', color.$global-text-color-shade-0-70, color.$global-fill-color-shade-100);
   outline: none;
   border-color: transparent;
   background-color: $button-color-background;
@@ -73,25 +76,25 @@ $button-icon-size: 32px !default;
 
   &.-text {
     background-color: transparent;
-    color: $global-text-color-shade-85;
+    color: color.$global-text-color-shade-85;
 
     &:hover, &:focus {
-      color: $global-text-color-shade-100;
+      color: color.$global-text-color-shade-100;
     }
 
     &:disabled {
-      color: $global-text-color-shade-50;
+      color: color.$global-text-color-shade-50;
     }
   }
 
   &.-outlined {
     background-color: transparent;
-    color: $global-text-color-shade-85;
-    border: 1px solid $global-text-color-shade-85;
+    color: color.$global-text-color-shade-85;
+    border: 1px solid color.$global-text-color-shade-85;
 
     &:hover, &:focus {
-      color: $global-text-color-shade-100;
-      border: 1px solid $global-text-color-shade-100;
+      color: color.$global-text-color-shade-100;
+      border: 1px solid color.$global-text-color-shade-100;
     }
   }
 

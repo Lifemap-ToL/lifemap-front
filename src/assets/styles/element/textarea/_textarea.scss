@@ -1,4 +1,6 @@
-$textarea-text-color: $global-fill-color-shade-100 !default;
+@use "../../token/color/color";
+
+$textarea-text-color: color.$global-fill-color-shade-100 !default;
 
 .textarea {
   resize: none;

@@ -1,7 +1,10 @@
+@use "../../function/function";
+@use "../../token/color/color";
+
 $twinkle-animation-duration: 1.8s !default;
-$twinkle-background-color: $global-fill-color-shade-95 !default;
-$twinkle-background-color-start: $global-fill-color-shade-5 !default;
-$twinkle-background-color-end: background-color($global-text-color-shade-5) !default;
+$twinkle-background-color: color.$global-fill-color-shade-95 !default;
+$twinkle-background-color-start: color.$global-fill-color-shade-5 !default;
+$twinkle-background-color-end: function.background-color(color.$global-text-color-shade-5) !default;
 $twinkle-background-size: 1000px 640px !default;
 $twinkle-background-position-horizontal-offset: 468px !default;
 

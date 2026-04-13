@@ -1,13 +1,17 @@
+@use "../../shared/size/size";
+@use "../../shared/text/text";
+@use "../../token/color/color";
+
 $input-vertical-padding: 4px !default;
-$input-border-color: $global-fill-color-shade-75 !default;
-$input-border-color-focus: $global-fill-color-shade-100 !default;
+$input-border-color: color.$global-fill-color-shade-75 !default;
+$input-border-color-focus: color.$global-fill-color-shade-100 !default;
 $input-line-height: 24px !default;
-$input-color: $global-fill-color-shade-100 !default;
+$input-color: color.$global-fill-color-shade-100 !default;
 
 
 .input[type="text"] {
-  @include m-widths;
-  @include m-font-size;
+  @include size.m-widths;
+  @include text.m-font-size;
   box-sizing: border-box;
   display: block;
   outline: none;

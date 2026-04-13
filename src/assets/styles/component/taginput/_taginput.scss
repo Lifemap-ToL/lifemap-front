@@ -1,11 +1,14 @@
+@use "../../shared/size/size";
+@use "../../token/color/color";
+
 $taginput-field-height: 60px !default;
-$taginput-field-input-text-color: $global-fill-color-shade-100 !default;
-$taginput-suggestion-list-background-color: $global-fill-color-shade-0-70 !default;
-$taginput-suggestion-list-text-color: $global-text-color-shade-85 !default;
+$taginput-field-input-text-color: color.$global-fill-color-shade-100 !default;
+$taginput-suggestion-list-background-color: color.$global-fill-color-shade-0-70 !default;
+$taginput-suggestion-list-text-color: color.$global-text-color-shade-85 !default;
 $taginput-spacing: 0px !default;
 $taginput-suggestion-item-vertical-spacing: 10px !default;
 $taginput-suggestion-item-horizontal-spacing: 4px !default;
-$taginput-suggestion-item-border-color: $global-fill-color-shade-75 !default;
+$taginput-suggestion-item-border-color: color.$global-fill-color-shade-75 !default;
 
 .taginput {
   position: relative;
@@ -38,7 +41,7 @@ $taginput-suggestion-item-border-color: $global-fill-color-shade-75 !default;
   }
 
   & > &--suggestion-list {
-    @include m-widths;
+    @include size.m-widths;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -62,7 +65,7 @@ $taginput-suggestion-item-border-color: $global-fill-color-shade-75 !default;
     }
 
     &:hover {
-      background-color: $global-fill-color-shade-50-faded;
+      background-color: color.$global-fill-color-shade-50-faded;
     }
   }
 

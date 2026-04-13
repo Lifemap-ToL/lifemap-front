@@ -1,5 +1,7 @@
-$link-color: $global-text-color-secondary;
-$link-hover-color: $global-text-color-secondary-dark;
+@use "../../token/color/color";
+
+$link-color: color.$global-text-color-secondary;
+$link-hover-color: color.$global-text-color-secondary-dark;
 
 .link {
   color: $link-color;

@@ -1,9 +1,12 @@
+@use "../../shared/size/size";
+@use "../../token/color/color";
+
 $autocomplete-spacing: 0px !default;
-$autocomplete-suggestion-list-background-color: $global-fill-color-shade-0-70 !default;
-$autocomplete-suggestion-list-text-color: $global-text-color-shade-85 !default;
+$autocomplete-suggestion-list-background-color: color.$global-fill-color-shade-0-70 !default;
+$autocomplete-suggestion-list-text-color: color.$global-text-color-shade-85 !default;
 $autocomplete-suggestion-item-vertical-spacing: 10px !default;
 $autocomplete-suggestion-item-horizontal-spacing: 4px !default;
-$autocomplete-suggestion-item-border-color: $global-fill-color-shade-75 !default;
+$autocomplete-suggestion-item-border-color: color.$global-fill-color-shade-75 !default;
 
 .autocomplete {
   position: relative;
@@ -13,7 +16,7 @@ $autocomplete-suggestion-item-border-color: $global-fill-color-shade-75 !default
   }
 
   & > &--suggestion-list {
-    @include m-widths;
+    @include size.m-widths;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -37,7 +40,7 @@ $autocomplete-suggestion-item-border-color: $global-fill-color-shade-75 !default
     }
 
     &:hover {
-      background-color: $global-fill-color-shade-50-faded;
+      background-color: color.$global-fill-color-shade-50-faded;
     }
   }
 

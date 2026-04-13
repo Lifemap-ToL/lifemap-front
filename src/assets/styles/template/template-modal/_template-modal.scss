@@ -1,5 +1,7 @@
+@use "../../token/color/color";
+
 $template-modal-padding: 20px !default;
-$template-modal-color-background: $global-fill-color-shade-50-faded !default;
+$template-modal-color-background: color.$global-fill-color-shade-50-faded !default;
 
 .template-modal {
   display: flex;

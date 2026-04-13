@@ -1,5 +1,7 @@
+@use "../../token/color/color";
+
 $separator-height: 1px !default;
-$separator-color: $global-fill-color-shade-100 !default;
+$separator-color: color.$global-fill-color-shade-100 !default;
 $separator-spacing: 10px !default;
 
 .separator {

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use 'sass:math';
 
 @function strip-units($number) {
@@ -5,5 +6,5 @@
 }
 
 @function background-color($color) {
-  @return scale-color($color, $lightness: 87%);
+  @return color.scale($color, $lightness: 87%);
 }

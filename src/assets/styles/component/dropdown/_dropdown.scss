@@ -1,3 +1,5 @@
+@use "../../shared/size/size";
+
 $dropdown-spacing: 8px !default;
 
 .dropdown {
@@ -5,7 +7,7 @@ $dropdown-spacing: 8px !default;
   position: relative;
 
   & > &--area {
-    @include m-widths;
+    @include size.m-widths;
     position: absolute;
     left: 0;
     top: calc(100% + $dropdown-spacing);

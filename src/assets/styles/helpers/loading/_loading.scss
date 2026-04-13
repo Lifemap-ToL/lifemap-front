@@ -1,7 +1,10 @@
+@use "../../shared/animation/animation";
+@use "../../shared/size/size";
+
 .twinkle-area {
-  @include m-heights;
-  @include m-widths;
-  @include m-twinkle;
+  @include size.m-heights;
+  @include size.m-widths;
+  @include animation.m-twinkle;
   display: block;
   position: relative;
   width: 100%;

@@ -1,10 +1,12 @@
-$popover-triangle-color-background: $global-fill-color-main !default;
+@use "../../token/color/color";
+
+$popover-triangle-color-background: color.$global-fill-color-main !default;
 $popover-triangle-spacing: 20px !default;
 $popover-triangle-height: 7px !default;
 $popover-spacing: 0px !default;
 $popover-min-width: 180px !default;
-$popover-fill-color: $global-fill-color-main !default;
-$popover-text-color: $global-text-color-shade-5 !default;
+$popover-fill-color: color.$global-fill-color-main !default;
+$popover-text-color: color.$global-text-color-shade-5 !default;
 
 $popover-triangle-width: $popover-triangle-height * 2;
 

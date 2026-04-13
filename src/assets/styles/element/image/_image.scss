@@ -1,10 +1,13 @@
+@use "../../shared/size/size";
+@use "../../shared/spacing/spacing";
+
 $image-border-radius: 12px !default;
 $image-right-margin: 12px !default;
 
 .image {
-  @include m-heights;
-  @include m-widths;
-  @include m-margins;
+  @include size.m-heights;
+  @include size.m-widths;
+  @include spacing.m-margins;
 
   &.-width-auto {
     width: auto;

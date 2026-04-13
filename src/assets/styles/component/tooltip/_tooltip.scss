@@ -1,7 +1,9 @@
+@use "../../token/color/color";
+
 $tooltip-horizontal-spacing: 6px !default;
 $tooltip-vertical-spacing: 6px !default;
-$tooltip-fill-color: $global-fill-color-shade-0-70;
-$tooltip-text-color: $global-fill-color-shade-100;
+$tooltip-fill-color: color.$global-fill-color-shade-0-70;
+$tooltip-text-color: color.$global-fill-color-shade-100;
 
 .tooltip {
   display: inline-block;

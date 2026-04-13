@@ -1,6 +1,8 @@
+@use "../../shared/fill/fill";
+
 
 .divider {
-  @include m-fill-color;
+  @include fill.m-fill-color;
   height: 1px;
   width: 100%;
 }
