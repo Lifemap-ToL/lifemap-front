@@ -39,7 +39,7 @@
               </template>
             </div>
             <div v-if="taxonSuggestion.synonymSlices.length > 0" class="text -font-sm">
-              <span>{{ $t('taxon-synonym-label') }} </span>
+              <span>{{ $t('taxon-synonym-label') }}&nbsp;</span>
               <span
                 v-for="(slice, index) in taxonSuggestion.synonymSlices"
                 :key="`${taxonSuggestion.ncbiId}-syn-${index}`"
