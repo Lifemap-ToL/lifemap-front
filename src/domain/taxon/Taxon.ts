@@ -10,6 +10,8 @@ interface TaxonCore {
   nameInItalic: boolean;
   commonName?: string;
   rank: string;
+  // Damien — 2026-09-18
+  synonyms?: string[];
   zoomLevel: number;
   descendants: Numeral;
   coordinates: [number, number];

@@ -46,6 +46,7 @@
   "taxon-retrieval-error-message": "Une erreur est survenue lors de la récupération des données du taxon.",
   "taxon-suggestions-error-message": "Une erreur est survenue lors de la récupération des suggestions de taxons.",
   "taxon-synonym-label": "Synonyme :",
+  "taxon-synonyms-label": "Synonymes :",
   "ancestor-error-message": "Une erreur est survenue lors de la récupération des taxons ancestraux.",
   "failed-to-retrieve-taxon-info-message": "Une erreur est survenue lors de la récupération des données du taxon.",
   "no-wikipedia-article-message": "Absence d'article Wikipedia concernant ce groupe.",

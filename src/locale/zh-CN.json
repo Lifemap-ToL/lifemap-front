@@ -46,6 +46,7 @@
   "taxon-retrieval-error-message": "获取分类群数据时发生错误",
   "taxon-suggestions-error-message": "获取分类群建议时发生错误",
   "taxon-synonym-label": "同义词：",
+  "taxon-synonyms-label": "同义词：",
   "ancestor-error-message": "获取分类群祖先时发生错误",
   "failed-to-retrieve-taxon-info-message": "获取分类群信息时发生错误",
   "no-wikipedia-article-message": "维基百科上没有关于该类群的条目",

@@ -46,6 +46,7 @@
   "taxon-retrieval-error-message": "An error occurred while retrieving taxa data",
   "taxon-suggestions-error-message": "An error occurred while fetching taxon suggestions",
   "taxon-synonym-label": "Synonym:",
+  "taxon-synonyms-label": "Synonyms:",
   "ancestor-error-message": "An error occurred while retrieving taxa ancestries",
   "failed-to-retrieve-taxon-info-message": "An error occurred while fetching taxon data",
   "no-wikipedia-article-message": "No article concerning this group on Wikipedia",

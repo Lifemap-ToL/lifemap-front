@@ -29,6 +29,20 @@
             <template v-else-if="state === 'SUCCESS'">
               <div class="title -break-words" :class="{ '-italic': taxon.nameInItalic }">{{ taxon.name }}</div>
               <div class="text -color-shade-85 -uppercase">{{ taxon.rank }}</div>
+              <!-- Damien — 2026-09-18 -->
+              <div v-if="taxon.synonyms && taxon.synonyms.length > 0" class="text -font-sm">
+                <span>
+                  {{ taxon.synonyms.length === 1 ? $t('taxon-synonym-label') : $t('taxon-synonyms-label') }}
+                </span>
+                <span
+                  v-for="(synonym, index) in taxon.synonyms"
+                  :key="`${taxon.ncbiId}-synonym-${index}`"
+                  class="text -bold"
+                  :class="{ '-italic': taxon.nameInItalic }"
+                >
+                  {{ synonym }}<span v-if="index < taxon.synonyms.length - 1">, </span>
+                </span>
+              </div>
             </template>
           </div>
           <div class="flex-container -vertical">
