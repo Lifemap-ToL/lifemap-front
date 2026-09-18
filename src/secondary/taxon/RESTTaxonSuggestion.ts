@@ -9,12 +9,16 @@ export interface RESTTaxonSuggestion {
 export function toTaxonSuggestion(restTaxonSuggestion: RESTTaxonSuggestion): TaxonSuggestion {
   const removeTag = (text: string) => text.replace(/<b>|<\/b>/g, '');
   // Damien — 2026-09-17
-  const [, scientificName, commonName, rank, ncbiId] = restTaxonSuggestion.term.match(/^([^|]*) \| ([^|]*) \| ([^|]*) \| ([^|]*)(?: \| .*)?$/)!;
+  // Damien — 2026-09-18
+  const [, scientificName, commonName, rank, ncbiId, synonyms = ''] =
+    restTaxonSuggestion.term.match(/^([^|]*) \| ([^|]*) \| ([^|]*) \| ([^|]*)(?: \| (.*))?$/)!;
   return {
     ncbiId: parseInt(removeTag(ncbiId)),
     scientificName: removeTag(scientificName),
     commonName: removeTag(commonName),
     nameInItalic: TAXON_RANK_REQUIRING_NAME_IN_ITALIC.includes(removeTag(rank)),
     rank: removeTag(rank),
+    // Damien — 2026-09-18
+    synonyms: removeTag(synonyms).split(', ').filter(Boolean),
   };
 }

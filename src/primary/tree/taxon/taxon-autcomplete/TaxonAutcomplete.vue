@@ -38,6 +38,22 @@
                 </span>
               </template>
             </div>
+            <!-- Damien — 2026-09-18 -->
+            <div v-if="taxonSuggestion.synonymSlices.length > 0" class="text -font-sm">
+              <span>{{ $t('taxon-synonym-label') }} </span>
+              <span
+                v-for="(slice, index) in taxonSuggestion.synonymSlices"
+                :key="`${taxonSuggestion.ncbiId}-syn-${index}`"
+                class="text"
+                :class="{
+                  '-color-shade-100': matchSearch(slice),
+                  '-bold': matchSearch(slice),
+                  '-italic': taxonSuggestion.nameInItalic
+                }"
+              >
+                {{ slice }}
+              </span>
+            </div>
             <div class="text -uppercase -font-xs -color-shade-75">
               <span
                 v-for="(slice, index) in taxonSuggestion.rankSlices"
