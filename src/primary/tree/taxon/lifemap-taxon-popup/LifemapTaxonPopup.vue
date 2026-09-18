@@ -31,7 +31,7 @@
               <div class="text -color-shade-85 -uppercase">{{ taxon.rank }}</div>
               <div v-if="taxon.synonyms && taxon.synonyms.length > 0" class="text -font-sm">
                 <span>
-                  {{ taxon.synonyms.length === 1 ? $t('taxon-synonym-label') : $t('taxon-synonyms-label') }}&nbsp;
+                  {{ taxon.synonyms.length === 1 ? $t('taxon-synonym-label') : $t('taxon-synonyms-label') }}
                 </span>
                 <span
                   v-for="(synonym, index) in taxon.synonyms"
