@@ -8,7 +8,6 @@ export interface TaxonSuggestionProjection {
   fullName: string;
   nameInItalic: boolean;
   rankSlices: string[];
-  // Damien — 2026-09-18
   synonymSlices: string[];
 }
 
@@ -21,7 +20,6 @@ function slice(toSlice: string, separator: string): string[] {
 
 export function toTaxonSuggestionProjection(search: string) {
   return function (taxonSuggestion: TaxonSuggestion): TaxonSuggestionProjection {
-    // Damien — 2026-09-18
     const matchedSynonym =
       search.trim() === ''
         ? undefined
@@ -34,7 +32,6 @@ export function toTaxonSuggestionProjection(search: string) {
       fullName: `${taxonSuggestion.scientificName} ${taxonSuggestion.commonName}`.trim(),
       nameInItalic: taxonSuggestion.nameInItalic,
       rankSlices: slice(taxonSuggestion.rank, search),
-      // Damien — 2026-09-18
       synonymSlices: matchedSynonym ? slice(matchedSynonym, search) : [],
     };
   };
@@ -48,7 +45,6 @@ export function taxonToTaxonSuggestionProjection(taxon: Taxon): TaxonSuggestionP
     fullName: taxon.name,
     nameInItalic: taxon.nameInItalic,
     rankSlices: [],
-    // Damien — 2026-09-18
     synonymSlices: [],
   };
 }

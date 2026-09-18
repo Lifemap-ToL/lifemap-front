@@ -4,6 +4,5 @@ export interface TaxonSuggestion {
   commonName: string;
   nameInItalic: boolean;
   rank: string;
-  // Damien — 2026-09-18
   synonyms: string[];
 }

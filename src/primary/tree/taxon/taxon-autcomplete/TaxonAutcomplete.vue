@@ -38,7 +38,6 @@
                 </span>
               </template>
             </div>
-            <!-- Damien — 2026-09-18 -->
             <div v-if="taxonSuggestion.synonymSlices.length > 0" class="text -font-sm">
               <span>{{ $t('taxon-synonym-label') }} </span>
               <span

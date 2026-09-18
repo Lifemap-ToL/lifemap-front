@@ -9,7 +9,6 @@ export interface RESTTaxon {
   sci_name: [string];
   common_name_en?: [string];
   common_name_fr?: [string];
-  // Damien — 2026-09-18
   synonym?: [string];
   nbdesc: [number];
   rank_en: [string];
@@ -30,7 +29,6 @@ export function toTaxon(lang: 'en' | 'fr'): (restTaxon: RESTTaxon) => Taxon {
       name: restTaxon.sci_name[0],
       nameInItalic: TAXON_RANK_REQUIRING_NAME_IN_ITALIC.includes(restTaxon.rank_en[0]),
       commonName: lang === 'fr' ? undefinedOrFirstElement(restTaxon.common_name_fr) : undefinedOrFirstElement(restTaxon.common_name_en),
-      // Damien — 2026-09-18
       synonyms: restTaxon.synonym ? restTaxon.synonym[0].split(', ').filter(Boolean) : [],
       rank: lang === 'fr' ? restTaxon.rank_fr[0] : restTaxon.rank_en[0],
       zoomLevel: restTaxon.zoom[0],

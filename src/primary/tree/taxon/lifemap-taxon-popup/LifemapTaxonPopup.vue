@@ -29,7 +29,6 @@
             <template v-else-if="state === 'SUCCESS'">
               <div class="title -break-words" :class="{ '-italic': taxon.nameInItalic }">{{ taxon.name }}</div>
               <div class="text -color-shade-85 -uppercase">{{ taxon.rank }}</div>
-              <!-- Damien — 2026-09-18 -->
               <div v-if="taxon.synonyms && taxon.synonyms.length > 0" class="text -font-sm">
                 <span>
                   {{ taxon.synonyms.length === 1 ? $t('taxon-synonym-label') : $t('taxon-synonyms-label') }}
