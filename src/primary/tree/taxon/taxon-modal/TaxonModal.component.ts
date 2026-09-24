@@ -16,6 +16,7 @@ import { WikipediaContentVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/
 import { TaxonIdentifierListVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/taxon-identifier-list';
 import { MessageVue } from '@/primary/common/message';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
+import type { AppLocale } from '@/locale/languages';
 
 @Component({ components: { MessageVue, TaxonAdditionalDataVue, WikipediaContentVue, ModalVue }, emits: ['close'] })
 export default class TaxonModalComponent extends Vue {
@@ -68,7 +69,7 @@ export default class TaxonModalComponent extends Vue {
   }
 
   private handleTaxonWikidataRecord(taxonWikidataRecord: TaxonWikidataRecord) {
-    this.taxonWikidataRecordProjection = toTaxonWikidataRecordProjection(taxonWikidataRecord, this.$i18n.locale as 'en' | 'fr');
+    this.taxonWikidataRecordProjection = toTaxonWikidataRecordProjection(taxonWikidataRecord, this.$i18n.locale as AppLocale);
     this.activeWikipediaTab();
     this.taxonWikidataRecordFetchingState = FetchingState.DONE;
   }

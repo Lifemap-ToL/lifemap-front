@@ -19,6 +19,7 @@ import type { WikipediaPageSummary } from '@/domain/taxon/wikimedia/WikipediaPag
 import type { RESTWikipediaPageSummary } from '@/secondary/taxon/wikimedia/RESTWikipediaPageSummary';
 import { toPageSummary } from '@/secondary/taxon/wikimedia/RESTWikipediaPageSummary';
 import { queryTaxonWikidataRecord, queryTaxonWikipediaPages } from '@/secondary/taxon/wikidata-query/WikidataQuery';
+import { mapLocaleFor, type AppLocale, type MapLocale } from '@/locale/languages';
 
 const ROOT: Taxon = {
   id: 'root',
@@ -78,6 +79,10 @@ function taxonWikipediaPagesSorter(taxonWikipediaPage1: TaxonWikipediaPage, taxo
 export class RESTTaxonRepository implements TaxonRepository {
   constructor(private axiosInstance: AxiosInstance, private wikidataCaller: WikidataCaller, private i18n: VueI18n) {}
 
+  private get mapLocale(): MapLocale {
+    return mapLocaleFor(this.i18n.locale as AppLocale);
+  }
+
   public async listAncestors(ncbiIds: number[]): Promise<number[][]> {
     const toAncestry = (restAncestries: RESTTaxonAdditionalData[]) => (ncbiId: number) =>
       ncbiId === 0 ? [0] : [ncbiId, ...restAncestries.find(restAncestry => restAncestry.taxid[0] === ncbiId)!.ascend];
@@ -103,14 +108,14 @@ export class RESTTaxonRepository implements TaxonRepository {
     const url = `/solr/taxo/select?q=taxid:${ncbiId}&wt=json`;
     return this.axiosInstance
       .get<RESTResponse<RESTTaxon>>(url)
-      .then(response => toTaxon(this.i18n.locale as 'en' | 'fr')(response.data.response.docs[0]));
+      .then(response => toTaxon(this.mapLocale)(response.data.response.docs[0]));
   }
 
   public listByNCBIIds(ncbiIds: number[]): Promise<Taxon[]> {
     const url = `/solr/taxo/select?q=*:*&fq=taxid:(${ncbiIds.join(' ')})&rows=1000&wt=json`;
     return this.axiosInstance
       .get<RESTResponse<RESTTaxon>>(url)
-      .then(response => response.data.response.docs.map(toTaxon(this.i18n.locale as 'en' | 'fr')))
+      .then(response => response.data.response.docs.map(toTaxon(this.mapLocale)))
       .then(taxa => taxa.sort((taxon1, taxon2) => (ncbiIds.indexOf(taxon1.ncbiId) < ncbiIds.indexOf(taxon2.ncbiId) ? -1 : 1)))
       .then(taxa => {
         if (ncbiIds.includes(0)) {
@@ -188,7 +193,7 @@ export class RESTTaxonRepository implements TaxonRepository {
     const listTaxa = (): Promise<Taxon[]> =>
       this.axiosInstance
         .get<RESTResponse<RESTTaxon>>(url)
-        .then(response => response.data.response.docs.map(toTaxon(this.i18n.locale as 'en' | 'fr')))
+        .then(response => response.data.response.docs.map(toTaxon(this.mapLocale)))
         .catch(() => {
           throw new NotFound(`resource at ${url} not found`);
         });
@@ -213,7 +218,7 @@ export class RESTTaxonRepository implements TaxonRepository {
   }
 
   public listSuggestion(search: string): Promise<TaxonSuggestion[]> {
-    return this.i18n.locale === 'fr'
+    return this.mapLocale === 'fr'
       ? this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandlerfr', 'mySuggesterFr')
       : this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandler', 'mySuggester');
   }

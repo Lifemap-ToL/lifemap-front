@@ -8,6 +8,7 @@ import type { Logger } from '@/domain/Logger';
 import { WikipediaPageSummaryVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/wikipedia-content/wikipedia-page-summary';
 import { WikipediaAvailablePagesDropdownVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/wikipedia-content/wikipedia-available-pages-dropdown';
 import { MessageVue } from '@/primary/common/message';
+import type { AppLocale } from '@/locale/languages';
 
 @Component({ components: { MessageVue, WikipediaPageSummaryVue, WikipediaAvailablePagesDropdownVue } })
 export default class WikipediaContentComponent extends Vue {
@@ -28,7 +29,7 @@ export default class WikipediaContentComponent extends Vue {
   state = ComponentState.PENDING;
 
   created() {
-    this.update(this.$i18n.locale as 'en' | 'fr');
+    this.update(this.$i18n.locale as AppLocale);
     this.appBus().on('changelocale', this.update);
     this.appBus().on('changewikipedialanguage', this.update);
   }
@@ -46,7 +47,7 @@ export default class WikipediaContentComponent extends Vue {
     this.currentTaxonWikipediaPage = pageFinder(queryLang) || pageFinder(currentLocale) || pageFinder(otherLocale);
   }
 
-  private update(locale: 'en' | 'fr') {
+  private update(locale: AppLocale) {
     this.state = ComponentState.PENDING;
 
     this.taxonRepository()
@@ -65,7 +66,7 @@ export default class WikipediaContentComponent extends Vue {
   @Watch('taxon')
   taxonWatcher(newTaxon: TaxonFeatureProperties, oldTaxon: TaxonFeatureProperties) {
     if (newTaxon.id !== oldTaxon.id) {
-      this.update(this.$i18n.locale as 'en' | 'fr');
+      this.update(this.$i18n.locale as AppLocale);
     }
   }
 }
