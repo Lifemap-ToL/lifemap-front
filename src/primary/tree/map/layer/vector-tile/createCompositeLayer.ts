@@ -3,11 +3,12 @@ import VectorTileSource from 'ol/source/VectorTile';
 import { MVT } from 'ol/format';
 import type { View } from 'ol';
 import { createCompositeStyleFunction } from '../../style/createCompositeStyleFunction';
+import type { MapLocale } from '@/locale/languages';
 
 const TILES_URL = import.meta.env.VITE_LIFEMAP_API_BASE_URL + '/vector_tiles/xyz/composite/{z}/{x}/{y}.pbf';
 const BACKGROUND_COLOR = '#000';
 
-export function createCompositeLayer(view: View, preservePerformance: boolean, lang: 'en' | 'fr'): VectorTileLayer {
+export function createCompositeLayer(view: View, preservePerformance: boolean, lang: MapLocale): VectorTileLayer {
   return new VectorTileLayer({
     background: BACKGROUND_COLOR,
     source: new VectorTileSource({

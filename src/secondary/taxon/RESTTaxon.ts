@@ -1,5 +1,6 @@
 import { type Taxon } from '@/domain/taxon/Taxon';
 import { Numeral } from '@/domain/Numeral';
+import type { MapLocale } from '@/locale/languages';
 
 const TAXON_RANK_REQUIRING_NAME_IN_ITALIC = ['species', 'subspecies', 'genus'];
 
@@ -21,7 +22,7 @@ function undefinedOrFirstElement(array: string[] | undefined): undefined | strin
   return array ? array[0] : undefined;
 }
 
-export function toTaxon(lang: 'en' | 'fr'): (restTaxon: RESTTaxon) => Taxon {
+export function toTaxon(lang: MapLocale): (restTaxon: RESTTaxon) => Taxon {
   return function (restTaxon: RESTTaxon): Taxon {
     return {
       id: restTaxon.id,
