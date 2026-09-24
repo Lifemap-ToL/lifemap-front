@@ -22,7 +22,7 @@ Entities and repositories are two concepts that are heavily used in the domain o
 
 Entities are objects that have an
 identity (in other words, that can be identified by some kind of identifier). Taxa are obviously the main entities in
-this project, but we can also found boreholes or countries.
+this project.
 
 Repositories allow creating bridges between the domain entities and the secondary layer. In the context of this project
 it consists of interfaces with a list of methods which are implemented in the secondary layer. For instance, below the
@@ -82,7 +82,7 @@ in 3 files:
 Each component (all the 3 files listed above) is located in its own folder; for instance the component dedicated to the
 homepage is placed in a `homepage` folder containing, at least, a `Homepage.vue` file, a `Homepage.component.ts`
 file and an `ìndex.ts` file. By default, a folder corresponding to a child component is located in the folder
-of its parent component; generic components used in several components are located in the `/src/src/primary/common`.
+of its parent component; generic components used in several components are located in the `/src/primary/common`.
 
 The names of the folders containing components follow the kebab case
  convention,[](https://en.wiktionary.org/wiki/kebab_case) whereas the "template" and "script" files are named following the
@@ -92,9 +92,9 @@ The script part of each component is written in [typescript](https://www.typescr
 thanks to the [`vue-facing-decorators`](https://facing-dev.github.io/vue-facing-decorator/) features.
 
 ```diff
-In a near future, the use of [`vue-facing-decorators`](https://facing-dev.github.io/vue-facing-decorator/) will be dropped
-and components will be written using the Vue composition API. This major change will leverage, among other things,
-of all the possibilities offered by the Vue composition API in terms of code reuse and code organization.. 
+In a near future, the use of "vue-facing-decorators" will be dropped and components will be written using the Vue 
+composition API. This major change will leverage, among other things, of all the possibilities offered by the Vue 
+composition API in terms of code reuse and code organization.. 
 ```
 
 This application also takes advantage of the [Vue Router](https://router.vuejs.org/) for front-end JavaScript routing.
@@ -207,9 +207,9 @@ See [Vite documentation](https://vite.dev/guide/env-and-mode) to go further on t
 Below is the list of environment variables declared for this project. Besides, for each of them, a quick explanation as
 well as examples:
 
-VITE_LIFEMAP_API_BASE_URL
-VITE_WIKIDATA_QUERY_SERVICE_API_BASE_URL
-VITE_ENABLE_MATOMO_TRACKING=true
+ - `VITE_LIFEMAP_API_BASE_URL`
+ - `VITE_WIKIDATA_QUERY_SERVICE_API_BASE_URL`
+ - `VITE_ENABLE_MATOMO_TRACKING`
 
 ##### VITE_LIFEMAP_API_BASE_URL
 
