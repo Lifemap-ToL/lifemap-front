@@ -106,22 +106,6 @@ function onChangeEfficiencyMode(map: Map, enableInteractions: () => void, disabl
   const wikipediaPreferredLanguage = window.localStorage.getItem('wikipedia-preferred-language');
   const storedEfficiencyMode = window.localStorage.getItem('efficiency-mode');
   const efficiencyMode = storedEfficiencyMode === null ? mobileDevice() : storedEfficiencyMode === 'true';
-
-  /*
-  const locale = getAppLocale();
-
-  const i18n = createI18n({
-    locale,
-    fallbackLocale,
-    messages: Object.fromEntries(languages.filter(language => language.enabled).map(({ locale, messages }) => [locale, messages])),
-  });
-
-  console.log(i18n.global.availableLocales);
-  console.log(i18n.global.messages);
-
-  console.log(i18n.global);
-   */
-
   const locale = i18n.global.locale;
   const logger = new ConsoleLogger(console); // eslint-disable-line no-console
   const clickMitt = mitt();
