@@ -12,6 +12,8 @@ import { resolve } from '@/domain/Promise';
 import { fromLonLat } from 'ol/proj';
 import type { AppBus } from '@/primary/common/AppBus';
 import type { Logger } from '@/domain/Logger';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -40,6 +42,10 @@ export class AncestorMixin extends Vue {
 
   ancestor?: Taxon;
   ancestorRoute: Taxon[] = [];
+
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
 
   mounted() {
     if (this.ancestorRequest.length === 2) {
@@ -80,7 +86,7 @@ export class AncestorMixin extends Vue {
       .listAncestors([ncbiId1, ncbiId2])
       .then(ancestries => all([this.findAncestorId(ancestries), resolve(ancestries)]))
       .then(([ancestorId, ancestries]) => all([resolve(ancestorId), this.setAncestorRoute(ancestries, ancestorId)]))
-      .then(([ancestorId, route]) => all([resolve(ancestorId), this.taxonRepository().listByNCBIIds(route)]))
+      .then(([ancestorId, route]) => all([resolve(ancestorId), this.taxonRepository().listByNCBIIds(route, this.treeLocale)]))
       .then(([ancestorId, taxa]) => {
         this.ancestor = this.findAncestor(taxa, ancestorId);
         this.ancestorRoute = taxa;

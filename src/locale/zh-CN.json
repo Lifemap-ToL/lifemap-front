@@ -11,6 +11,7 @@
   "publication": "出版物",
   "french": "法语",
   "english": "英语",
+  "chinese": "中文",
   "lifemap-baseline": "探索整个生命树",
   "platform-description": "Lifemap 是一个互动平台，用于探索所有已知物种之间的进化关系，提供各个类群的详细信息并链接到其他资源。\n\n它既是教育工具，也是研究工具，有助于加深对地球生物多样性和生命进化历史的理解。",
   "platform-figures": "截至 {date}，Lifemap 包含 {totalSpecies} 个物种（{eukaryotes} 真核生物，{archaea} 古细菌，{bacteria} 细菌）。最后更新于 {lastUpdateDate}",
@@ -86,38 +87,38 @@
   "luca-description": "最后的共同祖先（LUCA）是假设的共同祖先细胞，生命的三个域——细菌、古细菌和真核生物——起源于此",
   "not-found-ids": "未找到以下分类号：{ids}",
   "about": {
-    "link": "À propos",
-    "title": "About Lifemap",
+    "link": "关于",
+    "title": "关于 Lifemap",
     "terms-of-use": {
-      "title": "Terms of Use"
+      "title": "使用条款"
     },
     "disclaimer": {
-      "title": "Disclaimer of Liability",
-      "content": "The taxonomic data provided on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is an exact copy of the <strong>NCBI Taxonomy</strong> database, which is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>). However, <strong>we accept no responsibility for errors, omissions, or discrepancies</strong> in the taxonomic information. Users are encouraged to verify data with the original sources and acknowledge NCBI as the data origin."
+      "title": "免责声明",
+      "content": "<a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> 提供的分类学数据是 <strong>NCBI Taxonomy</strong> 数据库的完整副本。该数据库属于公有领域，可自由再分发和修改（参见 <a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy 常见问题</a>）。但是，对于分类信息中的<strong>错误、遗漏或差异，我们不承担任何责任</strong>。建议用户向原始来源核实数据，并注明 NCBI 为数据来源。"
     },
     "subtree": {
-      "title": "Subtree Viewer and Download Tool",
-      "content": "The subtree viewer and download tool is provided <strong>\"as is\"</strong>, without any warranty of accuracy, completeness, or fitness for a particular purpose. Users assume full responsibility for the use of downloaded data."
+      "title": "子树查看与下载工具",
+      "content": "子树查看与下载工具按<strong>“现状”</strong>提供，不对其准确性、完整性或是否适用于特定用途作任何保证。用户须对下载数据的使用承担全部责任。"
     },
     "license": {
-      "title": "License",
-      "content1": "<div>All content on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is licensed under <strong><a class=\"link\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)</a> </strong>.</div>",
-      "content2": "<div>This means you are free to:</div><ul><li><strong>Share</strong> and adapt the material for non-commercial purposes,</li><li><strong>Attribute</strong> <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> as the source.</li></ul><div>For commercial use, please contact us for permission.</div>"
+      "title": "许可协议",
+      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> 上的所有内容均依据 <strong><a class=\"link\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">知识共享署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）</a></strong>授权。</div>",
+      "content2": "<div>这意味着您可以：</div><ul><li>为非商业目的<strong>分享</strong>和改编材料；</li><li>将 <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a><strong>注明为来源</strong>。</li></ul><div>如需用于商业目的，请联系我们获取许可。</div>"
     },
     "citation": {
-      "title": "Citation Requirement",
-      "content": "If you use <a class=\"link\" href=\"https://lifemap.cnrs.fr\">lifemap.cnrs.fr</a> in your research or publications, you must cite the following article:"
+      "title": "引用要求",
+      "content": "如果您在研究或出版物中使用 <a class=\"link\" href=\"https://lifemap.cnrs.fr\">lifemap.cnrs.fr</a>，必须引用以下文章："
     },
     "data-sources": {
-      "title": "Data sources",
-      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> aggregates data from the following sources:</div><ul><li><strong>NCBI Taxonomy</strong>: Provides taxonomic hierarchy and names. This data is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>).</li><li><strong>Wikipedia/Wikidata</strong>: Provides descriptions and images, licensed under <a class=\"link\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC-BY-SA 3.0</a>.</li><li><strong>Timetree of Life</strong>: Provides divergence dates for nodes. See their <a class=\"link\" href=\"https://www.timetree.org/\">Terms of Use</a>.</li><li><strong>IUCN Red List</strong>: Provides conservation status categories. See their <a class=\"link\" href=\"https://www.iucnredlist.org/terms/terms-of-use\">Terms of Use</a>.</li></ul>",
-      "content2": "Additionally, <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> provides <strong>links</strong> to the following external resources for further information: Catalogue of Life, GBIF, iNaturalist, INPN, Open Tree of Life, WoRMS, and IUCN. These links are provided for convenience and do not imply endorsement or responsibility for their content."
+      "title": "数据来源",
+      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> 汇集了以下来源的数据：</div><ul><li><strong>NCBI Taxonomy</strong>：提供分类层级和名称。该数据属于公有领域，可自由再分发和修改（参见 <a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy 常见问题</a>）。</li><li><strong>Wikipedia/Wikidata</strong>：提供描述和图片，依据 <a class=\"link\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> 许可。</li><li><strong>Timetree of Life</strong>：提供各节点的分化时间。请参阅其<a class=\"link\" href=\"https://www.timetree.org/\">使用条款</a>。</li><li><strong>IUCN Red List</strong>：提供保护状况类别。请参阅其<a class=\"link\" href=\"https://www.iucnredlist.org/terms/terms-of-use\">使用条款</a>。</li></ul>",
+      "content2": "此外，<a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> 还提供指向以下外部资源的<strong>链接</strong>，供您获取更多信息：Catalogue of Life、GBIF、iNaturalist、INPN、Open Tree of Life、WoRMS 和 IUCN。这些链接仅为方便用户而提供，并不表示我们认可这些资源，也不代表我们对其内容承担责任。"
     },
     "related": {
-      "title": "Related Work",
+      "title": "相关项目",
       "pylifemap": {
         "title": "Pylifemap",
-        "content": "<div><a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap</a> is a Python package designed to map any type of user-provided data on the <strong>Lifemap</strong> basemap. It provides a collection of functions to easily create an interactive map that can be shared through notebooks or directy as a standalone HTML file. </div> <p> For more details, visit the <a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">pylifemap documentation</a>. </p>"
+        "content": "<div><a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap</a> 是一个 Python 包，可将用户提供的各类数据绘制在 <strong>Lifemap</strong> 底图上。它提供了一组函数，便于创建交互式地图，并通过笔记本分享或导出为独立的 HTML 文件。</div><p>详情请参阅 <a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap 文档</a>。</p>"
       }
     }
   }

@@ -87,37 +87,37 @@
   "not-found-ids": "Les taxids suivants n'ont pas été trouvés: {ids}",
   "about": {
     "link": "À propos",
-    "title": "About Lifemap",
+    "title": "À propos de Lifemap",
     "terms-of-use": {
-      "title": "Terms of Use"
+      "title": "Conditions d’utilisation"
     },
     "disclaimer": {
-      "title": "Disclaimer of Liability",
-      "content": "The taxonomic data provided on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is an exact copy of the <strong>NCBI Taxonomy</strong> database, which is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>). However, <strong>we accept no responsibility for errors, omissions, or discrepancies</strong> in the taxonomic information. Users are encouraged to verify data with the original sources and acknowledge NCBI as the data origin."
+      "title": "Limitation de responsabilité",
+      "content": "Les données taxonomiques fournies sur <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> sont une copie conforme de la base de données <strong>NCBI Taxonomy</strong>, qui appartient au domaine public et peut être librement redistribuée et modifiée (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">FAQ sur la taxonomie du NCBI</a>). Toutefois, <strong>nous déclinons toute responsabilité en cas d’erreurs, d’omissions ou de divergences</strong> dans les informations taxonomiques. Nous invitons les utilisateurs à vérifier les données auprès des sources originales et à mentionner le NCBI comme source des données."
     },
     "subtree": {
-      "title": "Subtree Viewer and Download Tool",
-      "content": "The subtree viewer and download tool is provided <strong>\"as is\"</strong>, without any warranty of accuracy, completeness, or fitness for a particular purpose. Users assume full responsibility for the use of downloaded data."
+      "title": "Outil de visualisation et de téléchargement de sous-arbres",
+      "content": "L’outil de visualisation et de téléchargement de sous-arbres est fourni <strong>« tel quel »</strong>, sans garantie d’exactitude, d’exhaustivité ni d’adéquation à un usage particulier. Les utilisateurs assument l’entière responsabilité de l’utilisation des données téléchargées."
     },
     "license": {
-      "title": "License",
-      "content1": "<div>All content on <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> is licensed under <strong><a class=\"link\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0)</a> </strong>.</div>",
-      "content2": "<div>This means you are free to:</div><ul><li><strong>Share</strong> and adapt the material for non-commercial purposes,</li><li><strong>Attribute</strong> <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> as the source.</li></ul><div>For commercial use, please contact us for permission.</div>"
+      "title": "Licence",
+      "content1": "<div>Tout le contenu de <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> est mis à disposition sous la licence <strong><a class=\"link\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International (CC BY-NC 4.0)</a> </strong>.</div>",
+      "content2": "<div>Cela signifie que vous pouvez :</div><ul><li><strong>Partager</strong> et adapter le contenu à des fins non commerciales,</li><li><strong>Attribuer</strong> le contenu à <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> en tant que source.</li></ul><div>Pour toute utilisation commerciale, veuillez nous contacter afin d’obtenir une autorisation.</div>"
     },
     "citation": {
-      "title": "Citation Requirement",
-      "content": "If you use <a class=\"link\" href=\"https://lifemap.cnrs.fr\">lifemap.cnrs.fr</a> in your research or publications, you must cite the following article:"
+      "title": "Obligation de citation",
+      "content": "Si vous utilisez <a class=\"link\" href=\"https://lifemap.cnrs.fr\">lifemap.cnrs.fr</a> dans vos recherches ou publications, vous devez citer l’article suivant :"
     },
     "data-sources": {
-      "title": "Data sources",
-      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> aggregates data from the following sources:</div><ul><li><strong>NCBI Taxonomy</strong>: Provides taxonomic hierarchy and names. This data is in the public domain and may be freely redistributed and modified (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">NCBI Taxonomy FAQ</a>).</li><li><strong>Wikipedia/Wikidata</strong>: Provides descriptions and images, licensed under <a class=\"link\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC-BY-SA 3.0</a>.</li><li><strong>Timetree of Life</strong>: Provides divergence dates for nodes. See their <a class=\"link\" href=\"https://www.timetree.org/\">Terms of Use</a>.</li><li><strong>IUCN Red List</strong>: Provides conservation status categories. See their <a class=\"link\" href=\"https://www.iucnredlist.org/terms/terms-of-use\">Terms of Use</a>.</li></ul>",
-      "content2": "Additionally, <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> provides <strong>links</strong> to the following external resources for further information: Catalogue of Life, GBIF, iNaturalist, INPN, Open Tree of Life, WoRMS, and IUCN. These links are provided for convenience and do not imply endorsement or responsibility for their content."
+      "title": "Sources des données",
+      "content1": "<div><a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> regroupe des données provenant des sources suivantes :</div><ul><li><strong>NCBI Taxonomy</strong> : fournit la hiérarchie taxonomique et les noms. Ces données appartiennent au domaine public et peuvent être librement redistribuées et modifiées (<a class=\"link\" href=\"https://www.ncbi.nlm.nih.gov/books/NBK54428/\">FAQ sur la taxonomie du NCBI</a>).</li><li><strong>Wikipedia/Wikidata</strong> : fournit des descriptions et des images, sous licence <a class=\"link\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>.</li><li><strong>Timetree of Life</strong> : fournit les dates de divergence des nœuds. Consultez ses <a class=\"link\" href=\"https://www.timetree.org/\">conditions d’utilisation</a>.</li><li><strong>Liste rouge de l’UICN</strong> : fournit les catégories de statut de conservation. Consultez ses <a class=\"link\" href=\"https://www.iucnredlist.org/terms/terms-of-use\">conditions d’utilisation</a>. Les graphiques des statuts UICN proviennent de <a class=\"link\" href=\"https://commons.wikimedia.org/wiki/Category:IUCN_Category_diagrams\">Wikimedia Commons</a>, ont été créés par Peter Halasz (Pengo) et sont publiés sous licence <a class=\"link\" href=\"https://creativecommons.org/licenses/by/2.5/\">CC BY 2.5</a>. Leurs couleurs ont été modifiées pour Lifemap.</li></ul>",
+      "content2": "Par ailleurs, <a class=\"link\" href=\"https://Lifemap.cnrs.fr\">lifemap.cnrs.fr</a> fournit également des <strong>liens</strong> vers les ressources externes suivantes pour obtenir davantage d’informations : Catalogue of Life, GBIF, iNaturalist, INPN, Open Tree of Life, WoRMS et l’UICN. Ces liens sont proposés par commodité et n’impliquent aucune approbation ni responsabilité de notre part quant à leur contenu."
     },
     "related": {
-      "title": "Related Work",
+      "title": "Travaux associés",
       "pylifemap": {
         "title": "Pylifemap",
-        "content": "<div><a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap</a> is a Python package designed to map any type of user-provided data on the <strong>Lifemap</strong> basemap. It provides a collection of functions to easily create an interactive map that can be shared through notebooks or directy as a standalone HTML file. </div> <p> For more details, visit the <a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">pylifemap documentation</a>. </p>"
+        "content": "<div><a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">Pylifemap</a> est un package Python conçu pour représenter différents types de données fournies par l’utilisateur sur le fond de carte <strong>Lifemap</strong>. Il propose un ensemble de fonctions permettant de créer facilement une carte interactive, partageable dans un notebook ou directement sous forme de fichier HTML autonome.</div><p>Pour en savoir plus, consultez la <a class=\"link\" href=\"https://lifemap-tol.github.io/pylifemap/\">documentation de Pylifemap</a>.</p>"
       }
     }
   }

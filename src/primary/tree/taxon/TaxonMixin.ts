@@ -17,6 +17,8 @@ import { AlertMessageType } from '@/domain/alert/AlertMessageType';
 import { markRaw } from 'vue';
 import { TaxonModalVue } from '@/primary/tree/taxon/taxon-modal';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -54,6 +56,10 @@ export class TaxonMixin extends Vue {
 
   taxonSource!: VectorSource<Point>;
   taxonSelect!: Select;
+
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
 
   get defaultTaxonIdToSelect(): number | undefined {
     const { subtree, tid } = this.$router.currentRoute.value.query as Record<string, string>;
@@ -103,7 +109,7 @@ export class TaxonMixin extends Vue {
   }
 
   private findTaxonByNCBIId(id: number) {
-    return this.taxonRepository().findByNCBIId(id);
+    return this.taxonRepository().findByNCBIId(id, this.treeLocale);
   }
 
   private onSelectableTaxon(event: any) {
@@ -141,7 +147,7 @@ export class TaxonMixin extends Vue {
     const zoom = Math.round(this.map().getView().getZoom()!);
 
     this.taxonRepository()
-      .listForExtent(zoom + 4, extent, this.additional === 'genomes')
+      .listForExtent(zoom + 4, extent, this.treeLocale, this.additional === 'genomes')
       .then(taxa => {
         const taxonFeatures = taxa.map(toTaxonFeature(zoom));
         this.taxonSource.clear();
