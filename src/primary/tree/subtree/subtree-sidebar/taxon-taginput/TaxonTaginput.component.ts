@@ -12,6 +12,8 @@ import { type DropdownState } from '@/primary/common/dropdown/Dropdown.component
 import type { Taxon } from '@/domain/taxon/Taxon';
 import { ComponentState } from '@/primary/ComponentState';
 import type { Logger } from '@/domain/Logger';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 @Component({ components: { TagVue, TaxonAutocompleteVue } })
 export default class TaxonTaginputComponent extends Vue {
@@ -36,6 +38,10 @@ export default class TaxonTaginputComponent extends Vue {
   field!: HTMLElement;
   state = ComponentState.SUCCESS;
 
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
+
   get autocompleteStateClass() {
     return this.autocompleteSate === 'OPEN' ? '-open' : '-closed';
   }
@@ -59,7 +65,7 @@ export default class TaxonTaginputComponent extends Vue {
 
   listSuggestion(): void {
     this.taxonRepository()
-      .listSuggestion(this.search)
+      .listSuggestion(this.search, this.treeLocale)
       .then(taxonSuggestions => {
         this.taxonSuggestionProjections = taxonSuggestions.map(toTaxonSuggestionProjection(this.search));
         this.state = ComponentState.SUCCESS;

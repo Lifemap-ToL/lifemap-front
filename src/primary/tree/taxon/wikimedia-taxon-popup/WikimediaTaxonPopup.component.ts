@@ -13,7 +13,7 @@ import {
 } from '@/primary/tree/taxon/wikimedia-taxon-popup/TaxonWikidataRecordProjection';
 import { WikipediaContentVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/wikipedia-content';
 import { MessageVue } from '@/primary/common/message';
-import type { AppLocale } from '@/locale/languages';
+import type { AppLocale } from '@/primary/common/i18n/locale';
 
 @Component({ components: { MessageVue, LifemapTaxonPopupVue, WikipediaContentVue } })
 export default class WikimediaTaxonPopupComponent extends Vue {

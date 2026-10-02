@@ -13,12 +13,12 @@
         v-for="language in languages"
         :key="language.locale"
         class="contextual-menu--entry"
-        @click.stop.prevent="changeLocale(language.locale)"
+        @click.stop.prevent="changeLocale(language)"
       >
         <span class="contextual-menu--entry--icon">
-          <i v-if="$i18n.locale === language.locale" class="mdi mdi-check"></i>
+          <i v-if="$i18n.locale === language" class="mdi mdi-check"></i>
         </span>
-        <span class="contextual-menu--entry--slot">{{ language.name }}</span>
+        <span class="contextual-menu--entry--slot">{{ getLanguageTitle(language) }}</span>
       </button>
     </div>
   </DropdownVue>

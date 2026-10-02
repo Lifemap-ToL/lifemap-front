@@ -1,6 +1,6 @@
 import { IUCNStatus } from '@/domain/taxon/wikimedia/IUCNStatus';
 import type { TaxonWikidataRecord } from '@/domain/taxon/TaxonWikidataRecord';
-import type { AppLocale } from '@/locale/languages';
+import type { AppLocale } from '@/primary/common/i18n/locale';
 
 export interface TaxonWikidataRecordProjection {
   iucnStatusImageURL?: string;

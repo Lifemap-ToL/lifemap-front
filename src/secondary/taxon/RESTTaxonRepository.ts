@@ -8,7 +8,6 @@ import { type RESTTaxonAdditionalData } from '@/secondary/taxon/RESTTaxonAdditio
 import { Numeral } from '@/domain/Numeral';
 import type { AxiosInstance } from 'axios';
 import type { TaxonAdditionalData } from '@/domain/taxon/TaxonAdditionalData';
-import type { VueI18n } from 'vue-i18n';
 import { NotFound, NotFoundIds } from '@/domain/NotFound';
 import type { WikidataCaller } from '@/secondary/wikidata/WikidataCaller';
 import type { TaxonWikidataRecord } from '@/domain/taxon/TaxonWikidataRecord';
@@ -19,7 +18,7 @@ import type { WikipediaPageSummary } from '@/domain/taxon/wikimedia/WikipediaPag
 import type { RESTWikipediaPageSummary } from '@/secondary/taxon/wikimedia/RESTWikipediaPageSummary';
 import { toPageSummary } from '@/secondary/taxon/wikimedia/RESTWikipediaPageSummary';
 import { queryTaxonWikidataRecord, queryTaxonWikipediaPages } from '@/secondary/taxon/wikidata-query/WikidataQuery';
-import { mapLocaleFor, type AppLocale, type MapLocale } from '@/locale/languages';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
 
 const ROOT: Taxon = {
   id: 'root',
@@ -77,11 +76,7 @@ function taxonWikipediaPagesSorter(taxonWikipediaPage1: TaxonWikipediaPage, taxo
 }
 
 export class RESTTaxonRepository implements TaxonRepository {
-  constructor(private axiosInstance: AxiosInstance, private wikidataCaller: WikidataCaller, private i18n: VueI18n) {}
-
-  private get mapLocale(): MapLocale {
-    return mapLocaleFor(this.i18n.locale as AppLocale);
-  }
+  constructor(private axiosInstance: AxiosInstance, private wikidataCaller: WikidataCaller) {}
 
   public async listAncestors(ncbiIds: number[]): Promise<number[][]> {
     const toAncestry = (restAncestries: RESTTaxonAdditionalData[]) => (ncbiId: number) =>
@@ -104,18 +99,16 @@ export class RESTTaxonRepository implements TaxonRepository {
     return ncbiIds.map(toAncestry(docs));
   }
 
-  public findByNCBIId(ncbiId: number): Promise<Taxon> {
+  public findByNCBIId(ncbiId: number, lang: TreeLocale): Promise<Taxon> {
     const url = `/solr/taxo/select?q=taxid:${ncbiId}&wt=json`;
-    return this.axiosInstance
-      .get<RESTResponse<RESTTaxon>>(url)
-      .then(response => toTaxon(this.mapLocale)(response.data.response.docs[0]));
+    return this.axiosInstance.get<RESTResponse<RESTTaxon>>(url).then(response => toTaxon(lang)(response.data.response.docs[0]));
   }
 
-  public listByNCBIIds(ncbiIds: number[]): Promise<Taxon[]> {
+  public listByNCBIIds(ncbiIds: number[], lang: TreeLocale): Promise<Taxon[]> {
     const url = `/solr/taxo/select?q=*:*&fq=taxid:(${ncbiIds.join(' ')})&rows=1000&wt=json`;
     return this.axiosInstance
       .get<RESTResponse<RESTTaxon>>(url)
-      .then(response => response.data.response.docs.map(toTaxon(this.mapLocale)))
+      .then(response => response.data.response.docs.map(toTaxon(lang)))
       .then(taxa => taxa.sort((taxon1, taxon2) => (ncbiIds.indexOf(taxon1.ncbiId) < ncbiIds.indexOf(taxon2.ncbiId) ? -1 : 1)))
       .then(taxa => {
         if (ncbiIds.includes(0)) {
@@ -187,13 +180,13 @@ export class RESTTaxonRepository implements TaxonRepository {
       .then(docs => ncbiIds.map(toFullySequencedGenomes(docs)));
   }
 
-  public listForExtent(maxZoom: number, extent: Extent, loadFullySequencedGenomes = false): Promise<Taxon[]> {
+  public listForExtent(maxZoom: number, extent: Extent, lang: TreeLocale, loadFullySequencedGenomes = false): Promise<Taxon[]> {
     const url = `/solr/taxo/select?q=*:*&fq=zoom:[0 TO ${maxZoom}]&fq=lat:[${extent[1]} TO ${extent[3]}]&fq=lon:[${extent[0]} TO ${extent[2]}]&wt=json&rows=1000`;
 
     const listTaxa = (): Promise<Taxon[]> =>
       this.axiosInstance
         .get<RESTResponse<RESTTaxon>>(url)
-        .then(response => response.data.response.docs.map(toTaxon(this.mapLocale)))
+        .then(response => response.data.response.docs.map(toTaxon(lang)))
         .catch(() => {
           throw new NotFound(`resource at ${url} not found`);
         });
@@ -217,8 +210,8 @@ export class RESTTaxonRepository implements TaxonRepository {
       .then(response => response.data.suggest[suggester][search].suggestions.map(toTaxonSuggestion));
   }
 
-  public listSuggestion(search: string): Promise<TaxonSuggestion[]> {
-    return this.mapLocale === 'fr'
+  public listSuggestion(search: string, lang: TreeLocale): Promise<TaxonSuggestion[]> {
+    return lang === 'fr'
       ? this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandlerfr', 'mySuggesterFr')
       : this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandler', 'mySuggester');
   }

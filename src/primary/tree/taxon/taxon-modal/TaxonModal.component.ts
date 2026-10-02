@@ -16,7 +16,8 @@ import { WikipediaContentVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/
 import { TaxonIdentifierListVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/taxon-identifier-list';
 import { MessageVue } from '@/primary/common/message';
 import { MittModalBus } from '@/primary/common/modal/MittModalBus';
-import type { AppLocale } from '@/locale/languages';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 @Component({ components: { MessageVue, TaxonAdditionalDataVue, WikipediaContentVue, ModalVue }, emits: ['close'] })
 export default class TaxonModalComponent extends Vue {
@@ -48,9 +49,13 @@ export default class TaxonModalComponent extends Vue {
   activeComponent: VueComponent = WikipediaContentVue;
   activeComponentProps!: any;
 
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
+
   created() {
     this.taxonRepository()
-      .findByNCBIId(this.taxonNCBIId)
+      .findByNCBIId(this.taxonNCBIId, this.treeLocale)
       .then(this.handleTaxon)
       .catch(this.handleTaxonError)
       .then(() => this.taxonRepository().findTaxonWikidataRecord(this.taxonNCBIId))

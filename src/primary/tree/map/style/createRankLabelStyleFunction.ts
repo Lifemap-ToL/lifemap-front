@@ -1,6 +1,6 @@
 import type { FeatureLike } from 'ol/Feature';
 import { Fill, Style, Text } from 'ol/style';
-import type { MapLocale } from '@/locale/languages';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
 
 const ARCHAE_RANK_COLOR = '#aaddeef0';
 const EUKARYOTE_RANK_COLOR = '#6599ffe0';
@@ -12,7 +12,7 @@ const FILL_COLORS: Record<number, string> = {
   3: BACTERIA_RANK_COLOR,
 };
 
-export function createRankLabelStyleFunction(lang: MapLocale): (feature: FeatureLike) => Style {
+export function createRankLabelStyleFunction(lang: TreeLocale): (feature: FeatureLike) => Style {
   return function (feature) {
     const convex = feature.get('convex');
     // TODO: fix this ugly hack to avoid rank repeat

@@ -9,7 +9,7 @@
       <div class="sidebar--body--slot">
         <h2 class="title">{{ $t('parameters') }}</h2>
       </div>
-      <div class="sidebar--body--slot -scrollable">
+      <div class="sidebar--body--slot">
         <div class="flex-container -vertical">
           <div class="flex-container -vertical -gap-lg">
             <div class="title -small flex-container -gap-xs">

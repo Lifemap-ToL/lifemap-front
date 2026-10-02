@@ -6,6 +6,8 @@ import type { Logger } from '@/domain/Logger';
 import { TaxonAdditionalDataVue } from '@/primary/tree/taxon/lifemap-taxon-popup/taxon-additional-data';
 import type { AppBus } from '@/primary/common/AppBus';
 import { MessageVue } from '@/primary/common/message';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 @Component({ components: { TaxonAdditionalDataVue, MessageVue }, emits: ['close'] })
 export default class LifemapTaxonPopupComponent extends Vue {
@@ -24,6 +26,10 @@ export default class LifemapTaxonPopupComponent extends Vue {
   taxon!: Taxon;
   state = ComponentState.PENDING;
 
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
+
   created() {
     this.refresh();
     this.appBus().on('changelocale', this.refresh);
@@ -34,7 +40,7 @@ export default class LifemapTaxonPopupComponent extends Vue {
   }
 
   private refresh() {
-    this.taxonRepository().findByNCBIId(this.taxonNCBIId).then(this.handleDomain).catch(this.handleError);
+    this.taxonRepository().findByNCBIId(this.taxonNCBIId, this.treeLocale).then(this.handleDomain).catch(this.handleError);
   }
 
   private handleDomain(taxon: Taxon) {

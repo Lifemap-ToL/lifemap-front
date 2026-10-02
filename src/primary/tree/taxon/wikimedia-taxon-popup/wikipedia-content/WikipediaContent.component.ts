@@ -8,7 +8,7 @@ import type { Logger } from '@/domain/Logger';
 import { WikipediaPageSummaryVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/wikipedia-content/wikipedia-page-summary';
 import { WikipediaAvailablePagesDropdownVue } from '@/primary/tree/taxon/wikimedia-taxon-popup/wikipedia-content/wikipedia-available-pages-dropdown';
 import { MessageVue } from '@/primary/common/message';
-import type { AppLocale } from '@/locale/languages';
+import type { AppLocale } from '@/primary/common/i18n/locale';
 
 @Component({ components: { MessageVue, WikipediaPageSummaryVue, WikipediaAvailablePagesDropdownVue } })
 export default class WikipediaContentComponent extends Vue {

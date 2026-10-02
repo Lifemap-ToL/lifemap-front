@@ -4,9 +4,9 @@ import type { View } from 'ol';
 import { createRankPolygonStyleFunction } from './createRankPolygonStyleFunction';
 import { createBranchStyle } from './createBranchStyle';
 import { createRankLabelStyleFunction } from './createRankLabelStyleFunction';
-import type { MapLocale } from '@/locale/languages';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
 
-export function createCompositeStyleFunction(view: View, preservePerformance: boolean, lang: MapLocale): (feature: FeatureLike) => Style {
+export function createCompositeStyleFunction(view: View, preservePerformance: boolean, lang: TreeLocale): (feature: FeatureLike) => Style {
   const rankPolygonStyleFunction = createRankPolygonStyleFunction(view, preservePerformance);
   const branchStyle = createBranchStyle();
   const rankLabelStyleFunction = createRankLabelStyleFunction(lang);
