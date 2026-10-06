@@ -7,6 +7,8 @@
   "credits-backend-title": "Desarrollo y mantenimiento del servidor",
   "credits-vector-tiles-title": "Servidor de teselas vectoriales ({bbox})",
   "credits-server-title": "Administración del servidor",
+  "credits-translations": "Traducciones",
+  "credits-translations-description": "Lucía Martín Fernández revisó y corrigió la traducción de la interfaz al español.",
   "credits-notice": "Si tienes alguna pregunta, comentario o sugerencia, escríbenos a {mail}.",
   "publication": "Publicación",
   "french": "Francés",

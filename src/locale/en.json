@@ -7,6 +7,8 @@
   "credits-backend-title": "Backend development and maintenance",
   "credits-vector-tiles-title": "Vector tiles server ({bbox})",
   "credits-server-title": "Server management",
+  "credits-translations": "Translations",
+  "credits-translations-description": "Lucía Martín Fernández reviewed and corrected the Spanish translation of the interface.",
   "credits-notice": "For any questions, comments, or suggestions, please send an email to {mail}.",
   "publication": "Publication",
   "french": "Français",

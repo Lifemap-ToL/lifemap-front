@@ -26,6 +26,10 @@
           <div class="text -font-lg">{{ $t('credits-server-title') }}</div>
           <div><span class="text -bold">Bruno Spataro</span> et <span class="text -bold">Stéphane Delmotte</span></div>
         </div>
+        <div class="flex-container -vertical -gap-sm">
+          <div class="text -font-lg">{{ $t('credits-translations') }}</div>
+          <div>{{ $t('credits-translations-description') }}</div>
+        </div>
         <i18n-t keypath="credits-notice" tag="div">
           <template v-slot:mail>
             <a class="link" href="mailto:damien.de-vienne@cnrs.fr">damien.de-vienne@cnrs.fr</a>
