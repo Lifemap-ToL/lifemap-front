@@ -1,5 +1,5 @@
 {
-  "banner-message": "Willkommen beim neuen Lifemap! Diese vollständig überarbeitete Version bietet neue Funktionen und einen einfacheren Zugang zu zahlreichen Datenbanken. Wenn Sie auf Probleme oder Fehler stoßen oder Verbesserungsvorschläge haben, schreiben Sie uns bitte an {mail}.",
+  "banner-message": "Willkommen bei der neuen Lifemap! Diese vollständig überarbeitete Version bietet neue Funktionen und einen einfacheren Zugang zu zahlreichen Datenbanken. Wenn Sie auf Probleme oder Fehler stoßen oder Verbesserungsvorschläge haben, schreiben Sie uns bitte an {mail}.",
   "author": "Autor",
   "credits": "Mitwirkende",
   "credits-creation-title": "Ursprüngliche Konzeption und Gestaltung",
@@ -8,14 +8,14 @@
   "credits-vector-tiles-title": "Vektorkachelserver ({bbox})",
   "credits-server-title": "Serververwaltung",
   "credits-translations": "Übersetzungen",
-  "credits-translations-description": "Lucía Martín Fernández hat die spanische Übersetzung der Benutzeroberfläche geprüft und korrigiert.",
+  "credits-translations-description": "Korrektur und Überarbeitung der Benutzeroberflächen-Übersetzungen: Spanisch — Lucía Martín Fernández; Deutsch — Noah Wahl.",
   "credits-notice": "Bei Fragen, Anmerkungen oder Vorschlägen schreiben Sie bitte eine E-Mail an {mail}.",
   "publication": "Publikation",
   "french": "Französisch",
   "english": "Englisch",
   "lifemap-baseline": "Den gesamten Stammbaum des Lebens erkunden",
   "platform-description": "Lifemap ist eine Plattform, auf der sich die evolutionären Beziehungen aller bekannten Arten interaktiv erkunden lassen. Sie bietet detaillierte Informationen zu den einzelnen Kladen und Links zu weiterführenden Ressourcen.\n\nAls Lehr- und Forschungsinstrument trägt Lifemap dazu bei, die Biodiversität und die Evolutionsgeschichte des Lebens auf der Erde besser zu verstehen.",
-  "platform-figures": "Am {date} umfasst Lifemap {totalSpecies} Arten ({eukaryotes} Eukaryoten, {archaea} Archaeen und {bacteria} Bakterien). Letzte Aktualisierung: {lastUpdateDate}",
+  "platform-figures": "Zum {date} umfasst Lifemap {totalSpecies} Arten ({eukaryotes} Eukaryoten, {archaea} Archaeen und {bacteria} Bakterien). Letzte Aktualisierung: {lastUpdateDate}",
   "start-exploring": "Erkundung starten",
   "license-notice": "Lifemap von {author} / CNRS ist unter der Creative-Commons-Lizenz Namensnennung-Nicht kommerziell 4.0 International lizenziert.",
   "publication-notice": "Wenn Sie Lifemap in Ihren Publikationen verwenden, zitieren Sie bitte: de Vienne DM (2016) Lifemap: Exploring the Entire Tree of Life. {journal} 14(12): e2001624. doi: 10.1371/journal.pbio.2001624.",
@@ -24,7 +24,7 @@
   "home": "Startseite",
   "search-a-taxa": "Taxon suchen",
   "itinerary": "Entwicklungsweg",
-  "get-a-subtree": "Teilbaum",
+  "get-a-subtree": "Teilbaum erstellen",
   "display-additional-data": "Zusatzdaten anzeigen",
   "get-a-snapshot": "Screenshot erstellen",
   "feedback": "Feedback senden",
@@ -53,7 +53,7 @@
   "failed-to-retrieve-taxon-info-message": "Beim Abrufen der Taxoninformationen ist ein Fehler aufgetreten.",
   "no-wikipedia-article-message": "Auf Wikipedia gibt es keinen Artikel zu dieser Gruppe.",
   "wikipedia-article-summary-not-found-message": "Beim Abrufen der Zusammenfassung des Wikipedia-Artikels zu dieser Gruppe ist ein Fehler aufgetreten.",
-  "no-wikipedia-article-in-preferred-language-message": "Auf Wikipedia gibt es keinen Artikel zu dieser Gruppe in der bevorzugten oder einer Ersatzsprache.",
+  "no-wikipedia-article-in-preferred-language-message": "Auf Wikipedia gibt es zu dieser Gruppe keinen Artikel in der bevorzugten oder einer Ersatzsprache.",
   "wikipedia-articles-not-found-message": "Beim Abrufen der Wikipedia-Artikel zu dieser Gruppe ist ein Fehler aufgetreten.",
   "wikipedia-link-text": "Mehr auf Wikipedia",
   "ancestry-button-text": "Vollständige Abstammung anzeigen",
@@ -99,7 +99,7 @@
     },
     "subtree": {
       "title": "Werkzeug zum Anzeigen und Herunterladen von Teilbäumen",
-      "content": "Das Werkzeug zum Anzeigen und Herunterladen von Teilbäumen wird <strong>ohne Gewähr</strong> bereitgestellt. Es wird keine Garantie für Richtigkeit, Vollständigkeit oder Eignung für einen bestimmten Zweck übernommen. Für die Verwendung heruntergeladener Daten sind die Nutzerinnen und Nutzer selbst verantwortlich."
+      "content": "Das Werkzeug zum Anzeigen und Herunterladen von Teilbäumen wird <strong>ohne Gewähr</strong> bereitgestellt. Es wird keine Garantie für Richtigkeit, Vollständigkeit oder Eignung für einen bestimmten Zweck übernommen. Für die Verwendung heruntergeladener Daten sind die Nutzenden selbst verantwortlich."
     },
     "license": {
       "title": "Lizenz",
