@@ -3,7 +3,7 @@
     <template #dropdown-trigger>
       <button class="link text flex-container -gap-xxs -align-baseline">
         <div><i class="mdi mdi-translate"></i></div>
-        <div>{{ $tc('number-of-language', taxonWikipediaPages.length, { number: taxonWikipediaPages.length }) }}</div>
+        <div>{{ $t('number-of-language', taxonWikipediaPages.length, { number: taxonWikipediaPages.length }) }}</div>
         <div><i class="mdi mdi-chevron-down"></i></div>
       </button>
     </template>

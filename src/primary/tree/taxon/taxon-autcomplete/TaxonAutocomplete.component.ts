@@ -8,6 +8,8 @@ import {
 import { ComponentState } from '@/primary/ComponentState';
 import type { Logger } from '@/domain/Logger';
 import { MessageVue } from '@/primary/common/message';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 type DropdownState = 'OPEN' | 'CLOSED';
 
@@ -47,6 +49,10 @@ export default class TaxonAutocompleteComponent extends Vue {
   input!: HTMLInputElement;
   state = ComponentState.SUCCESS;
 
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
+
   get autocompleteStateClass() {
     return this.autocompleteSate === 'OPEN' ? '-open' : '-closed';
   }
@@ -83,7 +89,7 @@ export default class TaxonAutocompleteComponent extends Vue {
   @Watch('$i18n.locale')
   listSuggestion(): void {
     this.taxonRepository()
-      .listSuggestion(this.search)
+      .listSuggestion(this.search, this.treeLocale)
       .then(taxonSuggestions => {
         this.taxonSuggestionProjections = taxonSuggestions.map(toTaxonSuggestionProjection(this.search));
         this.state = ComponentState.SUCCESS;

@@ -3,6 +3,8 @@ import { TaxonAutocompleteVue } from '@/primary/tree/taxon/taxon-autcomplete';
 import { type TaxonRepository } from '@/domain/taxon/TaxonRepository';
 import { type Taxon } from '@/domain/taxon/Taxon';
 import type { Logger } from '@/domain/Logger';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -16,6 +18,10 @@ export default class SearchSidebarComponent extends Vue {
 
   @Inject()
   private globalWindow!: () => Window;
+
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
+  }
 
   private mobile() {
     return this.globalWindow().document.body.clientWidth < MOBILE_MAX_WIDTH;
@@ -40,7 +46,7 @@ export default class SearchSidebarComponent extends Vue {
 
   findTaxon(taxonNCBIId: number): void {
     this.taxonRepository()
-      .findByNCBIId(taxonNCBIId)
+      .findByNCBIId(taxonNCBIId, this.treeLocale)
       .then(this.handleTaxon)
       .catch(error => this.handleError(taxonNCBIId, error));
   }

@@ -9,6 +9,8 @@ import { LineString, Point } from 'ol/geom';
 import { Map, Feature } from 'ol';
 import { TaxonTree } from '@/domain/taxon/TaxonTree';
 import { fromLonLat } from 'ol/proj';
+import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 const MOBILE_MAX_WIDTH = 650;
 
@@ -36,6 +38,10 @@ export class SubtreeMixin extends Vue {
 
   get subtreeLeafs(): Taxon[] {
     return this.subtreeBranches.map(branch => branch[0]);
+  }
+
+  get treeLocale(): TreeLocale {
+    return resolveTreeLocale(this.$i18n.locale as AppLocale);
   }
 
   mounted() {
@@ -66,7 +72,7 @@ export class SubtreeMixin extends Vue {
 
   private async listTaxonAncestries(ncbiIds: number[]) {
     return this.getTaxonAncestries(ncbiIds)
-      .then(ancestries => all<Taxon[]>(ancestries.map(ancestry => this.taxonRepository().listByNCBIIds(ancestry))))
+      .then(ancestries => all<Taxon[]>(ancestries.map(ancestry => this.taxonRepository().listByNCBIIds(ancestry, this.treeLocale))))
       .then(taxonAncestries => (this.subtreeBranches = [...this.subtreeBranches, ...taxonAncestries]))
       .catch(error => {
         console.error(error);

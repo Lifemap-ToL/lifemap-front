@@ -1,8 +1,6 @@
 import 'ol/ol.css';
 import './assets/styles/styles.scss';
 
-import en from '@/locale/en.json';
-import fr from '@/locale/fr.json';
 import { createApp } from 'vue';
 import router from './router';
 import { AppVue } from '@/primary/common/app';
@@ -23,7 +21,6 @@ import { createTaxonTooltipOverlay } from '@/primary/tree/map/overlay/createTaxo
 import { createAncestorRouteLayer } from '@/primary/tree/map/layer/vector/createAncestorRouteLayer';
 import { createSubtreeLayer } from '@/primary/tree/map/layer/vector/createSubtreeLayer';
 import { MittAlertBus } from '@/secondary/alert/MittAlertBus';
-import { createI18n, type VueI18n } from 'vue-i18n';
 import { ConsoleLogger } from '@/secondary/ConsoleLogger';
 import { RESTTreeRepository } from '@/secondary/tree/RESTTreeRepository';
 import { WikidataCaller } from '@/secondary/wikidata/WikidataCaller';
@@ -39,6 +36,8 @@ import { createLUCATooltipOverlay } from '@/primary/tree/map/overlay/createLUCAT
 import Map from 'ol/Map';
 import type VectorTileLayer from 'ol/layer/VectorTile';
 import type { View } from 'ol';
+import i18n from '@/primary/common/i18n';
+import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
 
 function mobileDevice() {
   return window.document.body.clientWidth < 1024;
@@ -61,10 +60,10 @@ function deactivateInteractions(clickable: Clickable, select: Select, lucaSelect
 }
 
 function onChangeLocale(compositeLayer: VectorTileLayer, view: View) {
-  return function (locale: 'en' | 'fr') {
+  return function (locale: AppLocale) {
     const storedEfficiencyMode = window.localStorage.getItem('efficiency-mode');
     const efficiencyMode = storedEfficiencyMode === null ? mobileDevice() : storedEfficiencyMode === 'true';
-    compositeLayer.setStyle(createCompositeStyleFunction(view, efficiencyMode, locale));
+    compositeLayer.setStyle(createCompositeStyleFunction(view, efficiencyMode, resolveTreeLocale(locale)));
     window.localStorage.setItem('app-language', locale);
   };
 }
@@ -91,9 +90,8 @@ function manageInteractions(map: Map, efficiencyMode: boolean, enableInteraction
 function onChangeEfficiencyMode(map: Map, enableInteractions: () => void, disableInteractions: () => void) {
   return function (efficiencyMode: boolean) {
     const view = map.getView();
-    const browserLocale = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
-    const locale = window.localStorage.getItem('app-language') || browserLocale;
-    const newCompositeLayer = createCompositeLayer(view, efficiencyMode, locale as 'en' | 'fr');
+    const locale = i18n.global.locale;
+    const newCompositeLayer = createCompositeLayer(view, efficiencyMode, resolveTreeLocale(locale));
 
     map.getLayers().removeAt(0);
     map.getLayers().insertAt(0, newCompositeLayer);
@@ -105,19 +103,10 @@ function onChangeEfficiencyMode(map: Map, enableInteractions: () => void, disabl
 }
 
 (function () {
-  const browserLocale = navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en';
   const wikipediaPreferredLanguage = window.localStorage.getItem('wikipedia-preferred-language');
   const storedEfficiencyMode = window.localStorage.getItem('efficiency-mode');
   const efficiencyMode = storedEfficiencyMode === null ? mobileDevice() : storedEfficiencyMode === 'true';
-
-  const locale = window.localStorage.getItem('app-language') || browserLocale;
-
-  const i18n = createI18n({
-    locale,
-    fallbackLocale: 'fr',
-    messages: { en, fr },
-  });
-
+  const locale = i18n.global.locale;
   const logger = new ConsoleLogger(console); // eslint-disable-line no-console
   const clickMitt = mitt();
   const clickBus = new MittClickBus(clickMitt);
@@ -140,11 +129,11 @@ function onChangeEfficiencyMode(map: Map, enableInteractions: () => void, disabl
   const wikidataCaller = new WikidataCaller(wikidataQueryServiceAxiosInstance);
 
   const restTreeRepository = new RESTTreeRepository(lifemapAxiosInstance);
-  const restTaxonRepository = new RESTTaxonRepository(lifemapAxiosInstance, wikidataCaller, i18n.global as VueI18n);
+  const restTaxonRepository = new RESTTaxonRepository(lifemapAxiosInstance, wikidataCaller);
 
   const view = createView();
 
-  const compositeLayer = createCompositeLayer(view, efficiencyMode, locale as 'en' | 'fr');
+  const compositeLayer = createCompositeLayer(view, efficiencyMode, resolveTreeLocale(locale));
 
   const lucaLayer = createLUCALayer();
   const taxonLayer = createTaxonLayer();

@@ -32,8 +32,7 @@
               <div v-if="taxon.synonyms && taxon.synonyms.length > 0" class="text -font-sm">
                 <span>
                   {{ taxon.synonyms.length === 1 ? $t('taxon-synonym-label') : $t('taxon-synonyms-label') }}
-                </span>
-                <span
+                </span>&nbsp;<span
                   v-for="(synonym, index) in taxon.synonyms"
                   :key="`${taxon.ncbiId}-synonym-${index}`"
                   class="text -bold"
