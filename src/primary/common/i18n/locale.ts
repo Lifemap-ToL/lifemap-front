@@ -5,8 +5,8 @@ const APP_LOCALES = ['en', 'fr', 'es', 'de'] as const;
 const TREE_LOCALES: { [key in AppLocale]: TreeLocale } = {
   en: 'en',
   fr: 'fr',
-  es: 'en',
-  de: 'en',
+  es: 'es',
+  de: 'de',
 };
 
 export const DEFAULT_LOCALE: AppLocale = 'en';

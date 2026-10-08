@@ -10,10 +10,14 @@ export interface RESTTaxon {
   sci_name: [string];
   common_name_en?: [string];
   common_name_fr?: [string];
+  common_name_es?: [string];
+  common_name_de?: [string];
   synonym?: [string];
   nbdesc: [number];
   rank_en: [string];
   rank_fr: [string];
+  rank_es: [string];
+  rank_de: [string];
   zoom: [number];
   coordinates: [number, number];
 }
@@ -29,9 +33,9 @@ export function toTaxon(lang: TreeLocale): (restTaxon: RESTTaxon) => Taxon {
       ncbiId: restTaxon.taxid[0],
       name: restTaxon.sci_name[0],
       nameInItalic: TAXON_RANK_REQUIRING_NAME_IN_ITALIC.includes(restTaxon.rank_en[0]),
-      commonName: lang === 'fr' ? undefinedOrFirstElement(restTaxon.common_name_fr) : undefinedOrFirstElement(restTaxon.common_name_en),
+      commonName: undefinedOrFirstElement(restTaxon[`common_name_${lang}`]),
       synonyms: restTaxon.synonym ? restTaxon.synonym[0].split(', ').filter(Boolean) : [],
-      rank: lang === 'fr' ? restTaxon.rank_fr[0] : restTaxon.rank_en[0],
+      rank: restTaxon[`rank_${lang}`][0],
       zoomLevel: restTaxon.zoom[0],
       descendants: Numeral.of(restTaxon.nbdesc[0]),
       coordinates: [restTaxon.coordinates[1], restTaxon.coordinates[0]],
