@@ -42,9 +42,9 @@ export default class WikipediaContentComponent extends Vue {
   private setCurrentTaxonWikipediaPage(lang: string): void {
     const queryLang = (this.$router.currentRoute.value.query['wikipedia-lang'] as string) || '';
     const currentLocale = lang;
-    const otherLocale = currentLocale === 'en' ? 'fr' : 'en';
+    const fallbackLocale = 'en';
     const pageFinder = (lang: string) => this.taxonWikipediaAvailablePages.find(page => page.lang === lang);
-    this.currentTaxonWikipediaPage = pageFinder(queryLang) || pageFinder(currentLocale) || pageFinder(otherLocale);
+    this.currentTaxonWikipediaPage = pageFinder(queryLang) || pageFinder(currentLocale) || pageFinder(fallbackLocale);
   }
 
   private update(locale: AppLocale) {

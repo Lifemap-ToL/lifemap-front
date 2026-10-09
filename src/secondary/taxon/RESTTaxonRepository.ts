@@ -19,6 +19,7 @@ import type { RESTWikipediaPageSummary } from '@/secondary/taxon/wikimedia/RESTW
 import { toPageSummary } from '@/secondary/taxon/wikimedia/RESTWikipediaPageSummary';
 import { queryTaxonWikidataRecord, queryTaxonWikipediaPages } from '@/secondary/taxon/wikidata-query/WikidataQuery';
 import type { TreeLocale } from '@/domain/tree/TreeLocale';
+import { capitalize } from '@/domain/util/Text';
 
 const ROOT: Taxon = {
   id: 'root',
@@ -72,7 +73,7 @@ function filterTaxonWikipediaPages(taxonWikipediaPages: TaxonWikipediaPage[]): T
 }
 
 function taxonWikipediaPagesSorter(taxonWikipediaPage1: TaxonWikipediaPage, taxonWikipediaPage2: TaxonWikipediaPage): number {
-  return taxonWikipediaPage1.lang < taxonWikipediaPage2.lang ? -1 : 1;
+  return taxonWikipediaPage1.lang.localeCompare(taxonWikipediaPage2.lang);
 }
 
 export class RESTTaxonRepository implements TaxonRepository {
@@ -211,8 +212,8 @@ export class RESTTaxonRepository implements TaxonRepository {
   }
 
   public listSuggestion(search: string, lang: TreeLocale): Promise<TaxonSuggestion[]> {
-    return lang === 'fr'
-      ? this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandlerfr', 'mySuggesterFr')
-      : this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandler', 'mySuggester');
+    return lang === 'en'
+      ? this.listLocalizedSuggestion(search, '/solr/taxo/suggesthandler', 'mySuggester')
+      : this.listLocalizedSuggestion(search, `/solr/taxo/suggesthandler${lang}`, `mySuggester${capitalize(lang)}`);
   }
 }
