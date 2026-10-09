@@ -43,6 +43,7 @@ export default class TaxonAutocompleteComponent extends Vue {
   private clickBus!: () => MittClickBus;
 
   taxonSuggestionProjections: TaxonSuggestionProjection[] = [];
+  activeSuggestionIndex = -1;
   search = '';
   autocompleteSate: DropdownState = 'CLOSED';
   unsubscribeClickBus!: () => void;
@@ -86,11 +87,18 @@ export default class TaxonAutocompleteComponent extends Vue {
     this.unsubscribeClickBus();
   }
 
+  onInput(): void {
+    this.openAutocomplete();
+    this.listSuggestion();
+  }
+
   @Watch('$i18n.locale')
   listSuggestion(): void {
+    this.activeSuggestionIndex = -1;
     this.taxonRepository()
       .listSuggestion(this.search, this.treeLocale)
       .then(taxonSuggestions => {
+        this.activeSuggestionIndex = -1;
         this.taxonSuggestionProjections = taxonSuggestions.map(toTaxonSuggestionProjection(this.search));
         this.state = ComponentState.SUCCESS;
       })
@@ -106,6 +114,25 @@ export default class TaxonAutocompleteComponent extends Vue {
 
   closeAutocomplete(): void {
     this.autocompleteSate = 'CLOSED';
+    this.activeSuggestionIndex = -1;
+  }
+
+  moveSelection(direction: number): void {
+    const count = this.taxonSuggestionProjections.length;
+    if (this.state !== ComponentState.SUCCESS || count === 0) return;
+
+    this.openAutocomplete();
+    this.activeSuggestionIndex =
+      this.activeSuggestionIndex < 0 ? (direction > 0 ? 0 : count - 1) : (this.activeSuggestionIndex + direction + count) % count;
+
+    const items = (this.$refs.autocomplete as HTMLElement).querySelectorAll<HTMLElement>('.autocomplete--suggestion-item');
+    items[this.activeSuggestionIndex]?.scrollIntoView({ block: 'nearest' });
+  }
+
+  selectActiveSuggestion(): void {
+    if (this.autocompleteSate !== 'OPEN' || this.state !== ComponentState.SUCCESS) return;
+    const suggestion = this.taxonSuggestionProjections[this.activeSuggestionIndex];
+    if (suggestion) this.select(suggestion);
   }
 
   select(taxonSuggestionProjection: TaxonSuggestionProjection) {
