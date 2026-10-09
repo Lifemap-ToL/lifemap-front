@@ -142,13 +142,11 @@ export class TaxonMixin extends Vue {
     this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
   }
 
-  private async reloadSelectedTaxonNamesAndRank() {
+  private async reloadSelectedTaxonCommonName() {
     if (this.selectedTaxon) {
       this.findTaxonByNCBIId(this.selectedTaxon.get('ncbiId'))
         .then(taxon => {
-          this.selectedTaxon?.set('name', taxon.name);
           this.selectedTaxon?.set('commonName', taxon.commonName);
-          this.selectedTaxon?.set('rank', taxon.rank);
         })
         .catch(this.logNoTaxonFoundError);
     }
@@ -181,7 +179,7 @@ export class TaxonMixin extends Vue {
   }
 
   private reLoadTaxa() {
-    this.loadTaxaForCurrentExtent().then(this.reloadSelectedTaxonNamesAndRank);
+    this.loadTaxaForCurrentExtent().then(this.reloadSelectedTaxonCommonName);
   }
 
   private onMapMoveEnd() {
