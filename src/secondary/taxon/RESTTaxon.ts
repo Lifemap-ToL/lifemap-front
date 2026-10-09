@@ -12,12 +12,14 @@ export interface RESTTaxon {
   common_name_fr?: [string];
   common_name_es?: [string];
   common_name_de?: [string];
+  common_name_el?: [string];
   synonym?: [string];
   nbdesc: [number];
   rank_en: [string];
   rank_fr: [string];
   rank_es: [string];
   rank_de: [string];
+  rank_el: [string];
   zoom: [number];
   coordinates: [number, number];
 }

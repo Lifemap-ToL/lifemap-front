@@ -1,1 +1,1 @@
-export type TreeLocale = 'en' | 'fr' | 'es' | 'de';
+export type TreeLocale = 'en' | 'fr' | 'es' | 'de' | 'el';
