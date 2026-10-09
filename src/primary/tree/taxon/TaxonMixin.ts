@@ -73,7 +73,7 @@ export class TaxonMixin extends Vue {
     this.taxonSelect.on('select', this.onSelectTaxon);
     this.taxonSelect.on('unselect', this.onUnselectTaxon);
     this.map().on('moveend', this.onMapMoveEnd);
-    this.appBus().on('changelocale', this.loadTaxa);
+    this.appBus().on('changelocale', this.reLoadTaxa);
     this.selectDefaultTaxonIdIfDefined();
   }
 
@@ -91,7 +91,7 @@ export class TaxonMixin extends Vue {
     this.taxonSelect.un('select', this.onSelectTaxon);
     this.taxonSelect.un('unselect', this.onUnselectTaxon);
     this.map().un('moveend', this.onMapMoveEnd);
-    this.appBus().off('changelocale', this.loadTaxa);
+    this.appBus().off('changelocale', this.reLoadTaxa);
   }
 
   private mobile() {
@@ -142,7 +142,19 @@ export class TaxonMixin extends Vue {
     this.$router.push({ name: this.$router.currentRoute.value.name!, query: routeQuery });
   }
 
-  private loadTaxa() {
+  private async reloadSelectedTaxonNamesAndRank() {
+    if (this.selectedTaxon) {
+      this.findTaxonByNCBIId(this.selectedTaxon.get('ncbiId'))
+        .then(taxon => {
+          this.selectedTaxon?.set('name', taxon.name);
+          this.selectedTaxon?.set('commonName', taxon.commonName);
+          this.selectedTaxon?.set('rank', taxon.rank);
+        })
+        .catch(this.logNoTaxonFoundError);
+    }
+  }
+
+  private async loadTaxaForCurrentExtent() {
     const extent = transformExtent(this.map().getView().calculateExtent(), 'EPSG:3857', 'EPSG:4326') as Extent;
     const zoom = Math.round(this.map().getView().getZoom()!);
 
@@ -168,8 +180,12 @@ export class TaxonMixin extends Vue {
       });
   }
 
+  private reLoadTaxa() {
+    this.loadTaxaForCurrentExtent().then(this.reloadSelectedTaxonNamesAndRank);
+  }
+
   private onMapMoveEnd() {
-    this.loadTaxa();
+    this.loadTaxaForCurrentExtent();
   }
 
   zoomToTaxon(taxonFeature: TaxonFeature, animation = false): void {
@@ -245,7 +261,7 @@ export class TaxonMixin extends Vue {
 
   @Watch('additional')
   additionalWatcher() {
-    this.loadTaxa();
+    this.loadTaxaForCurrentExtent();
     this.updateSelectedTaxonSequencedGenomes();
   }
 }
