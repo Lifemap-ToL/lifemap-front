@@ -8,7 +8,7 @@ import { type AppLocale, DEFAULT_LOCALE } from '@/primary/common/i18n/locale';
 type MessageSchema = typeof en;
 
 export default createI18n<[MessageSchema], AppLocale>({
-  legacy: false,
+  legacy: true,
   locale: DEFAULT_LOCALE,
   fallbackLocale: 'en',
   messages: { en, fr, es, de },
