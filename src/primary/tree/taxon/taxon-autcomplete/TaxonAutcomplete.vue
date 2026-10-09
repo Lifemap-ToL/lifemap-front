@@ -7,14 +7,23 @@
         :placeholder="$t('taxon-search-hint')"
         class="input"
         :class="`${inputWidthClass} ${inputFontSizeClass}`"
-        @input="listSuggestion"
+        @input="onInput"
         @focusin.stop.prevent="openAutocomplete"
+        @keydown.down.prevent="moveSelection(1)"
+        @keydown.up.prevent="moveSelection(-1)"
+        @keydown.enter.prevent="selectActiveSuggestion"
+        @keydown.esc.prevent="closeAutocomplete"
         ref="input"
       />
     </div>
     <div class="autocomplete--suggestion-list">
       <template v-if="state === 'SUCCESS'">
-        <div v-for="taxonSuggestion in taxonSuggestionProjections" :key="taxonSuggestion.ncbiId" class="autocomplete--suggestion-item">
+        <div
+          v-for="(taxonSuggestion, index) in taxonSuggestionProjections"
+          :key="taxonSuggestion.ncbiId"
+          class="autocomplete--suggestion-item"
+          :class="{ '-active': index === activeSuggestionIndex }"
+        >
           <div class="flex-container -vertical -gap-xxs" @click.stop.prevent="select(taxonSuggestion)">
             <div>
               <span
