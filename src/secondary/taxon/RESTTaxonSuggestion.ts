@@ -1,6 +1,22 @@
 import { type TaxonSuggestion } from '@/domain/taxon/TaxonSuggestion';
 
-const TAXON_RANK_REQUIRING_NAME_IN_ITALIC = ['espèce', 'sous-espèce', 'genre', 'species', 'subspecies', 'genus'];
+const TAXON_RANK_REQUIRING_NAME_IN_ITALIC = [
+  'species',
+  'subspecies',
+  'genus',
+  'espèce',
+  'sous-espèce',
+  'genre',
+  'especie',
+  'subespecie',
+  'género',
+  'Art',
+  'Unterart',
+  'Gattung',
+  'είδος',
+  'υποείδος',
+  'γένος',
+];
 
 export interface RESTTaxonSuggestion {
   term: string;
