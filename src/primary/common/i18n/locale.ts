@@ -1,12 +1,13 @@
 import type { TreeLocale } from '@/domain/tree/TreeLocale';
 
-const APP_LOCALES = ['en', 'fr', 'es', 'de'] as const;
+const APP_LOCALES = ['en', 'fr', 'es', 'de', 'el'] as const;
 
 const TREE_LOCALES: { [key in AppLocale]: TreeLocale } = {
   en: 'en',
   fr: 'fr',
-  es: 'en',
-  de: 'en',
+  es: 'es',
+  de: 'de',
+  el: 'el',
 };
 
 export const DEFAULT_LOCALE: AppLocale = 'en';

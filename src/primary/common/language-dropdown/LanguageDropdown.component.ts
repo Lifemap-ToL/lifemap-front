@@ -3,7 +3,8 @@ import { DropdownVue } from '@/primary/common/dropdown';
 import { DropdownBus } from '@/primary/common/dropdown/DropdownBus';
 import mitt from 'mitt';
 import type { AppBus } from '@/primary/common/AppBus';
-import { type AppLocale, resolveTreeLocale } from '@/primary/common/i18n/locale';
+import { type AppLocale } from '@/primary/common/i18n/locale';
+import { capitalize } from '@/domain/util/Text';
 
 @Component({ components: { DropdownVue } })
 export default class LanguageDropdownComponent extends Vue {
@@ -18,16 +19,12 @@ export default class LanguageDropdownComponent extends Vue {
     );
   }
 
-  capitalize(toCapitalize: string): string {
-    return toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
-  }
-
   autonym(language: AppLocale): string {
     return new Intl.DisplayNames([language], { type: 'language' }).of(language) as string;
   }
 
   getLanguageTitle(language: AppLocale): string {
-    return this.capitalize(this.autonym(language));
+    return capitalize(this.autonym(language));
   }
 
   changeLocale(locale: AppLocale): void {
