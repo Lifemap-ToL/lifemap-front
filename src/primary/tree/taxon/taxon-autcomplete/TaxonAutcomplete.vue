@@ -9,8 +9,8 @@
         :class="`${inputWidthClass} ${inputFontSizeClass}`"
         @input="onInput"
         @focusin.stop.prevent="openAutocomplete"
-        @keydown.down.prevent="moveSelection(1)"
-        @keydown.up.prevent="moveSelection(-1)"
+        @keydown.down.prevent="activeNextSuggestion()"
+        @keydown.up.prevent="activePreviousSuggestion()"
         @keydown.enter.prevent="selectActiveSuggestion"
         @keydown.esc.prevent="closeAutocomplete"
         ref="input"
@@ -23,6 +23,8 @@
           :key="taxonSuggestion.ncbiId"
           class="autocomplete--suggestion-item"
           :class="{ '-active': index === activeSuggestionIndex }"
+          ref="suggestionElements"
+          @click.stop.prevent="select(taxonSuggestion)"
         >
           <div class="flex-container -vertical -gap-xxs" @click.stop.prevent="select(taxonSuggestion)">
             <div>
@@ -56,7 +58,7 @@
                 :class="{
                   '-color-shade-100': matchSearch(slice),
                   '-bold': matchSearch(slice),
-                  '-italic': taxonSuggestion.nameInItalic
+                  '-italic': taxonSuggestion.nameInItalic,
                 }"
               >
                 {{ slice }}

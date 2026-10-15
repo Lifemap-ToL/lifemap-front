@@ -43,6 +43,7 @@ export default class TaxonAutocompleteComponent extends Vue {
   private clickBus!: () => MittClickBus;
 
   taxonSuggestionProjections: TaxonSuggestionProjection[] = [];
+  firstSuggestionIndex = 0;
   activeSuggestionIndex = -1;
   search = '';
   autocompleteSate: DropdownState = 'CLOSED';
@@ -72,6 +73,18 @@ export default class TaxonAutocompleteComponent extends Vue {
 
   get inputFontSizeClass() {
     return this.inputFontSize && this.search ? `-font-${this.inputFontSize}` : '';
+  }
+
+  get suggestionsCount() {
+    return this.taxonSuggestionProjections.length;
+  }
+
+  get lastSuggestionIndex() {
+    return this.suggestionsCount - 1;
+  }
+
+  get suggestionsAvailable() {
+    return this.state === ComponentState.SUCCESS && this.suggestionsCount > 0;
   }
 
   created() {
@@ -117,22 +130,34 @@ export default class TaxonAutocompleteComponent extends Vue {
     this.activeSuggestionIndex = -1;
   }
 
-  moveSelection(direction: number): void {
-    const count = this.taxonSuggestionProjections.length;
-    if (this.state !== ComponentState.SUCCESS || count === 0) return;
-
-    this.openAutocomplete();
-    this.activeSuggestionIndex =
-      this.activeSuggestionIndex < 0 ? (direction > 0 ? 0 : count - 1) : (this.activeSuggestionIndex + direction + count) % count;
-
+  scrollToActiveSuggestion(): void {
     const items = (this.$refs.autocomplete as HTMLElement).querySelectorAll<HTMLElement>('.autocomplete--suggestion-item');
     items[this.activeSuggestionIndex]?.scrollIntoView({ block: 'nearest' });
   }
 
+  activeNextSuggestion(): void {
+    if (this.suggestionsAvailable) {
+      const outOfBounds = this.activeSuggestionIndex + 1 >= this.suggestionsCount;
+      this.activeSuggestionIndex = outOfBounds ? this.firstSuggestionIndex : this.activeSuggestionIndex + 1;
+      this.scrollToActiveSuggestion();
+    }
+  }
+
+  activePreviousSuggestion(): void {
+    if (this.suggestionsAvailable) {
+      const outOfBounds = this.activeSuggestionIndex - 1 < 0;
+      this.activeSuggestionIndex = outOfBounds ? this.lastSuggestionIndex : this.activeSuggestionIndex - 1;
+      this.scrollToActiveSuggestion();
+    }
+  }
+
   selectActiveSuggestion(): void {
-    if (this.autocompleteSate !== 'OPEN' || this.state !== ComponentState.SUCCESS) return;
-    const suggestion = this.taxonSuggestionProjections[this.activeSuggestionIndex];
-    if (suggestion) this.select(suggestion);
+    if (this.state === ComponentState.SUCCESS && this.autocompleteSate === 'OPEN') {
+      const activeSuggestion = this.taxonSuggestionProjections[this.activeSuggestionIndex];
+      if (activeSuggestion) {
+        this.select(activeSuggestion);
+      }
+    }
   }
 
   select(taxonSuggestionProjection: TaxonSuggestionProjection) {
