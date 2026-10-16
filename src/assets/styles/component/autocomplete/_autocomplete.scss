@@ -39,7 +39,8 @@ $autocomplete-suggestion-item-border-color: color.$global-fill-color-shade-75 !d
       border: none;
     }
 
-    &:hover {
+    &:hover,
+    &.-active {
       background-color: color.$global-fill-color-shade-50-faded;
     }
   }
