@@ -43,6 +43,8 @@ export default class TaxonAutocompleteComponent extends Vue {
   private clickBus!: () => MittClickBus;
 
   taxonSuggestionProjections: TaxonSuggestionProjection[] = [];
+  firstSuggestionIndex = 0;
+  activeSuggestionIndex = -1;
   search = '';
   autocompleteSate: DropdownState = 'CLOSED';
   unsubscribeClickBus!: () => void;
@@ -73,6 +75,18 @@ export default class TaxonAutocompleteComponent extends Vue {
     return this.inputFontSize && this.search ? `-font-${this.inputFontSize}` : '';
   }
 
+  get suggestionsCount() {
+    return this.taxonSuggestionProjections.length;
+  }
+
+  get lastSuggestionIndex() {
+    return this.suggestionsCount - 1;
+  }
+
+  get suggestionsAvailable() {
+    return this.state === ComponentState.SUCCESS && this.suggestionsCount > 0;
+  }
+
   created() {
     this.search = this.value || '';
     this.unsubscribeClickBus = this.clickBus().onClick(mouseEvent => this.clicked(mouseEvent.target as Element));
@@ -86,11 +100,18 @@ export default class TaxonAutocompleteComponent extends Vue {
     this.unsubscribeClickBus();
   }
 
+  onInput(): void {
+    this.openAutocomplete();
+    this.listSuggestion();
+  }
+
   @Watch('$i18n.locale')
   listSuggestion(): void {
+    this.activeSuggestionIndex = -1;
     this.taxonRepository()
       .listSuggestion(this.search, this.treeLocale)
       .then(taxonSuggestions => {
+        this.activeSuggestionIndex = -1;
         this.taxonSuggestionProjections = taxonSuggestions.map(toTaxonSuggestionProjection(this.search));
         this.state = ComponentState.SUCCESS;
       })
@@ -106,6 +127,37 @@ export default class TaxonAutocompleteComponent extends Vue {
 
   closeAutocomplete(): void {
     this.autocompleteSate = 'CLOSED';
+    this.activeSuggestionIndex = -1;
+  }
+
+  scrollToActiveSuggestion(): void {
+    const items = (this.$refs.autocomplete as HTMLElement).querySelectorAll<HTMLElement>('.autocomplete--suggestion-item');
+    items[this.activeSuggestionIndex]?.scrollIntoView({ block: 'nearest' });
+  }
+
+  activeNextSuggestion(): void {
+    if (this.suggestionsAvailable) {
+      const outOfBounds = this.activeSuggestionIndex + 1 >= this.suggestionsCount;
+      this.activeSuggestionIndex = outOfBounds ? this.firstSuggestionIndex : this.activeSuggestionIndex + 1;
+      this.scrollToActiveSuggestion();
+    }
+  }
+
+  activePreviousSuggestion(): void {
+    if (this.suggestionsAvailable) {
+      const outOfBounds = this.activeSuggestionIndex - 1 < 0;
+      this.activeSuggestionIndex = outOfBounds ? this.lastSuggestionIndex : this.activeSuggestionIndex - 1;
+      this.scrollToActiveSuggestion();
+    }
+  }
+
+  selectActiveSuggestion(): void {
+    if (this.state === ComponentState.SUCCESS && this.autocompleteSate === 'OPEN') {
+      const activeSuggestion = this.taxonSuggestionProjections[this.activeSuggestionIndex];
+      if (activeSuggestion) {
+        this.select(activeSuggestion);
+      }
+    }
   }
 
   select(taxonSuggestionProjection: TaxonSuggestionProjection) {
