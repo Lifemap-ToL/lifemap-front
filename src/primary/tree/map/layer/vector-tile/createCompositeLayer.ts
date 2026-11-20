@@ -24,7 +24,7 @@ class CurrentZoomVectorTileSource extends VectorTileSource {
     ...args: Parameters<VectorTileSource['forEachLoadedTile']>
   ): ReturnType<VectorTileSource['forEachLoadedTile']> {
     const [projection, zoom, tileRange, callback] = args;
-    return zoom === this.renderZoom_ ? super.forEachLoadedTile(projection, zoom, tileRange, callback) : false;
+    return Math.abs(zoom - this.renderZoom_) <= 1 ? super.forEachLoadedTile(projection, zoom, tileRange, callback) : false;
   }
 }
 
